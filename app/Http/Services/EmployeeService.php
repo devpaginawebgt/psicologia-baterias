@@ -20,6 +20,9 @@ class EmployeeService {
         $activeCompany = $this->companyService->getActive();
         $employee = Employee::where('phone_number', $data['phone_number'])->first();
 
+        if (!$employee)
+            dd('No se encontró el empleado, por favor regístrese.');
+
         // Validate active company
         if ($employee->company_id !== $activeCompany->id)
             dd('No se puede ingresar al sistema, compañía incorrecta.');
@@ -43,6 +46,31 @@ class EmployeeService {
 
         session(['employee_id' => $employee->id]);
         session(['e_token' => $token]);
+    }
+
+    public function logout() {
+        function forgetToken() {
+            session()->forget('e_token');
+            session()->forget('employee_id');
+
+            return redirect()->route('auth.index');
+        }
+
+        $token = session('e_token');
+        $employeeId = session('employee_id');
+
+        if (!$token || !$employeeId) 
+            return forgetToken();
+
+        // Validate token
+        $dbToken = EmployeeToken::where('employee_id', $employeeId)
+            ->where('token', $token)
+            ->first();
+
+        if (!$dbToken)
+            return forgetToken();
+
+        return $dbToken->delete();
     }
 
     public function create(EmployeeRequest $request) {
