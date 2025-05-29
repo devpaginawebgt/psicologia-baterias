@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\DiseaseService;
 use App\Http\Services\EmployeeService;
 use Illuminate\Http\Request;
 
@@ -9,6 +10,7 @@ class EmployeeAuthController extends Controller
 {
     public function __construct(
         private readonly EmployeeService $employeeService,
+        private readonly DiseaseService $diseaseService,
     ) {}
 
     public function index() {
@@ -20,12 +22,14 @@ class EmployeeAuthController extends Controller
         $academicLevels = $this->employeeService->getAcademicLevels();
         $maritalStatuses = $this->employeeService->getmaritalStatuses();
         $shifts = $this->employeeService->getshifts();
+        $diseases = $this->diseaseService->getAll();
 
         return view('pages/employee-register', [
             'genres' => $genres,
             'academicLevels' => $academicLevels,
             'maritalStatuses' => $maritalStatuses,
             'shifts' => $shifts,
+            'diseases' => $diseases,
         ]);
     }
 
@@ -33,7 +37,7 @@ class EmployeeAuthController extends Controller
 
     }
 
-    public function register() {
-
+    public function register(Request $request) {
+        dd($request->all());
     }
 }

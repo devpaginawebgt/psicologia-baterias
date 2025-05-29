@@ -4,38 +4,38 @@
 
         <form
             class="w-full flex flex-col gap-2 lg:grid lg:grid-cols-2 lg:gap-x-4 lg:gap-y-4"
-            action=""
+            action="{{ route('auth.register') }}"
+            method="POST"
         >
-            <x-mary-input
-                type="text"
-                label="Nombre"
-                placeholder="José Hernández López"
-                id="name"
-                name="name"
-                icon="o-user"
-                class="w-full"
-                autocomplete
-            />  
-
-            <x-mary-input
-                type="number"
-                label="Teléfono"
-                placeholder="Ingresa tu teléfono"
-                id="phone"
-                name="phone"
-                prefix="+502"
-                class="w-full"
-                class="hide-input-arrows"
-                autocomplete
-            />  
+            @csrf
+            <div class="lg:col-span-2 w-full">
+                <x-mary-input
+                    type="text"
+                    label="Nombre"
+                    placeholder="José Hernández López"
+                    id="name"
+                    name="name"
+                    icon="o-user"
+                    class="w-full"
+                    autocomplete
+                    required
+                    maxlength="65"
+                />  
+            </div>
 
             <div>
-                <x-mary-datepicker
-                    label="Fecha de nacimiento"
-                    icon="o-calendar"
-                    name="birthday"
-                    id="birthday"
-                />
+                <x-mary-input
+                    type="number"
+                    label="Teléfono"
+                    placeholder="Ingresa tu teléfono"
+                    id="phone"
+                    name="phone"
+                    prefix="+502"
+                    class="w-full"
+                    class="hide-input-arrows"
+                    autocomplete
+                    required
+                />  
             </div>
 
             <div>
@@ -45,6 +45,17 @@
                     option-label="label"
                     option-value="label"
                     name="genre"
+                    required
+                />
+            </div>
+
+            <div>
+                <x-mary-datepicker
+                    label="Fecha de nacimiento"
+                    icon="o-calendar"
+                    name="birthday"
+                    id="birthday"
+                    required
                 />
             </div>
 
@@ -55,6 +66,8 @@
                     placeholder="CD Guatemala"
                     id="birthplace"
                     name="birthplace"
+                    required
+                    maxlength="75"
                 />  
             </div>
 
@@ -65,6 +78,7 @@
                     option-label="label"
                     option-value="label"
                     name="academicLevel"
+                    required
                 />
             </div>
 
@@ -75,6 +89,7 @@
                     option-label="label"
                     option-value="label"
                     name="maritalStatus"
+                    required
                 />
             </div>
 
@@ -85,6 +100,8 @@
                     placeholder="0"
                     id="children"
                     name="children"
+                    required
+                    max="50"
                 />  
             </div>
 
@@ -95,17 +112,20 @@
                     placeholder="0"
                     id="people_depending"
                     name="people_depending"
+                    required
+                    max="50"
                 />  
             </div>
 
             <div>
                 <x-mary-select
                     label="Enfermidad Crónica"
-                    :options="[]"
+                    :options="$diseases"
                     option-label="name"
                     option-value="id"
                     id="diseases"
                     name="diseases"
+                    
                 />
             </div>
 
@@ -115,6 +135,7 @@
                     icon="o-calendar"
                     name="hiring_date"
                     id="hiring_date"
+                    required
                 />
             </div>
 
@@ -126,6 +147,7 @@
                     option-value="label"
                     id="shift"
                     name="shift"
+                    required
                 />
             </div>
 
@@ -136,6 +158,8 @@
                     placeholder="120"
                     id="branch_number"
                     name="branch_number"
+                    required
+                    max="9999"
                 />  
             </div>
 
@@ -146,6 +170,8 @@
                     placeholder="Calle 8 No. 9"
                     id="branch_address"
                     name="branch_address"
+                    maxlength="75"
+                    required
                 />  
             </div>
 
@@ -156,12 +182,14 @@
                     placeholder="Dependiente"
                     id="position"
                     name="position"
+                    maxlength="60"
+                    required
                 />  
             </div>
 
             <div class="col-span-2 w-full flex justify-between items-center">
                 <a
-                    href="{{ route('auth.login') }}"
+                    href="{{ route('auth.index') }}"
                     class="text-sm hover:text-white text-(--secondary-color)" 
                 >
                     Ya estoy registrado

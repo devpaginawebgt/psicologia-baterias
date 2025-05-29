@@ -23,7 +23,7 @@
         </x-mary-button>
 
         <a
-            href="{{ route('auth.register') }}"
+            href="{{ route('auth.form') }}"
             class="text-sm mx-auto hover:text-white text-(--secondary-color)" 
         >
             Registrarse
