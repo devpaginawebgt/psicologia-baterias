@@ -24,7 +24,70 @@
         <link href="https://unpkg.com/flatpickr/dist/plugins/monthSelect/style.css" rel="stylesheet">
     </head>
 
-    <body class="">
-        {{ $slot }}
+    <body class="flex flex-col">
+        <header class="w-full bg-zinc-900 p-3 flex justify-between items-center border-b border-zinc-700">
+            <div class="flex items-center gap-3 cursor-default">
+                <img
+                    src="{{ $company->logo }}"
+                    alt=""
+                    class="max-w-8 aspect-square w-full object-cover rounded-full"
+                >
+                <span class="text-sm lg:text-base">{{ $company->name }}</span>
+            </div>
+
+            <div class="hidden lg:flex">
+                <img
+                    src="/logos/Logo Loasa.png"
+                    alt=""
+                    class="w-full max-w-8 object-contain aspect-square rounded-full scale-125"
+                >
+            </div>
+
+            <form
+                action="{{ route('batteries.logout') }}"
+                method="POST"
+                id="logoutForm"
+            >
+                @csrf
+                <button
+                    type="submit"
+                    class="text-sm text-(--secondary-color) font-semibold flex items-center gap-1 cursor-pointer hover:text-white"
+                >
+                    Salir
+                    <x-mary-icon name="o-arrow-right-on-rectangle" />
+                </button>
+            </form>
+        </header>
+
+        <div class="flex h-full grow">
+            <x-mary-menu class="p-4 bg-zinc-900 w-max border-r border-zinc-700">
+                @foreach($batteries as $battery)
+                    <x-mary-menu-item class="-ml-2" href="{{ $battery->url }}">
+                        <div class="flex items-center gap-2">
+                            <x-mary-icon
+                                name="o-clipboard"
+                                class="w-7"
+                            />
+                            {{ $battery->name }}
+                        </div>
+                    </x-mary-menu-item>
+                @endforeach
+            </x-mary-menu>
+            {{ $slot }}
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const logoutForm = document.getElementById('logoutForm');
+
+                if (logoutForm) {
+                    logoutForm.addEventListener('submit', function () {
+                        document.querySelectorAll('button').forEach(function (btn) {
+                            btn.disabled = true;
+                        });
+                    });
+                }
+            });
+        </script>
     </body>
 </html>

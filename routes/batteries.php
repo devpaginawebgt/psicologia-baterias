@@ -9,7 +9,10 @@ Route::middleware(EmployeeTokenIsValid::class)
 ->prefix('baterias')
 ->as('batteries')
 ->group(function() {
-    Route::get('/bateria-1', 'first')->name('.first');
+    Route::get('bateria-1', 'first')->name('.first');
+
+    // Logout
+    Route::post('salir', 'logout')->name('.logout');
 })
 
 ?>

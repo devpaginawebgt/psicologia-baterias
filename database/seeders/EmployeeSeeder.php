@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Employee;
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +14,23 @@ class EmployeeSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Employee::create([
+            'company_id' => 1,
+            'name' => 'Dennis Herrera',
+            'phone_number' => '45466123',
+            'birthday' => Carbon::now()->subYears(30),
+            'genre' => 'Masculino',
+            'birthplace' => 'Ciudad de Guatemala',
+            'academic_level' => 'Preparatoria',
+            'marital_status' => 'Casado',
+            'children' => 0,
+            'people_depending' => 0,
+            'uses_transportation' => 1,
+            'hiring_date' => Carbon::now()->subMonths(8),
+            'shift' => 'Matutino',
+            'branch_number' => 2,
+            'branch_address' => 'Ciudad de Guatemala',
+            'position' => 'Dependiente',
+        ]);
     }
 }

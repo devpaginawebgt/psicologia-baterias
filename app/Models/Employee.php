@@ -27,6 +27,5 @@ class Employee extends Model
         'branch_number',
         'branch_address',
         'position',
-        'phone',
     ];
 }
