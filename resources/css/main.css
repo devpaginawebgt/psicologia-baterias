@@ -20,3 +20,7 @@ body {
     margin: 0;
     -moz-appearance: textfield;
 }
+
+label.input {
+    outline: 1px solid var(--input-color)
+}

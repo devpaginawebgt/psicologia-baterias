@@ -24,7 +24,7 @@
         <link href="https://unpkg.com/flatpickr/dist/plugins/monthSelect/style.css" rel="stylesheet">
     </head>
 
-    <body class="flex justify-center items-center py-4 px-4">
+    <body class="flex justify-center items-center py-8 px-4">
         {{ $slot }}
     </body>
 </html>

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\EmployeeRequest;
+use App\Http\Requests\Employee\EmployeeLoginRequest;
+use App\Http\Requests\Employee\EmployeeRequest;
 use App\Http\Services\CompanyService;
 use App\Http\Services\DiseaseService;
 use App\Http\Services\EmployeeService;
@@ -17,7 +18,11 @@ class EmployeeAuthController extends Controller
     ) {}
 
     public function index() {
-        return view('pages/employee-login');
+        $company = $this->companyService->getActive();
+        
+        return view('pages/employee-login', [
+            'company' => $company,
+        ]);
     }
 
     public function create() {
@@ -40,8 +45,10 @@ class EmployeeAuthController extends Controller
         ]);
     }
 
-    public function login() {
-
+    public function login(EmployeeLoginRequest $request) {
+        $this->employeeService->login($request);
+        
+        return redirect()->route('auth.form');
     }
 
     public function register(EmployeeRequest $request) {
