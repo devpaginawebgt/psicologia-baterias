@@ -41,6 +41,7 @@ class EmployeeService {
         if (!$dbToken)
             dd('Error al crear token');
 
+        session(['employee_id' => $employee->id]);
         session(['e_token' => $token]);
     }
 

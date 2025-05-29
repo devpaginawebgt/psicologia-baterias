@@ -7,12 +7,9 @@ use Illuminate\Http\Request;
 
 class BatteryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function first()
     {
-        //
+        return view('pages/battery-1');
     }
 
     /**

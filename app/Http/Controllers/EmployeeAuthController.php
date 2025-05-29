@@ -48,7 +48,7 @@ class EmployeeAuthController extends Controller
     public function login(EmployeeLoginRequest $request) {
         $this->employeeService->login($request);
         
-        return redirect()->route('auth.form');
+        return redirect()->route('batteries.first');
     }
 
     public function register(EmployeeRequest $request) {

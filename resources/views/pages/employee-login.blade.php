@@ -1,4 +1,4 @@
-<x-layouts.employee-auth-layout :company="$company">
+<x-layouts.employee-auth-layout>
     <div class="flex flex-col md:flex-row gap-2 lg:gap-8 items-center">
         <div>
             <img
