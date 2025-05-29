@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->date('birthday');
             $table->enum('genre', ['Masculino', 'Femenino']);
-            $table->integer('birthplace');
+            $table->string('birthplace');
             $table->enum('academic_level', ['Primaria', 'Secundaria', 'Preparatoria', 'Universidad', 'Posgrado']);
             $table->enum('marital_status', ['Casado', 'Divorciado', 'Viudo', 'Union libre']);
             $table->integer('children');
@@ -27,8 +27,8 @@ return new class extends Migration
             $table->date('hiring_date');
             $table->enum('shift', ['Matutino', 'Vespertino', 'Nocturno', 'Mixto']);
             $table->integer('branch_number');
-            $table->integer('branch_address');
-            $table->integer('position');
+            $table->string('branch_address');
+            $table->string('position');
             $table->timestamps();
         });
     }

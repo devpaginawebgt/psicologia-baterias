@@ -2,7 +2,17 @@
 
 namespace App\Http\Services;
 
+use App\Http\Requests\EmployeeRequest;
+use App\Models\Employee;
+
 class EmployeeService {
+    public function create(EmployeeRequest $request) {
+        // $data = $request->validated();
+        $employee = Employee::create($request->all());
+
+        return $employee;
+    }
+
     public function getGenres() {
         return [
             [ 'label' => 'Masculino' ],
@@ -35,6 +45,19 @@ class EmployeeService {
             [ 'label' => 'Vespertino' ],
             [ 'label' => 'Nocturno' ],
             [ 'label' => 'Mixto' ],
+        ];
+    }
+
+    public function getBooleans() {
+        return [
+            [ 
+                'label' => 'No',
+                'value' => 0,
+            ],
+            [ 
+                'label' => 'Sí',
+                'value' => 1,
+            ],
         ];
     }
 }

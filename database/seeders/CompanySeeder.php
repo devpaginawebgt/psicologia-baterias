@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Company;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,16 @@ class CompanySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Company::create([
+            'name' => 'Farmacia Ascavi',
+            'logo' => '/logos/Logo Farmacia Ascavi.jpg',
+            'is_active' => true,
+        ]);
+
+        Company::create([
+            'name' => 'FarmaCarex',
+            'logo' => '/logos/Logo FarmaCarex.jpg',
+            'is_active' => false,
+        ]);
     }
 }

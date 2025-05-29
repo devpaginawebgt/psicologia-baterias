@@ -8,7 +8,14 @@
             method="POST"
         >
             @csrf
-            <div class="lg:col-span-2 w-full">
+            <input
+                type="hidden"
+                id="company_id"
+                name="company_id"
+                value="{{ $company->id }}"
+            />  
+
+            <div>
                 <x-mary-input
                     type="text"
                     label="Nombre"
@@ -29,7 +36,7 @@
                     label="Teléfono"
                     placeholder="Ingresa tu teléfono"
                     id="phone"
-                    name="phone"
+                    name="phone_number"
                     prefix="+502"
                     class="w-full"
                     class="hide-input-arrows"
@@ -45,6 +52,17 @@
                     option-label="label"
                     option-value="label"
                     name="genre"
+                    required
+                />
+            </div>
+
+            <div>
+                <x-mary-select
+                    label="Nivel Académico"
+                    :options="$academicLevels"
+                    option-label="label"
+                    option-value="label"
+                    name="academic_level"
                     required
                 />
             </div>
@@ -73,22 +91,11 @@
 
             <div>
                 <x-mary-select
-                    label="Nivel Académico"
-                    :options="$academicLevels"
-                    option-label="label"
-                    option-value="label"
-                    name="academicLevel"
-                    required
-                />
-            </div>
-
-            <div>
-                <x-mary-select
                     label="Estado Civil"
                     :options="$maritalStatuses"
                     option-label="label"
                     option-value="label"
-                    name="maritalStatus"
+                    name="marital_status"
                     required
                 />
             </div>
@@ -125,7 +132,18 @@
                     option-value="id"
                     id="diseases"
                     name="diseases"
-                    
+                />
+            </div>
+
+            <div>
+                <x-mary-select
+                    label="Se traslada a su trabajo en auto o transporte"
+                    :options="$booleans"
+                    option-label="label"
+                    option-value="value"
+                    id="diseases"
+                    name="uses_transportation"
+                    required
                 />
             </div>
 

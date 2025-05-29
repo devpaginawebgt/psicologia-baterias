@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 // Index
 Route::get('/', function() {
-    return redirect()->route('auth.login');
+    return redirect()->route('auth.index');
 });
 
 // Auth routes
