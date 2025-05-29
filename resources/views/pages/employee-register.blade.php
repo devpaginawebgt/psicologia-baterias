@@ -37,7 +37,7 @@
                     placeholder="Ingresa tu teléfono"
                     id="phone"
                     name="phone_number"
-                    prefix="+502"
+                    prefix="+52"
                     class="w-full"
                     class="hide-input-arrows"
                     autocomplete
@@ -81,7 +81,7 @@
                 <x-mary-input
                     type="text"
                     label="Lugar de nacimiento"
-                    placeholder="CD Guatemala"
+                    placeholder="Ciudad de México"
                     id="birthplace"
                     name="birthplace"
                     required
@@ -149,7 +149,7 @@
 
             <div>
                 <x-mary-datepicker
-                    label="Ingreso a la empresa"
+                    label="Fecha de ingreso a la empresa"
                     icon="o-calendar"
                     name="hiring_date"
                     id="hiring_date"

@@ -25,7 +25,7 @@
                         placeholder="Ingresa tu teléfono"
                         id="phone"
                         name="phone_number"
-                        prefix="+502"
+                        prefix="+52"
                         class="hide-input-arrows"
                     />  
                 </div>
