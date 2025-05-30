@@ -11,8 +11,6 @@ use Illuminate\Http\Request;
 class BatteryController extends Controller
 {
     public function __construct(
-        private readonly BatteryService $batteryService,
-        private readonly CompanyService $companyService,
         private readonly EmployeeService $employeeService,
     ) {}
 
@@ -20,19 +18,6 @@ class BatteryController extends Controller
         $this->employeeService->logout();
 
         return redirect()->route('auth.index');
-    }
-
-    public function first()
-    {
-        $company = $this->companyService->getActive();
-        $batteries = $this->batteryService->getAll();
-        $battery = $this->batteryService->getBatteryById(1);
-
-        return view('pages/battery-1', [
-            'company' => $company,
-            'batteries' => $batteries,
-            'battery' => $battery,
-        ]);
     }
 
     /**
