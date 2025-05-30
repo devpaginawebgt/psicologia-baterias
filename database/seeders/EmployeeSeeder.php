@@ -17,10 +17,10 @@ class EmployeeSeeder extends Seeder
         Employee::create([
             'company_id' => 1,
             'name' => 'Dennis Herrera',
-            'phone_number' => '45466123',
+            'phone_number' => '1234567890',
             'birthday' => Carbon::now()->subYears(30),
             'genre' => 'Masculino',
-            'birthplace' => 'Ciudad de Guatemala',
+            'birthplace' => 'Ciudad de México',
             'academic_level' => 'Preparatoria',
             'marital_status' => 'Casado',
             'children' => 0,
@@ -29,7 +29,7 @@ class EmployeeSeeder extends Seeder
             'hiring_date' => Carbon::now()->subMonths(8),
             'shift' => 'Matutino',
             'branch_number' => 2,
-            'branch_address' => 'Ciudad de Guatemala',
+            'branch_address' => 'Ciudad de México',
             'position' => 'Dependiente',
         ]);
     }
