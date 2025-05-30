@@ -126,7 +126,7 @@
 
             <div>
                 <x-mary-select
-                    label="Enfermidad Crónica"
+                    label="Enfermedad Crónica"
                     :options="$diseases"
                     option-label="name"
                     option-value="id"
