@@ -25,7 +25,7 @@
                             <x-mary-radio
                                 label="{{ $question['text'] }}"
                                 :options="$question['options']"
-                                model="{{ $question['name'] . $i }}"
+                                wire:model="{{ $question['name'] . $i }}"
                                 option-label="label"
                                 required
                             />

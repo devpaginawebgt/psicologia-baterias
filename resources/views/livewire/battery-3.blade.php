@@ -4,7 +4,7 @@
         subtitle="{{ $battery->description }}"
         shadow
         separator
-        class="w-full max-w-160 h-max text-sm bg-slate-900"
+        class="w-full max-w-160 h-max text-sm bg-zinc-900"
     >
         @if ($step === 'start')
             <div>
@@ -27,7 +27,6 @@
                                 :options="$question['options']"
                                 wire:model="{{ $question['name'] . $i }}"
                                 option-label="label"
-                                name="start-day"
                                 required
                             />
                         </div>

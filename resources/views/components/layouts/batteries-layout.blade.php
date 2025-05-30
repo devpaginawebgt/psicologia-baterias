@@ -22,6 +22,13 @@
         {{-- MonthSelectPlugin  --}}
         <script src="https://unpkg.com/flatpickr/dist/plugins/monthSelect/index.js"></script>
         <link href="https://unpkg.com/flatpickr/dist/plugins/monthSelect/style.css" rel="stylesheet">
+
+        <style>
+            .fieldset-legend, .fieldset-label, .text-error {
+                font-size: 0.875rem;
+                color: var(--secondary-color);
+            }
+        </style>
     </head>
 
     <body class="flex flex-col">

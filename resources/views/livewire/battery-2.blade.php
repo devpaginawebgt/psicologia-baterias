@@ -27,7 +27,6 @@
                                 :options="$question['options']"
                                 wire:model="{{ $question['name'] . $i }}"
                                 option-label="label"
-                                name="start-day"
                                 required
                             />
                         </div>
