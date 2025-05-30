@@ -69,8 +69,21 @@
 
         <div class="flex h-full grow">
             <x-mary-menu class="p-4 bg-zinc-900 min-w-40 w-max border-r border-zinc-700 hidden lg:flex">
+                @php
+                    $url = request()->path();
+                    $currentBatteryUrl = basename($url);
+                @endphp
+
                 @foreach($batteries as $battery)
-                    <x-mary-menu-item class="-ml-2" href="{{ $battery->url }}">
+                    @php
+                        $active = $currentBatteryUrl == $battery->url 
+                            ? 'bg-zinc-700' 
+                            : '';
+                    @endphp
+                    <x-mary-menu-item
+                        class="-ml-2 {{ $active }}"
+                        href="{{ $battery->url }}"
+                    >
                         <div class="flex items-center gap-2">
                             <x-mary-icon
                                 name="o-clipboard"
