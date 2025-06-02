@@ -37,7 +37,7 @@
                     placeholder="Ingresa tu teléfono"
                     id="phone"
                     name="phone_number"
-                    prefix="+52"
+                    prefix="+502"
                     class="w-full"
                     class="hide-input-arrows"
                     autocomplete
@@ -81,7 +81,7 @@
                 <x-mary-input
                     type="text"
                     label="Lugar de nacimiento"
-                    placeholder="Ciudad de México"
+                    placeholder="Ciudad de Guatemala"
                     id="birthplace"
                     name="birthplace"
                     required
