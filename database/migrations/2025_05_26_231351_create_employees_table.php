@@ -20,15 +20,15 @@ return new class extends Migration
             $table->enum('genre', ['Masculino', 'Femenino']);
             $table->string('birthplace');
             $table->enum('academic_level', ['Primaria', 'Secundaria', 'Preparatoria', 'Universidad', 'Posgrado']);
-            $table->enum('marital_status', ['Casado', 'Divorciado', 'Viudo', 'Union libre']);
+            $table->enum('marital_status', ['Soltero', 'Casado', 'Divorciado', 'Viudo', 'Union libre']);
             $table->integer('children');
             $table->integer('people_depending');
-            $table->boolean('uses_transportation');
+            $table->enum('uses_transportation', ['Auto', 'Transporte Publico']);
             $table->date('hiring_date');
             $table->enum('shift', ['Matutino', 'Vespertino', 'Nocturno', 'Mixto']);
             $table->integer('branch_number');
             $table->string('branch_address');
-            $table->string('position');
+            $table->enum('position', ['Dependiente', 'Administrativo']);
             $table->timestamps();
         });
     }

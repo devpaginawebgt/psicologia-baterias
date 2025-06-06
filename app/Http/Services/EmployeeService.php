@@ -99,10 +99,18 @@ class EmployeeService {
 
     public function getMaritalStatuses() {
         return [
+            [ 'label' => 'Soltero' ],
             [ 'label' => 'Casado' ],
             [ 'label' => 'Divorciado' ],
             [ 'label' => 'Viudo' ],
             [ 'label' => 'Union libre' ],
+        ];
+    }
+
+    public function getTransportations() {
+        return [
+            [ 'label' => 'Auto', 'value' => 'Auto' ],
+            [ 'label' => 'Transporte Público', 'value' => 'Transporte Publico' ],
         ];
     }
     
@@ -112,6 +120,13 @@ class EmployeeService {
             [ 'label' => 'Vespertino' ],
             [ 'label' => 'Nocturno' ],
             [ 'label' => 'Mixto' ],
+        ];
+    }
+
+    public function getPositions() {
+        return [
+            [ 'label' => 'Dependiente' ],
+            [ 'label' => 'Administrativo' ],
         ];
     }
 

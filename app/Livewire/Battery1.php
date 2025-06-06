@@ -72,7 +72,7 @@ class Battery1 extends Component
 
     public function nextBattery()
     {
-        redirect()->route('batteries.second');
+        return redirect()->route('batteries.second');
     }
 
     public function render()

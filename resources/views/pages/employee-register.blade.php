@@ -18,7 +18,7 @@
             <div>
                 <x-mary-input
                     type="text"
-                    label="Nombre"
+                    label="Nombre y Apellidos"
                     placeholder="José Hernández López"
                     id="name"
                     name="name"
@@ -137,7 +137,7 @@
 
             <div>
                 <x-mary-select
-                    label="Se traslada a su trabajo en auto o transporte"
+                    label="Se traslada a su trabajo en"
                     :options="$booleans"
                     option-label="label"
                     option-value="value"
