@@ -14,15 +14,10 @@ class CompanySeeder extends Seeder
     public function run(): void
     {
         Company::create([
+            'country_id' => 1,
             'name' => 'Farmacia Ascavi',
-            'logo' => '/logos/Logo Farmacia Ascavi.jpg',
+            'logo' => '/logos/Logo Farmacia Ascavi.png',
             'is_active' => true,
-        ]);
-
-        Company::create([
-            'name' => 'FarmaCarex',
-            'logo' => '/logos/Logo FarmaCarex.jpg',
-            'is_active' => false,
         ]);
     }
 }
