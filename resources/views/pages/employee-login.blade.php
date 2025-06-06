@@ -2,7 +2,7 @@
     <div class="flex flex-col md:flex-row gap-2 lg:gap-8 items-center">
         <div>
             <img
-                src="/logos/Logo Loasa.png"
+                src="/logos/logo-psicolasa.png"
                 alt=""
                 class="w-full max-w-40 lg:max-w-72 object-contain"
             >
