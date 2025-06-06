@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    class="dark"
+    data-theme="dark"
+>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,7 +48,7 @@
 
             <div class="hidden lg:flex lg:justify-center">
                 <img
-                    src="/logos/Logo Loasa.png"
+                    src="/logos/logo-psicolasa.png"
                     alt=""
                     class="w-full max-w-8 object-contain aspect-square rounded-full scale-125"
                 >
