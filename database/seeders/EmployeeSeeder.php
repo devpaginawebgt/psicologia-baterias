@@ -20,7 +20,7 @@ class EmployeeSeeder extends Seeder
             'phone_number' => '1234567890',
             'birthday' => Carbon::now()->subYears(30),
             'genre' => 'Masculino',
-            'birthplace' => 'Ciudad de México',
+            'division_id' => 1,
             'academic_level' => 'Preparatoria',
             'marital_status' => 'Casado',
             'children' => 0,

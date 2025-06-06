@@ -3,7 +3,9 @@
 namespace App\Livewire;
 
 use App\Http\Services\CompanyService;
+use App\Http\Services\CountryService;
 use App\Http\Services\DiseaseService;
+use App\Http\Services\DivisionService;
 use App\Http\Services\EmployeeService;
 use Livewire\Component;
 
@@ -18,13 +20,15 @@ class EmployeeRegister extends Component
     public $transportations;
     public $positions;
     public $booleans;
-    
+    public $country;
+    public $divisions; 
 
     public function mount()
     {
         $employeeService = app(EmployeeService::class);
         $diseaseService = app(DiseaseService::class);
         $companyService = app(CompanyService::class);
+        $divisionService = app(DivisionService::class);
 
         $this->company = $companyService->getActive();
         $this->genres = $employeeService->getGenres();
@@ -35,6 +39,8 @@ class EmployeeRegister extends Component
         $this->diseases = $diseaseService->getAll();
         $this->positions = $employeeService->getPositions();
         $this->booleans = $employeeService->getBooleans();
+        $this->country = 1;
+        $this->divisions = $divisionService->getByCountry($this->country)->toArray();
     }
 
     // Responses

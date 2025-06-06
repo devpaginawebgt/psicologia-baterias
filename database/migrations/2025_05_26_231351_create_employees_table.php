@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->date('birthday');
             $table->enum('genre', ['Masculino', 'Femenino']);
-            $table->string('birthplace');
+            $table->foreignId('division_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->enum('academic_level', ['Primaria', 'Secundaria', 'Preparatoria', 'Universidad', 'Posgrado']);
             $table->enum('marital_status', ['Soltero', 'Casado', 'Divorciado', 'Viudo', 'Union libre']);
             $table->integer('children');

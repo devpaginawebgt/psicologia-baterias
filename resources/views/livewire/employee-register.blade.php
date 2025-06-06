@@ -77,15 +77,14 @@
         </div>
 
         <div>
-            <x-mary-input
-                type="text"
+            <x-mary-select
                 label="Lugar de nacimiento"
-                placeholder="Ciudad de Guatemala"
-                id="birthplace"
-                name="birthplace"
+                :options="$divisions"
+                option-label="name"
+                option-value="id"
+                name="division_id"
                 required
-                maxlength="75"
-            />  
+            />
         </div>
 
         <div>
@@ -124,13 +123,16 @@
         </div>
 
         <div>
-            <x-mary-select
+            <x-mary-choices
                 label="Enfermedad Crónica"
+                wire:model="selectedDiseases"
                 :options="$diseases"
                 option-label="name"
                 option-value="id"
-                id="diseases"
-                name="diseases"
+                height="max-h-64"
+                clearable
+                compact
+                compact-text="seleccionadas"
             />
         </div>
 
@@ -152,6 +154,19 @@
                 icon="o-calendar"
                 name="hiring_date"
                 id="hiring_date"
+                :config="[
+                    'altInput' => true,
+                    'altFormat' => 'F Y',
+                    'dateFormat' => 'Y-m-01',
+                    'plugins' => [
+                        [
+                            'monthSelectPlugin' => [
+                                'shorthand' => false,
+                                'theme' => 'dark'
+                            ]
+                        ]
+                    ]
+                ]"
                 required
             />
         </div>
@@ -198,8 +213,8 @@
                 :options="$positions"
                 option-label="label"
                 option-value="value"
-                id="positions"
-                name="positions"
+                id="position"
+                name="position"
                 required
             />
         </div>

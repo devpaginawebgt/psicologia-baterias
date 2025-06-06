@@ -16,7 +16,7 @@ class Employee extends Model
         'phone_number',
         'birthday',
         'genre',
-        'birthplace',
+        'division_id',
         'academic_level',
         'marital_status',
         'children',
