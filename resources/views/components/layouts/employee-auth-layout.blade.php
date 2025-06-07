@@ -8,7 +8,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Login - {{ config('app.name'); }}</title>
+        <title>{{ $title }} - {{ config('app.name'); }}</title>
 
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -22,6 +22,8 @@
     </head>
 
     <body class="flex justify-center items-center py-8 px-4">
+        <x-mary-toast position="toast-top toast-end" />
+
         {{ $slot }}
     </body>
 </html>

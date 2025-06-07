@@ -3,12 +3,10 @@
 namespace App\Http\Services;
 
 use App\Http\Requests\Employee\EmployeeLoginRequest;
-use App\Http\Requests\Employee\EmployeeRequest;
 use App\Models\Employee;
 use App\Models\EmployeeToken;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-
 
 class EmployeeService {
     public function __construct(
@@ -73,21 +71,26 @@ class EmployeeService {
         return $dbToken->delete();
     }
 
-    public function create(EmployeeRequest $request) {
-        // $data = $request->validated();
-        $employee = Employee::create($request->all());
+    public function create(array $data) {
+        $employee = Employee::create($data);
 
         return $employee;
     }
 
-    public function getGenres() {
+    public static function getGenres() 
+    {
         return [
             [ 'label' => 'Masculino' ],
             [ 'label' => 'Femenino' ],
         ];
     }
 
-    public function getAcademicLevels() {
+    public static function genres(): array
+    {
+        return collect(self::getGenres())->pluck('label')->all();
+    }
+
+    public static function getAcademicLevels() {
         return [
             [ 'label' => 'Primaria' ],
             [ 'label' => 'Secundaria' ],
@@ -97,7 +100,12 @@ class EmployeeService {
         ];
     }
 
-    public function getMaritalStatuses() {
+    public static function academic(): array
+    {
+        return collect(self::getAcademicLevels())->pluck('label')->all();
+    }
+
+    public static function getMaritalStatuses() {
         return [
             [ 'label' => 'Soltero' ],
             [ 'label' => 'Casado' ],
@@ -107,14 +115,24 @@ class EmployeeService {
         ];
     }
 
-    public function getTransportations() {
+    public static function marital(): array
+    {
+        return collect(self::getMaritalStatuses())->pluck('label')->all();
+    }
+
+    public static function getTransportations() {
         return [
             [ 'label' => 'Auto', 'value' => 'Auto' ],
             [ 'label' => 'Transporte Público', 'value' => 'Transporte Publico' ],
         ];
     }
+
+    public static function transportation(): array
+    {
+        return collect(self::getTransportations())->pluck('value')->all();
+    }
     
-    public function getShifts() {
+    public static function getShifts() {
         return [
             [ 'label' => 'Matutino' ],
             [ 'label' => 'Vespertino' ],
@@ -123,14 +141,24 @@ class EmployeeService {
         ];
     }
 
-    public function getPositions() {
+    public static function shifts(): array
+    {
+        return collect(self::getShifts())->pluck('label')->all();
+    }
+
+    public static function getPositions() {
         return [
             [ 'label' => 'Dependiente' ],
             [ 'label' => 'Administrativo' ],
         ];
     }
 
-    public function getBooleans() {
+    public static function positions(): array
+    {
+        return collect(self::getPositions())->pluck('label')->all();
+    }
+
+    public static function getBooleans() {
         return [
             [ 
                 'label' => 'No',

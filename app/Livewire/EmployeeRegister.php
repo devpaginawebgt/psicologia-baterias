@@ -2,15 +2,20 @@
 
 namespace App\Livewire;
 
+use App\Http\Requests\Employee\EmployeeRequest;
 use App\Http\Services\CompanyService;
-use App\Http\Services\CountryService;
 use App\Http\Services\DiseaseService;
 use App\Http\Services\DivisionService;
 use App\Http\Services\EmployeeService;
+use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Mary\Traits\Toast;
 
 class EmployeeRegister extends Component
 {
+    use Toast;
+
+    //? ----------- Options and form configuration -----------
     public $company;
     public $genres;
     public $academicLevels;
@@ -22,33 +27,81 @@ class EmployeeRegister extends Component
     public $booleans;
     public $country;
     public $divisions; 
+    public $form;
 
     public function mount()
     {
-        $employeeService = app(EmployeeService::class);
-        $diseaseService = app(DiseaseService::class);
-        $companyService = app(CompanyService::class);
+        $companyService  = app(CompanyService::class);
+        $diseaseService  = app(DiseaseService::class);
         $divisionService = app(DivisionService::class);
 
-        $this->company = $companyService->getActive();
-        $this->genres = $employeeService->getGenres();
-        $this->academicLevels = $employeeService->getAcademicLevels();
-        $this->maritalStatuses = $employeeService->getmaritalStatuses();
-        $this->transportations = $employeeService->getTransportations();
-        $this->shifts = $employeeService->getshifts();
-        $this->diseases = $diseaseService->getAll();
-        $this->positions = $employeeService->getPositions();
-        $this->booleans = $employeeService->getBooleans();
-        $this->country = 1;
-        $this->divisions = $divisionService->getByCountry($this->country)->toArray();
+        $this->genres          = EmployeeService::getGenres();
+        $this->academicLevels  = EmployeeService::getAcademicLevels();
+        $this->maritalStatuses = EmployeeService::getmaritalStatuses();
+        $this->transportations = EmployeeService::getTransportations();
+        $this->shifts          = EmployeeService::getshifts();
+        $this->positions       = EmployeeService::getPositions();
+        $this->booleans        = EmployeeService::getBooleans();
+        $this->country         = 1;
+        $this->company         = $companyService->getActive();
+        $this->diseases        = $diseaseService->getAll();
+        $this->divisions       = $divisionService->getByCountry($this->country)->toArray();
+
+        $this->form = [
+            'company_id'       => $this->company->id,
+            'name'             => '',
+            'phone_number'     => '',
+            'genre'            => 'Masculino',
+            'academic_level'   => 'Primaria',
+            'birthdate'         => '',
+            'division_id'      => 1,
+            'marital_status'   => 'Soltero',
+            'children'         => null,
+            'people_depending' => null,
+            'diseases'         => [],
+            'transportation'   => 'Auto',
+            'hiring_date'      => '',
+            'shift'            => 'Matutino',
+            'branch_number'    => '',
+            'branch_address'   => '',
+            'position'         => 'Dependiente',
+        ];
+
+        if ($toast = session('toast')) {
+            $this->{$toast['type']}(
+                $toast['title'],
+                $toast['description']
+            );
+        }
     }
 
-    // Responses
-    public $selectedDiseases = [];
+    //? ----------- Component variables and methods -----------
+    public function register() {
+        $request = new EmployeeRequest();
 
+        Validator::make(
+            $this->form,
+            $request->rules()
+        )->validate();
+
+        $employeeService = app(EmployeeService::class);
+        $employeeService->create($this->form);
+
+        session()->flash('toast', [
+            'title'       => '¡Éxito!',
+            'description' => 'Te has registrado correctamente.',
+            'type'        => 'success',
+        ]);
+
+        return redirect()->route('auth.index');
+    }
+
+    //? ----------- Render Component -----------
     public function render()
     {
         return view('livewire.employee-register')
-            ->layout('components.layouts.employee-auth-layout');
+            ->layout('components.layouts.employee-auth-layout', [
+                'title' => 'Registrarse'
+            ]);
     }
 }

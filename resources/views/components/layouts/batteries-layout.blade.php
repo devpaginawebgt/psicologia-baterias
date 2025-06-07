@@ -29,6 +29,8 @@
     </head>
 
     <body class="flex flex-col">
+        <x-mary-toast position="toast-top toast-end" />
+
         <header class="w-full bg-zinc-900 p-3 grid grid-cols-2 lg:grid-cols-3 items-center border-b border-zinc-700">
             <div class="flex items-center gap-3 cursor-default">
                 <img
@@ -93,19 +95,5 @@
             </x-mary-menu>
             {{ $slot }}
         </div>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const logoutForm = document.getElementById('logoutForm');
-
-                if (logoutForm) {
-                    logoutForm.addEventListener('submit', function () {
-                        document.querySelectorAll('button').forEach(function (btn) {
-                            btn.disabled = true;
-                        });
-                    });
-                }
-            });
-        </script>
     </body>
 </html>

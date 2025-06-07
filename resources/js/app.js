@@ -5,4 +5,5 @@ import "flatpickr/dist/plugins/monthSelect/style.css";
 import { Spanish } from "flatpickr/dist/l10n/es.js";
 
 window.monthSelectPlugin = monthSelectPlugin;
+
 flatpickr.localize(Spanish);

@@ -16,14 +16,14 @@ return new class extends Migration
             $table->foreignId('company_id')->constrained()->onUpdate('cascade')->onDelete('cascade');;
             $table->string('name');
             $table->string('phone_number');
-            $table->date('birthday');
+            $table->date('birthdate');
             $table->enum('genre', ['Masculino', 'Femenino']);
             $table->foreignId('division_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->enum('academic_level', ['Primaria', 'Secundaria', 'Preparatoria', 'Universidad', 'Posgrado']);
             $table->enum('marital_status', ['Soltero', 'Casado', 'Divorciado', 'Viudo', 'Union libre']);
             $table->integer('children');
             $table->integer('people_depending');
-            $table->enum('uses_transportation', ['Auto', 'Transporte Publico']);
+            $table->enum('transportation', ['Auto', 'Transporte Publico']);
             $table->date('hiring_date');
             $table->enum('shift', ['Matutino', 'Vespertino', 'Nocturno', 'Mixto']);
             $table->integer('branch_number');

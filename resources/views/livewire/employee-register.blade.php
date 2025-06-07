@@ -1,26 +1,32 @@
+@php
+    $birthdateConfig = [ 'dateFormat' => 'Y-m-d' ];
+    $hiringConfig    = [ 
+        'plugins' => [ 
+            [ 
+                'monthSelectPlugin' => [ 
+                    'dateFormat' => 'Y-m-01',
+                    'theme' => 'dark'
+                ] 
+            ] 
+        ] 
+    ];
+@endphp
+
 <main class="bg-zinc-900 p-6 w-full sm:max-w-[28rem] lg:max-w-[40rem] flex flex-col rounded-sm">
     <h1 class="uppercase text-xl font-semibold text-center text-(--secondary-color) mb-2">Formulario de registro</h1>
 
     <form
         class="w-full flex flex-col gap-2 lg:grid lg:grid-cols-2 lg:gap-x-4 lg:gap-y-4"
-        action="{{ route('auth.register') }}"
-        method="POST"
+        wire:submit="register"
     >
         @csrf
-        <input
-            type="hidden"
-            id="company_id"
-            name="company_id"
-            value="{{ $company->id }}"
-        />  
-
         <div>
             <x-mary-input
                 type="text"
                 label="Nombre y Apellidos"
                 placeholder="José Hernández López"
                 id="name"
-                name="name"
+                wire:model.defer="form.name"
                 icon="o-user"
                 class="w-full"
                 autocomplete
@@ -34,8 +40,8 @@
                 type="number"
                 label="Teléfono"
                 placeholder="Ingresa tu teléfono"
-                id="phone"
-                name="phone_number"
+                id="phone_number"
+                wire:model.defer="form.phone_number"
                 prefix="+502"
                 class="w-full"
                 class="hide-input-arrows"
@@ -50,7 +56,8 @@
                 :options="$genres"
                 option-label="label"
                 option-value="label"
-                name="genre"
+                wire:model="form.genre"
+                id="gender"
                 required
             />
         </div>
@@ -61,7 +68,7 @@
                 :options="$academicLevels"
                 option-label="label"
                 option-value="label"
-                name="academic_level"
+                wire:model="form.academic_level"
                 required
             />
         </div>
@@ -70,9 +77,12 @@
             <x-mary-datepicker
                 label="Fecha de nacimiento"
                 icon="o-calendar"
-                name="birthday"
-                id="birthday"
+                wire:model="form.birthdate"
+                id="birthdate"
+                placeholder="Seleccionar"
+                id="birthdate"
                 required
+                :config="$birthdateConfig"
             />
         </div>
 
@@ -82,7 +92,7 @@
                 :options="$divisions"
                 option-label="name"
                 option-value="id"
-                name="division_id"
+                wire:model="form.division_id"
                 required
             />
         </div>
@@ -93,7 +103,7 @@
                 :options="$maritalStatuses"
                 option-label="label"
                 option-value="label"
-                name="marital_status"
+                wire:model="form.marital_status"
                 required
             />
         </div>
@@ -104,7 +114,7 @@
                 label="No. de Hijos"
                 placeholder="0"
                 id="children"
-                name="children"
+                wire:model.defer="form.children"
                 required
                 max="50"
             />  
@@ -116,7 +126,7 @@
                 label="Personas que dependen de mí"
                 placeholder="0"
                 id="people_depending"
-                name="people_depending"
+                wire:model.defer="form.people_depending"
                 required
                 max="50"
             />  
@@ -125,8 +135,8 @@
         <div>
             <x-mary-choices
                 label="Enfermedad Crónica"
-                wire:model="selectedDiseases"
                 :options="$diseases"
+                wire:model="form.diseases"
                 option-label="name"
                 option-value="id"
                 height="max-h-64"
@@ -143,7 +153,7 @@
                 option-label="label"
                 option-value="value"
                 id="diseases"
-                name="uses_transportation"
+                wire:model="form.transportation"
                 required
             />
         </div>
@@ -152,21 +162,10 @@
             <x-mary-datepicker
                 label="Fecha de ingreso a la empresa"
                 icon="o-calendar"
-                name="hiring_date"
+                wire:model="form.hiring_date"
                 id="hiring_date"
-                :config="[
-                    'altInput' => true,
-                    'altFormat' => 'F Y',
-                    'dateFormat' => 'Y-m-01',
-                    'plugins' => [
-                        [
-                            'monthSelectPlugin' => [
-                                'shorthand' => false,
-                                'theme' => 'dark'
-                            ]
-                        ]
-                    ]
-                ]"
+                placeholder="Seleccionar"
+                :config="$hiringConfig"
                 required
             />
         </div>
@@ -178,7 +177,7 @@
                 option-label="label"
                 option-value="label"
                 id="shift"
-                name="shift"
+                wire:model="form.shift"
                 required
             />
         </div>
@@ -189,7 +188,7 @@
                 label="No. de Sucursal"
                 placeholder="120"
                 id="branch_number"
-                name="branch_number"
+                wire:model.defer="form.branch_number"
                 required
                 max="9999"
             />  
@@ -201,7 +200,7 @@
                 label="Dirección de Sucursal"
                 placeholder="Calle 8 No. 9"
                 id="branch_address"
-                name="branch_address"
+                wire:model.defer="form.branch_address"
                 maxlength="75"
                 required
             />  
@@ -212,9 +211,9 @@
                 label="Cargo"
                 :options="$positions"
                 option-label="label"
-                option-value="value"
+                option-value="label"
                 id="position"
-                name="position"
+                wire:model="form.position"
                 required
             />
         </div>
@@ -234,6 +233,5 @@
                 Registrarse
             </x-mary-button>
         </div>
-    </form>    
-
+    </form>
 </main>
