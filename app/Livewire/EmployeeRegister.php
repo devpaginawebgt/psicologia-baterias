@@ -80,7 +80,7 @@ class EmployeeRegister extends Component
         $request = new EmployeeRequest();
 
         Validator::make(
-            $this->form,
+            ['form' => $this->form],
             $request->rules()
         )->validate();
 

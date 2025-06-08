@@ -73,6 +73,8 @@ class EmployeeService {
 
     public function create(array $data) {
         $employee = Employee::create($data);
+        
+        $employee->diseases()->attach($data['diseases']);
 
         return $employee;
     }
