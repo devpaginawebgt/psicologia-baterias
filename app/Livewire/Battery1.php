@@ -9,7 +9,6 @@ use Livewire\Component;
 class Battery1 extends Component
 {
     //? Props
-
     public $company;
     public $batteries;
     public $battery;

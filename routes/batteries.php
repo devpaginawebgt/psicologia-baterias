@@ -9,7 +9,7 @@ use App\Livewire\Battery3;
 
 Route::middleware(EmployeeTokenIsValid::class)->prefix('baterias')->as('batteries')->group(function() {
     Route::controller(BatteryController::class)->group(function() {
-        Route::post('salir', 'logout')->name('.logout');
+        Route::get('salir', 'logout')->name('.logout');
     });
     
     Route::get('bateria-1', Battery1::class)->name('.first');
