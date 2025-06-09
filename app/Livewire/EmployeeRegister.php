@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Http\Requests\Employee\EmployeeRequest;
-use App\Http\Services\CompanyService;
 use App\Http\Services\DiseaseService;
 use App\Http\Services\DivisionService;
 use App\Http\Services\EmployeeService;
@@ -16,7 +15,6 @@ class EmployeeRegister extends Component
     use Toast;
 
     //? ----------- Options and form configuration -----------
-    public $company;
     public $genres;
     public $academicLevels;
     public $maritalStatuses;
@@ -31,7 +29,6 @@ class EmployeeRegister extends Component
 
     public function mount()
     {
-        $companyService  = app(CompanyService::class);
         $diseaseService  = app(DiseaseService::class);
         $divisionService = app(DivisionService::class);
 
@@ -43,12 +40,10 @@ class EmployeeRegister extends Component
         $this->positions       = EmployeeService::getPositions();
         $this->booleans        = EmployeeService::getBooleans();
         $this->country         = 1;
-        $this->company         = $companyService->getActive();
         $this->diseases        = $diseaseService->getAll();
         $this->divisions       = $divisionService->getByCountry($this->country)->toArray();
 
         $this->form = [
-            'company_id'         => $this->company->id,
             'name'               => '',
             'phone_number'       => '',
             'genre'              => 'Masculino',

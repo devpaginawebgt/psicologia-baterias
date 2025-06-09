@@ -2,13 +2,17 @@
 
 namespace App\Livewire;
 
-use App\Http\Services\CompanyService;
+use App\Http\Requests\Employee\EmployeeLoginRequest;
+use App\Http\Services\EmployeeService;
+use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
 class EmployeeLogin extends Component
 {
     use Toast;
+
+    public $form;
 
     public function mount()
     {
@@ -18,6 +22,37 @@ class EmployeeLogin extends Component
                 $toast['description']
             );
         }
+
+        $this->form = [ 'phone_number' => null ];
+    }
+
+    public function login()
+    {
+        $request = new EmployeeLoginRequest();
+
+        Validator::make(
+            ['form' => $this->form],
+            $request->rules()
+        )->validate();
+
+        $employeeService = app(EmployeeService::class);
+        $login = $employeeService->login($this->form);
+
+        if (isset($login['error'])) {
+            $this->error(
+                'Error',
+                $login['message']
+            );
+
+            return;
+        }
+
+        session()->flash('toast', [
+            'title'       => 'Bienvenido',
+            'type'        => 'success',
+        ]);
+
+        return redirect()->route('batteries.first');
     }
 
     public function render()

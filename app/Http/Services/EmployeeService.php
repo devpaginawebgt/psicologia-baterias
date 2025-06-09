@@ -13,17 +13,24 @@ class EmployeeService {
         private readonly CompanyService $companyService
     ) {}
 
-    public function login(EmployeeLoginRequest $request) {
-        $data = $request->validated();
+    public function login(array $data) {
         $activeCompany = $this->companyService->getActive();
         $employee = Employee::where('phone_number', $data['phone_number'])->first();
 
-        if (!$employee)
-            dd('No se encontró el empleado, por favor regístrese.');
+        if (!$employee) {
+            return [
+                'error' => true,
+                'message' => 'No se encontró el empleado, por favor regístrese.'
+            ];
+        }
 
         // Validate active company
-        if ($employee->company_id !== $activeCompany->id)
-            dd('No se puede ingresar al sistema, compañía incorrecta.');
+        if ($employee->company_id !== $activeCompany->id) {
+            return [
+                'error' => true,
+                'message' => 'No se puede ingresar al sistema, compañía incorrecta.'
+            ];
+        }
 
         // Get current token and delete it
         $currentToken = EmployeeToken::where('employee_id', $employee->id)->first();
@@ -31,7 +38,7 @@ class EmployeeService {
         
         // Generate new token
         $token = Str::random(24);
-        $expiration = Carbon::now()->addDays(2)->toDateTimeString();
+        $expiration = Carbon::now()->addDays(7)->toDateTimeString();
 
         $dbToken = EmployeeToken::create([
             'employee_id' => $employee->id,
@@ -39,11 +46,20 @@ class EmployeeService {
             'expires_at' => $expiration
         ]);
 
-        if (!$dbToken)
-            dd('Error al crear token');
+        if (!$dbToken) {
+            return [
+                'error' => true,
+                'message' => 'Error al iniciar sesión. Contacta a soporte.'
+            ];
+        }            
 
         session(['employee_id' => $employee->id]);
         session(['e_token' => $token]);
+
+        return [
+            'message' => 'Éxito',
+            'token' => $token
+        ];
     }
 
     public function logout() {
@@ -72,6 +88,9 @@ class EmployeeService {
     }
 
     public function create(array $data) {
+        $activeCompany = $this->companyService->getActive();
+        $data['company_id'] = $activeCompany->id;
+
         $employee = Employee::create($data);
         
         $employee->diseases()->attach($data['diseases']);

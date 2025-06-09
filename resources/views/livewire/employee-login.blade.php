@@ -9,9 +9,8 @@
 
     <main class="bg-zinc-900 p-8 w-full max-w-80 rounded-sm flex">
         <form
-            action="{{ route('auth.login') }}"
-            method="POST"
             class="w-full flex flex-col "
+            wire:submit='login'
         >
             @csrf
             <h1 class="uppercase text-xl font-semibold text-center text-(--secondary-color)">Ingreso</h1>
@@ -20,10 +19,9 @@
                 <x-mary-input
                     type="number"
                     label="Teléfono"
-                    wire:model="phoneNumber"
                     placeholder="Ingresa tu teléfono"
                     id="phone"
-                    name="phone_number"
+                    wire:model.defer="form.phone_number"
                     prefix="+502"
                     class="hide-input-arrows"
                     required
