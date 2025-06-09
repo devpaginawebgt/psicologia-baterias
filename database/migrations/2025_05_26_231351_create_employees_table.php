@@ -29,6 +29,9 @@ return new class extends Migration
             $table->integer('branch_number');
             $table->string('branch_address');
             $table->enum('position', ['Dependiente', 'Administrativo']);
+            $table->decimal('sales_productivity', 8, 2);
+            $table->boolean('emotional_social_session')->default(false);
+            $table->boolean('emotional_management_session')->default(false);
             $table->timestamps();
         });
     }

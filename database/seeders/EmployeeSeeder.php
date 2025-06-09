@@ -31,6 +31,7 @@ class EmployeeSeeder extends Seeder
             'branch_number' => 2,
             'branch_address' => 'Ciudad de México',
             'position' => 'Dependiente',
+            'sales_productivity' => 2500.20,
         ]);
     }
 }

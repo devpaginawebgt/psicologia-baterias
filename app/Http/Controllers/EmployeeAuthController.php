@@ -17,10 +17,4 @@ class EmployeeAuthController extends Controller
         
         return redirect()->route('batteries.first');
     }
-
-    public function register(EmployeeRequest $request) {
-        $employee = $this->employeeService->create($request);
-
-        return redirect()->route('auth.index');
-    }
 }

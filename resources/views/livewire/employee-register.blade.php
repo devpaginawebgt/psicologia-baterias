@@ -218,6 +218,22 @@
             />
         </div>
 
+        <div>
+            <x-mary-input
+                type="number"
+                label="Productividad"
+                placeholder="500.00"
+                id="sales_productivity"
+                wire:model.defer="form.sales_productivity"
+                required
+                min="1"
+                step="0.01"
+                prefix="Q"
+                money
+
+            />  
+        </div>
+
         <div class="col-span-2 w-full flex justify-between items-center">
             <a
                 href="{{ route('auth.index') }}"
