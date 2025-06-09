@@ -70,7 +70,12 @@
             </form>
 
             {{-- Small breakpoint menu button --}}
-            <div class="flex justify-end lg:hidden">
+            <div class="flex justify-end gap-4 lg:hidden">
+                <img
+                    src="/logos/logo-psicolasa.png"
+                    alt=""
+                    class="w-full max-w-6 object-contain aspect-square rounded-full scale-125"
+                >
                 <button
                     type="button"
                     class="text-(--secondary-color) font-semibold flex items-center cursor-pointer hover:text-white menu-btn"
