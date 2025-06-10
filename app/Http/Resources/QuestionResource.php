@@ -18,6 +18,7 @@ class QuestionResource extends JsonResource
             'id' => $this->id,
             'battery_id' => $this->battery_id,
             'question_type_id' => $this->question_type_id,
+            'question_label' => $this->order . '. ' . $this->question,
             'question' => $this->question,
             'points' => $this->points,
             'order' => $this->order,
