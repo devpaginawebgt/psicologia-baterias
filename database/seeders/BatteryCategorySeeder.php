@@ -22,5 +22,7 @@ class BatteryCategorySeeder extends Seeder
         foreach($emotionalCategories as $category) {
             BatteryCategory::create($category);
         }
+
+        
     }
 }

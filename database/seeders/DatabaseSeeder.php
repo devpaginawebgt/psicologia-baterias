@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
 
             // Batteries
             BatterySeeder::class,
+            BatteryCategorySeeder::class,
             QuestionTypeSeeder::class,
             QuestionSeeder::class,
         ]);

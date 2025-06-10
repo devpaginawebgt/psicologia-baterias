@@ -254,5 +254,408 @@ class QuestionSeeder extends Seeder
                 QuestionOption::create($option);
             }
         }
+
+        $emotionalQuestions = [
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 1,
+                'question_type_id' => 1,
+                'question' => 'Presto mucha atención a los sentimientos.',
+                'points' => 5,
+                'order' => 1,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 1,
+                'question_type_id' => 1,
+                'question' => 'Normalmente me preocupo por lo que siento.',
+                'points' => 5,
+                'order' => 2,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 1,
+                'question_type_id' => 1,
+                'question' => 'Normalmente dedico tiempo a pensar en mis emociones.',
+                'points' => 5,
+                'order' => 3,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 1,
+                'question_type_id' => 1,
+                'question' => 'Pienso que merece la pena prestar atención a mis emociones.',
+                'points' => 5,
+                'order' => 4,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 1,
+                'question_type_id' => 1,
+                'question' => 'Dejo que mis sentimientos afecten a mis pensamientos.',
+                'points' => 5,
+                'order' => 5,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 1,
+                'question_type_id' => 1,
+                'question' => 'Pienso en mi estado de ánimo constantemente.',
+                'points' => 5,
+                'order' => 6,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 1,
+                'question_type_id' => 1,
+                'question' => 'A menudo pienso en mis sentimientos.',
+                'points' => 5,
+                'order' => 7,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 1,
+                'question_type_id' => 1,
+                'question' => 'Presto mucha atención a cómo me siento.',
+                'points' => 5,
+                'order' => 8,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 2,
+                'question_type_id' => 1,
+                'question' => 'Tengo claros mis sentimientos.',
+                'points' => 5,
+                'order' => 9,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 2,
+                'question_type_id' => 1,
+                'question' => 'Frecuentemente puedo definir mis sentimientos.',
+                'points' => 5,
+                'order' => 10,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 2,
+                'question_type_id' => 1,
+                'question' => 'Casi siempre sé cómo me siento.',
+                'points' => 5,
+                'order' => 11,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 2,
+                'question_type_id' => 1,
+                'question' => 'Normalmente conozco mis sentimientos sobre las personas.',
+                'points' => 5,
+                'order' => 12,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 2,
+                'question_type_id' => 1,
+                'question' => 'A menudo me doy cuenta de mis sentimientos en diferentes situaciones.',
+                'points' => 5,
+                'order' => 13,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 2,
+                'question_type_id' => 1,
+                'question' => 'Siempre puedo decir cómo me siento.',
+                'points' => 5,
+                'order' => 14,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 2,
+                'question_type_id' => 1,
+                'question' => 'A veces puedo decir cuáles son mis emociones.',
+                'points' => 5,
+                'order' => 15,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 2,
+                'question_type_id' => 1,
+                'question' => 'Puedo llegar a comprender mis sentimientos.',
+                'points' => 5,
+                'order' => 16,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 3,
+                'question_type_id' => 1,
+                'question' => 'Aunque a veces me siento triste, suelo tener una visión positiva.',
+                'points' => 5,
+                'order' => 17,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 3,
+                'question_type_id' => 1,
+                'question' => 'Aunque me sienta mal, procuro pensar en cosas agradables.',
+                'points' => 5,
+                'order' => 18,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 3,
+                'question_type_id' => 1,
+                'question' => 'Cuando estoy triste, pienso en todos los placeres de la vida.',
+                'points' => 5,
+                'order' => 19,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 3,
+                'question_type_id' => 1,
+                'question' => 'Intento tener pensamientos positivos, aunque me sienta mal.',
+                'points' => 5,
+                'order' => 20,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 3,
+                'question_type_id' => 1,
+                'question' => 'Si doy demasiadas vueltas a las cosas, complicándolas, trato de calmarme.',
+                'points' => 5,
+                'order' => 21,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 3,
+                'question_type_id' => 1,
+                'question' => 'Me preocupo por tener un buen estado de ánimo.',
+                'points' => 5,
+                'order' => 22,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 3,
+                'question_type_id' => 1,
+                'question' => 'Tengo mucha energía cuando me siento feliz.',
+                'points' => 5,
+                'order' => 23,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 2,
+                'battery_category_id' => 3,
+                'question_type_id' => 1,
+                'question' => 'Cuando estoy enfadado intento cambiar mi estado de ánimo.',
+                'points' => 5,
+                'order' => 24,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nada de acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Algo de acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Bastante de acuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Muy de acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente de acuerdo', 'points' => 5 ],
+                ]
+            ],
+        ];
+
+        foreach($emotionalQuestions as $question) {
+            $options = $question['options'];
+            unset($question['options']);
+
+            $dbQuestion = Question::create($question);
+
+            foreach($options as $index => $option) {
+                $option['question_id'] = $dbQuestion->id;
+                $option['order'] = $index + 1;
+
+                QuestionOption::create($option);
+            }
+        }
     }
 }
