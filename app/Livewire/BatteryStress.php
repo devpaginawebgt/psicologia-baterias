@@ -21,6 +21,7 @@ class BatteryStress extends Component
     public $batteries;
     public $battery;
     public $questions;
+    public $response;
 
     public $form = [];
 
@@ -28,10 +29,12 @@ class BatteryStress extends Component
     {
         $companyService = app(CompanyService::class);
         $batteryService = app(BatteryService::class);
+        $batteryEmployeeService = app(BatteryEmployeeService::class);
 
         // Set configurations
         $this->company = $companyService->getActive();
         $this->batteries = $batteryService->getAll();
+        $this->response = $batteryEmployeeService->getEmployeeResponse($this->battery_id);
 
         // Set battery and questions
         $dbBattery = $batteryService->getBatteryById($this->battery_id);

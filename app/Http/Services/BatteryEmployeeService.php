@@ -8,7 +8,15 @@ use App\Models\Response;
 use Carbon\Carbon;
 
 class BatteryEmployeeService {
-    function saveSelectResponse(int $batteryId, array $data) {
+    public function getEmployeeResponse(int $batteryId) {
+        $employeeId = session('employee_id');
+        
+        return BatteryEmployee::where('battery_id', $batteryId)
+            ->where('employee_id', $employeeId)
+            ->exists();
+    }
+
+    public function saveSelectResponse(int $batteryId, array $data) {
         $employeeId = session('employee_id');
 
         if (!$employeeId)

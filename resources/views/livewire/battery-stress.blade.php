@@ -4,16 +4,30 @@
         subtitle="{{ $battery['description'] }}"
         shadow
         separator
-        class="w-full max-w-160 h-max text-sm bg-zinc-900"
+        class="relative w-full max-w-160 h-max text-sm bg-zinc-900"
     >
+        @if($response)
+            <x-mary-badge
+                value="Respondida"
+                class="badge-success badge-soft absolute top-4 -right-4"
+            />
+        @endif
+    
         @if ($step === 'start')
             <div>
                 <p class="mb-4 text-gray-300">
                     Haz click en comenzar para responder al cuestionario.
                 </p>
 
-                <x-mary-button wire:click="startBattery" class="btn-sm btn-soft">
-                    Comenzar
+                <x-mary-button
+                    wire:click="startBattery"
+                    class="btn-sm btn-soft"
+                >
+                    @if($response)
+                        Retomar
+                    @else
+                        Comenzar    
+                    @endif
                 </x-mary-button>
             </div>
 
