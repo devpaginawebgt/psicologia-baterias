@@ -13,7 +13,7 @@ class QuestionTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        QuestionType::insert([
+        QuestionType::create([
             ['name' => 'select'],
             ['name' => 'open'],
             ['name' => 'multiple'],
