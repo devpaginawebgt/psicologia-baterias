@@ -96,7 +96,7 @@
         </header>
 
         <div class="flex h-full grow">
-            <aside class="fixed top-14 left-0 lg:relative lg:top-0 z-20 w-full lg:w-max -translate-y-full lg:!translate-y-0 transition-all duration-300 ease-in-out" id="sideMenu">
+            <aside class="fixed top-14 left-0 lg:relative lg:top-0 z-20 w-full lg:w-max -translate-y-[150%] lg:!translate-y-0 transition-all duration-500 ease-in-out" id="sideMenu">
                 <x-mary-menu class="w-full lg:min-w-40 lg:w-max lg:h-full p-4 bg-zinc-900 border-r border-b lg:border-b-0 border-zinc-700">
                     @php
                         $url = request()->path();
@@ -149,7 +149,7 @@
                 const menuBtn = document.querySelector('.menu-btn');
 
                 menuBtn.addEventListener('click', () => {
-                    sideMenu.classList.toggle('-translate-y-full');
+                    sideMenu.classList.toggle('-translate-y-[150%]');
                 })
             });
         </script>

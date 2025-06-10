@@ -9,7 +9,7 @@
         @if($response)
             <x-mary-badge
                 value="Respondida"
-                class="badge-success badge-soft absolute top-4 -right-4"
+                class="badge-success badge-soft absolute -top-3 left-1/2 -translate-x-1/2 sm:top-4 sm:-right-4 sm:left-auto sm:translate-x-0"
             />
         @endif
     
