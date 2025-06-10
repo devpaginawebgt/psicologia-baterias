@@ -23,6 +23,15 @@ class BatteryCategorySeeder extends Seeder
             BatteryCategory::create($category);
         }
 
-        
+        $happinessCategories = [
+            [ 'battery_id' => 3, 'name' => 'Sentido positivo de la vida' ],
+            [ 'battery_id' => 3, 'name' => 'Satisfacción con la vida' ],
+            [ 'battery_id' => 3, 'name' => 'Realización personal' ],
+            [ 'battery_id' => 3, 'name' => 'Alegría de vivir' ],
+        ];
+
+        foreach($happinessCategories as $category) {
+            BatteryCategory::create($category);
+        }
     }
 }

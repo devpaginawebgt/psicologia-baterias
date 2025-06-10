@@ -657,5 +657,454 @@ class QuestionSeeder extends Seeder
                 QuestionOption::create($option);
             }
         }
+
+        $happinessQuestions = [
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 5,
+                'question_type_id' => 1,
+                'question' => 'En la mayoría de las cosas mi vida está cerca de mi ideal',
+                'points' => 5,
+                'order' => 1,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 4,
+                'question_type_id' => 1,
+                'question' => 'Siento que mi vida está vacía',
+                'points' => 5,
+                'order' => 2,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 5,
+                'question_type_id' => 1,
+                'question' => 'Las condiciones de mi vida son excelentes',
+                'points' => 5,
+                'order' => 3,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 5,
+                'question_type_id' => 1,
+                'question' => 'Estoy satisfecho con mi vida',
+                'points' => 5,
+                'order' => 4,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 5,
+                'question_type_id' => 1,
+                'question' => 'La vida ha sido buena conmigo',
+                'points' => 5,
+                'order' => 5,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 5,
+                'question_type_id' => 1,
+                'question' => 'Me siento satisfecho con lo que soy',
+                'points' => 5,
+                'order' => 6,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 4,
+                'question_type_id' => 1,
+                'question' => 'Pienso que nunca seré feliz',
+                'points' => 5,
+                'order' => 7,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 6,
+                'question_type_id' => 1,
+                'question' => 'Hasta ahora, he conseguido las cosas que para mí son importantes',
+                'points' => 5,
+                'order' => 8,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 6,
+                'question_type_id' => 1,
+                'question' => 'Si volviese a nacer, no cambiaría casi nada en mi vida',
+                'points' => 5,
+                'order' => 9,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 5,
+                'question_type_id' => 1,
+                'question' => 'Me siento satisfecho porque estoy donde tengo que estar',
+                'points' => 5,
+                'order' => 10,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 4,
+                'question_type_id' => 1,
+                'question' => 'La mayoría del tiempo me siento feliz',
+                'points' => 5,
+                'order' => 11,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 7,
+                'question_type_id' => 1,
+                'question' => 'Es maravilloso vivir',
+                'points' => 5,
+                'order' => 12,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 7,
+                'question_type_id' => 1,
+                'question' => 'Por lo general me siento bien',
+                'points' => 5,
+                'order' => 13,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 4,
+                'question_type_id' => 1,
+                'question' => 'Me siento inútil',
+                'points' => 5,
+                'order' => 14,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 7,
+                'question_type_id' => 1,
+                'question' => 'Soy una persona optimista',
+                'points' => 5,
+                'order' => 15,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 7,
+                'question_type_id' => 1,
+                'question' => 'He experimentado la alegría de vivir',
+                'points' => 5,
+                'order' => 16,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 4,
+                'question_type_id' => 1,
+                'question' => 'La vida ha sido injusta conmigo',
+                'points' => 5,
+                'order' => 17,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 4,
+                'question_type_id' => 1,
+                'question' => 'Tengo problemas tan hondos que me quitan la tranquilidad',
+                'points' => 5,
+                'order' => 18,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 4,
+                'question_type_id' => 1,
+                'question' => 'Me siento un fracasado',
+                'points' => 5,
+                'order' => 19,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 4,
+                'question_type_id' => 1,
+                'question' => 'La felicidad es para algunas personas, no para mi',
+                'points' => 5,
+                'order' => 20,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 6,
+                'question_type_id' => 1,
+                'question' => 'Estoy satisfecho con lo que hasta ahora he alcanzado',
+                'points' => 5,
+                'order' => 21,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 4,
+                'question_type_id' => 1,
+                'question' => 'Me siento triste por lo que soy',
+                'points' => 5,
+                'order' => 22,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 4,
+                'question_type_id' => 1,
+                'question' => 'Para mí, la vida es una cadena de sufrimientos',
+                'points' => 5,
+                'order' => 23,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 6,
+                'question_type_id' => 1,
+                'question' => 'Me considero una persona realizada',
+                'points' => 5,
+                'order' => 24,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 6,
+                'question_type_id' => 1,
+                'question' => 'Mi vida transcurre plácidamente',
+                'points' => 5,
+                'order' => 25,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 4,
+                'question_type_id' => 1,
+                'question' => 'Todavía no he encontrado sentido a mi existencia',
+                'points' => 5,
+                'order' => 26,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 1 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 3,
+                'battery_category_id' => 6,
+                'question_type_id' => 1,
+                'question' => 'Creo que no me falta nada',
+                'points' => 5,
+                'order' => 27,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Totalmente de Acuerdo', 'points' => 5 ],
+                    [ 'option_text' => 'Acuerdo', 'points' => 4 ],
+                    [ 'option_text' => 'Ni acuerdo ni desacuerdo', 'points' => 3 ],
+                    [ 'option_text' => 'Desacuerdo', 'points' => 2 ],
+                    [ 'option_text' => 'Totalmente en Desacuerdo', 'points' => 1 ],
+                ]
+            ],
+        ];
+
+        foreach($happinessQuestions as $question) {
+            $options = $question['options'];
+            unset($question['options']);
+
+            $dbQuestion = Question::create($question);
+
+            foreach($options as $index => $option) {
+                $option['question_id'] = $dbQuestion->id;
+                $option['order'] = $index + 1;
+
+                QuestionOption::create($option);
+            }
+        }
     }
 }
