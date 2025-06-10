@@ -19,7 +19,7 @@ class EmployeeLogin extends Component
         if ($toast = session('toast')) {
             $this->{$toast['type']}(
                 $toast['title'],
-                $toast['description']
+                $toast['description'] ?? ''
             );
         }
 
@@ -32,7 +32,8 @@ class EmployeeLogin extends Component
 
         Validator::make(
             ['form' => $this->form],
-            $request->rules()
+            $request->rules(),
+            $request->messages()
         )->validate();
 
         $employeeService = app(EmployeeService::class);
@@ -52,7 +53,7 @@ class EmployeeLogin extends Component
             'type'        => 'success',
         ]);
 
-        return redirect()->route('batteries.first');
+        return redirect()->route('batteries.stress');
     }
 
     public function render()

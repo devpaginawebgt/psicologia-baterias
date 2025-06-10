@@ -10,13 +10,9 @@ class BatteryService {
     }
     
     public function getBatteryById(int $id) {
-        $battery = Battery::find($id);
-
-        if (!$battery) 
-            dd('Batería no encontrada');
-
-        return $battery;
+        return Battery::find($id);
     }
+
 }
 
 ?>

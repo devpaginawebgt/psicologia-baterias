@@ -66,7 +66,7 @@ class EmployeeRegister extends Component
         if ($toast = session('toast')) {
             $this->{$toast['type']}(
                 $toast['title'],
-                $toast['description']
+                $toast['description'] ?? ''
             );
         }
     }
@@ -77,7 +77,8 @@ class EmployeeRegister extends Component
 
         Validator::make(
             ['form' => $this->form],
-            $request->rules()
+            $request->rules(),
+            $request->messages()
         )->validate();
 
         $employeeService = app(EmployeeService::class);

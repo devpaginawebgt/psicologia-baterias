@@ -54,7 +54,18 @@
                 >
             </div>
 
-            <form
+            <div class="hidden lg:flex justify-end ">
+                <a
+                    href="{{ route('batteries.logout') }}"
+                    class="text-sm text-(--secondary-color) font-semibold cursor-pointer hover:text-white logout-btn flex items-center gap-2"
+                >
+                    Salir
+                    <x-mary-icon name="o-arrow-right-on-rectangle" />
+                </a>
+            </div>
+
+
+            {{-- <form
                 action="{{ route('batteries.logout') }}"
                 method="GET"
                 class="justify-end hidden lg:flex"
@@ -62,12 +73,11 @@
                 @csrf
                 <button
                     type="submit"
-                    class="text-sm text-(--secondary-color) font-semibold flex items-center gap-1 cursor-pointer hover:text-white logout-btn"
+                    class=""
                 >
-                    Salir
-                    <x-mary-icon name="o-arrow-right-on-rectangle" />
+                    
                 </button>
-            </form>
+            </form> --}}
 
             {{-- Small breakpoint menu button --}}
             <div class="flex justify-end gap-4 lg:hidden">
