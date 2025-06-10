@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Http\Requests\Employee\EmployeeLoginRequest;
+use App\Http\Services\BatteryService;
 use App\Http\Services\EmployeeService;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
@@ -53,7 +54,10 @@ class EmployeeLogin extends Component
             'type'        => 'success',
         ]);
 
-        return redirect()->route('batteries.stress');
+        $batteryService = app(BatteryService::class);
+        $battery = $batteryService->getFirst();
+
+        return redirect("/baterias/{$battery['url_type']}/{$battery['url']}");
     }
 
     public function render()

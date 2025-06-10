@@ -17,8 +17,12 @@ class BatteryResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'url-type' => $this->url_type,
             'url' => $this->url,
             'description' => $this->description,
+            'instructions' => $this->instructions,
+            'end_message' => $this->end_message,
+            'order' => $this->order,
             'questions' => (new QuestionCollection($this->questions))->toArray($request)
         ];
     }

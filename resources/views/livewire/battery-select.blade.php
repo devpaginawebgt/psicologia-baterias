@@ -16,7 +16,7 @@
         @if ($step === 'start')
             <div>
                 <p class="mb-4 text-gray-300">
-                    Haz click en comenzar para responder al cuestionario.
+                    {{ $battery['instructions'] }}
                 </p>
 
                 <x-mary-button
@@ -56,7 +56,7 @@
              
         @elseif ($step === 'finished')
             <div>
-                <p>Gracias por completar el cuestionario.</p>
+                <p>{{ $battery['end_message'] }}</p>
 
                 <x-mary-button wire:click="nextBattery" class="btn-sm btn-soft mt-4">
                     Siguiente batería

@@ -13,7 +13,12 @@ class Battery extends Model
 
     protected $fillable = [
         'name',
+        'url_type',
+        'url',
         'description',
+        'instructions',
+        'end_message',
+        'order',
     ];
 
     public function questions(): HasMany

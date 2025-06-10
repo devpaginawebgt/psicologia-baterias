@@ -17,7 +17,7 @@ class BatteryEmployeeService {
             ->exists();
     }
 
-    public function saveSelectResponse(int $batteryId, array $data) {
+    public function saveResponse(int $batteryId, array $data) {
         $employeeId = session('employee_id');
         $battery = Battery::find($batteryId);
 
@@ -37,7 +37,7 @@ class BatteryEmployeeService {
                 return ['error' => 'Error en las opciones de respuesta, contacte a Soporte.'];
 
             $responseOptions[] = [
-                'battery_employee_id' => $option->battery_category_id,
+                'battery_category_id' => $option->question->battery_category_id,
                 'question_id'         => $questionId,
                 'question_option_id'  => $option->id,
                 'response_text'       => $option->option_text,
