@@ -37,10 +37,11 @@ class BatteryEmployeeService {
                 return ['error' => 'Error en las opciones de respuesta, contacte a Soporte.'];
 
             $responseOptions[] = [
-                'question_id'        => $questionId,
-                'question_option_id' => $option->id,
-                'response_text'      => $option->option_text,
-                'points'             => $option->points,
+                'battery_employee_id' => $option->battery_category_id,
+                'question_id'         => $questionId,
+                'question_option_id'  => $option->id,
+                'response_text'       => $option->option_text,
+                'points'              => $option->points,
             ];
 
             $responsePoints += $option->points;

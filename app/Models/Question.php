@@ -14,6 +14,7 @@ class Question extends Model
 
     protected $fillable = [
         'battery_id',
+        'battery_category_id',
         'question_type_id',
         'question',
         'points',
