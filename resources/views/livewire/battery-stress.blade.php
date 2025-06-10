@@ -1,6 +1,6 @@
 <main class="w-full p-8 flex justify-center">
     <x-mary-card
-        title="{{ $battery['name'] }}"
+        title="Escala de {{ $battery['name'] }}"
         subtitle="{{ $battery['description'] }}"
         shadow
         separator
