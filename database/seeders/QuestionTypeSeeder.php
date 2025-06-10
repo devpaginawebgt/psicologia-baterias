@@ -13,10 +13,14 @@ class QuestionTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        QuestionType::create([
+        $questionTypes = [
             ['name' => 'select'],
             ['name' => 'open'],
             ['name' => 'multiple'],
-        ]);
+        ];
+
+        foreach($questionTypes as $questionType) {
+            QuestionType::create($questionType);
+        }
     }
 }
