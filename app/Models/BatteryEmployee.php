@@ -12,6 +12,7 @@ class BatteryEmployee extends Model
         'battery_id',
         'employee_id',
         'points',
+        'response_points',
         'submittion_date',
     ];
 }

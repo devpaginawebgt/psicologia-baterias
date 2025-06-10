@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use App\Models\Battery;
 use App\Models\BatteryEmployee;
 use App\Models\QuestionOption;
 use App\Models\Response;
@@ -18,12 +19,16 @@ class BatteryEmployeeService {
 
     public function saveSelectResponse(int $batteryId, array $data) {
         $employeeId = session('employee_id');
+        $battery = Battery::find($batteryId);
 
         if (!$employeeId)
             return ['error' => 'Error en el usuario, inicie sesión de nuevo.'];
 
+        if (!$battery)
+            return ['error' => 'Error al cargar la escala.'];
+
         $responseOptions = [];
-        $points = 0;
+        $responsePoints = 0;
 
         foreach($data as $questionId => $optionId) {
             $option = QuestionOption::find($optionId);
@@ -32,19 +37,22 @@ class BatteryEmployeeService {
                 return ['error' => 'Error en las opciones de respuesta, contacte a Soporte.'];
 
             $responseOptions[] = [
-                'question_id' => $questionId,
+                'question_id'        => $questionId,
                 'question_option_id' => $option->id,
-                'response_text' => $option->option_text,
-                'points' => $option->points,
+                'response_text'      => $option->option_text,
+                'points'             => $option->points,
             ];
 
-            $points += $option->points;
+            $responsePoints += $option->points;
         }
 
+        $points = $battery->questions->sum('points');
+
         $batteryEmployee = BatteryEmployee::create([
-            'battery_id' => $batteryId,
-            'employee_id' => $employeeId,
-            'points' => $points,
+            'battery_id'      => $batteryId,
+            'employee_id'     => $employeeId,
+            'points'          => $points,
+            'response_points' => $responsePoints,
             'submittion_date' => Carbon::now()
         ]);
 
