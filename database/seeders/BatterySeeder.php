@@ -17,9 +17,9 @@ class BatterySeeder extends Seeder
             'name' => 'Estrés percibido',
             'url_type' => 'seleccionable',
             'url' => 'estres-percibido',
-            'description' => 'Las preguntas en esta escala hacen referencia a tus sentimientos y pensamientos durante el último mes.',
-            'instructions' => 'Haz click en comenzar para responder al cuestionario. En cada caso, por favor marca en las opciones cómo te has sentido o cómo has enfrentado cada situación.',
+            'description' => 'Las preguntas en esta escala hacen referencia a tus sentimientos y pensamientos durante el último mes. En cada caso, por favor marca en las opciones cómo te has sentido o cómo has enfrentado cada situación.',
             'end_message' => 'Gracias por completar el cuestionario.',
+            'instructions' => 'Haz click en comenzar para responder al cuestionario.',
             'order' => 1,
         ]);
 
