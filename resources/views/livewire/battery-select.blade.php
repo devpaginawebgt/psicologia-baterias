@@ -59,7 +59,7 @@
                 <p>{{ $battery['end_message'] }}</p>
 
                 <x-mary-button wire:click="nextBattery" class="btn-sm btn-soft mt-4">
-                    Siguiente batería
+                    Siguiente Escala
                 </x-mary-button>
             </div>
         @endif
