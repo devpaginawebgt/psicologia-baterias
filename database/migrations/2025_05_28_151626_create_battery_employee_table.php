@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('battery_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('employee_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->integer('points');
+            $table->integer('response_points');
             $table->datetime('submittion_date');
             $table->timestamps();
         });

@@ -23,12 +23,8 @@ class EmployeeLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'phone_number' => ['required', 'integer', 'exists:employees,phone_number']
+            'form.phone_number' => ['required', 'integer', 'exists:employees,phone_number']
+            // 'max_digits:8',
         ];
-    }
-
-    protected function failedValidation(Validator $validator)
-    {
-        dd($validator->failed());
     }
 }

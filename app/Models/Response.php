@@ -12,6 +12,7 @@ class Response extends Model
 
     protected $fillable = [
         'battery_employee_id',
+        'battery_category_id',
         'question_id',
         'question_option_id',
         'response_text',

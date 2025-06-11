@@ -13,9 +13,24 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('battery_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->string('question');
-            $table->foreignId('question_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');;
+            
+            $table->foreignId('battery_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->foreignId('battery_category_id')
+                ->nullable()
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+                
+            $table->foreignId('question_type_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
+            $table->mediumText('question');
             $table->integer('points');
             $table->integer('order');
             $table->boolean('is_active')->default(true);

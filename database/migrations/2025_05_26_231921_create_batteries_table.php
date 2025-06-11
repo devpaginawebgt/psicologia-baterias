@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('batteries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('url_type');
             $table->string('url');
-            $table->string('description');
+            $table->mediumText('description');
+            $table->mediumText('instructions');
+            $table->mediumText('end_message');
+            $table->integer('order');
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('question_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('option_text');
+            $table->integer('points');
             $table->integer('order');
             $table->timestamps();
         });

@@ -1,0 +1,66 @@
+.flatpickr-calendar {
+    background-color: #1f1f1f !important;
+    color: #f0f0f0 !important;
+    border: 1px solid #444;
+}
+
+.flatpickr-calendar .flatpickr-months,
+.flatpickr-calendar .flatpickr-weekdays,
+.flatpickr-calendar .flatpickr-days,
+.flatpickr-calendar .flatpickr-day,
+.flatpickr-calendar .flatpickr-current-month,
+.flatpickr-calendar .flatpickr-monthDropdown-months,
+.flatpickr-calendar .flatpickr-yearDropdown-years {
+    background-color: #2a2a2a !important;
+    color: #f0f0f0 !important;
+}
+
+/* Today / hovered / selected */
+.flatpickr-day.today {
+    background-color: #333 !important;
+    border-color: #777;
+}
+
+.flatpickr-day:hover,
+.flatpickr-day.selected {
+    background-color: #444 !important;
+    color: #fff !important;
+}
+
+/* Días normales */
+.flatpickr-day {
+    color: #dddddd !important;         /* Gris claro */
+}
+
+/* Día actual */
+.flatpickr-day.today {
+    border-color: #888;
+    background-color: #2e2e2e !important;
+    color: #ffffff !important;
+}
+
+/* Día seleccionado */
+.flatpickr-day.selected {
+    background-color: #3a7afe !important;
+    color: #ffffff !important;
+}
+
+/* Día hover */
+.flatpickr-day:hover {
+    background-color: #555 !important;
+    color: #ffffff !important;
+}
+
+/* Días deshabilitados */
+.flatpickr-day.disabled,
+.flatpickr-day.disabled:hover {
+    color: #777 !important;
+    background: #1f1f1f !important;
+    cursor: not-allowed;
+}
+
+/* Días fuera del mes */
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+    color: #555 !important;
+}

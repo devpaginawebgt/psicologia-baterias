@@ -13,22 +13,33 @@ return new class extends Migration
     {
         Schema::create('responses', function (Blueprint $table) {
             $table->id();
+
             $table
                 ->foreignId('battery_employee_id')
                 ->constrained('battery_employee', 'id')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            
+            $table
+                ->foreignId('battery_category_id')
+                ->nullable()
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
             $table
                 ->foreignId('question_id')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+
             $table
                 ->foreignId('question_option_id')
                 ->nullable()
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+                
             $table->string('response_text');
             $table->integer('points');
             $table->timestamps();

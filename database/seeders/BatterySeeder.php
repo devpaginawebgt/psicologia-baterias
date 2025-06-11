@@ -14,21 +14,33 @@ class BatterySeeder extends Seeder
     public function run(): void
     {
         Battery::create([
-            'name' => 'Bateria 1',
-            'url' => 'bateria-1',
-            'description' => 'Preguntas de apertura.'
+            'name' => 'Estrés percibido',
+            'url_type' => 'seleccionable',
+            'url' => 'estres-percibido',
+            'description' => 'Las preguntas en esta escala hacen referencia a tus sentimientos y pensamientos durante el último mes. En cada caso, por favor marca en las opciones cómo te has sentido o cómo has enfrentado cada situación.',
+            'end_message' => 'Gracias por completar el cuestionario.',
+            'instructions' => 'Haz click en comenzar para responder al cuestionario.',
+            'order' => 1,
         ]);
 
         Battery::create([
-            'name' => 'Bateria 2',
-            'url' => 'bateria-2',
-            'description' => 'Descripción de cuestionario.'
+            'name' => 'Inteligencia Emocional',
+            'url_type' => 'seleccionable',
+            'url' => 'inteligencia-emocional',
+            'description' => 'Lee las siguientes afirmaciones sobre tus emociones y sentimientos e indica el grado de acuerdo desacuerdo con respecto a las mismas. No olvides que no hay respuestas correctas o incorrectas, marca la que más se aproxime a tu preferencia.',
+            'instructions' => 'Haz click en comenzar para responder al cuestionario.',
+            'end_message' => 'Gracias por completar el cuestionario.',
+            'order' => 2,
         ]);
 
         Battery::create([
-            'name' => 'Bateria 3',
-            'url' => 'bateria-3',
-            'description' => 'Preguntas de información personal.'
+            'name' => 'Felicidad',
+            'url_type' => 'seleccionable',
+            'url' => 'felicidad',
+            'description' => 'Al empezar encontrará una serie de afirmaciones, lea detenidamente cada afirmación y luego utiliza la escala para indicar su grado de aceptación o rechazo. No hay respuestas buenas ni malas.',
+            'instructions' => 'Haz click en comenzar para responder al cuestionario.',
+            'end_message' => 'Gracias por completar el cuestionario.',
+            'order' => 3,
         ]);
     }
 }

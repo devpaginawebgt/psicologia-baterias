@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,10 +19,20 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            CompanySeeder::class,
+            // Configuration
+            CountrySeeder::class,
+            DivisionSeeder::class,
             DiseaseSeeder::class,
-            BatterySeeder::class,
+
+            // Company
+            CompanySeeder::class,
             EmployeeSeeder::class,
+
+            // Batteries
+            BatterySeeder::class,
+            BatteryCategorySeeder::class,
+            QuestionTypeSeeder::class,
+            QuestionSeeder::class,
         ]);
     }
 }

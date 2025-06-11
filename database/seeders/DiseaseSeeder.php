@@ -13,24 +13,15 @@ class DiseaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Disease::create([
-            'name' => 'Ninguna',
-            'initial' => 'N'
-        ]);
+        $diseases = [
+            [ 'name' => 'Diabetes',             'initial' => 'D' ],
+            [ 'name' => 'Hipertensión',         'initial' => 'H' ],
+            [ 'name' => 'Sobrepeso / Obesidad', 'initial' => 'S' ],
+            [ 'name' => 'Otra',                 'initial' => 'O' ],
+        ];
 
-        Disease::create([
-            'name' => 'Diabetes',
-            'initial' => 'D'
-        ]);
-
-        Disease::create([
-            'name' => 'Hipertensión',
-            'initial' => 'H'
-        ]);
-
-        Disease::create([
-            'name' => 'Otra',
-            'initial' => 'O'
-        ]);
+        foreach ($diseases as $disease) {
+            Disease::create($disease);
+        }
     }
 }

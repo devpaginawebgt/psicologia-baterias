@@ -40,6 +40,9 @@ return [
     'components' => [
         'spotlight' => [
             'class' => 'App\Support\Spotlight',
-        ]
+        ],
+        'datepicker' => [
+            'format' => 'Y-m-d',
+        ],
     ]
 ];

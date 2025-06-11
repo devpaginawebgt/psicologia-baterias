@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Employee extends Model
 {
@@ -14,18 +15,26 @@ class Employee extends Model
         'company_id',
         'name',
         'phone_number',
-        'birthday',
+        'birthdate',
         'genre',
-        'birthplace',
+        'division_id',
         'academic_level',
         'marital_status',
         'children',
         'people_depending',
-        'uses_transportation',
+        'transportation',
         'hiring_date',
         'shift',
         'branch_number',
         'branch_address',
         'position',
+        'sales_productivity',
+        'emotional_social_session',
+        'emotional_management_session',
     ];
+
+    public function diseases(): BelongsToMany
+    {
+        return $this->belongsToMany(Disease::class);
+    }
 }
