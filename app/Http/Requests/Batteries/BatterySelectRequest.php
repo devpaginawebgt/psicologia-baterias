@@ -30,8 +30,10 @@ class BatterySelectRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'form.required'  => 'Error al validar las respuestas, contacte a Soporte',
+            'form.array'     => 'Error al validar las respuestas, contacte a Soporte',
             'form.*.integer' => 'Seleccione una opción del listado',
-            'form.*.exists' => 'Error en la opción.'
+            'form.*.exists'  => 'Error al validar las respuestas, contacte a Soporte.'
         ];
     }
 }
