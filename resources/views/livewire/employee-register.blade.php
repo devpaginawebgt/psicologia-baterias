@@ -20,7 +20,7 @@
         wire:submit="register"
     >
         @csrf
-        <div>
+        <div class="col-span-2">
             <x-mary-input
                 type="text"
                 label="Nombre y Apellidos"
@@ -63,17 +63,6 @@
         </div>
 
         <div>
-            <x-mary-select
-                label="Nivel Académico"
-                :options="$academicLevels"
-                option-label="label"
-                option-value="label"
-                wire:model="form.academic_level"
-                required
-            />
-        </div>
-
-        <div>
             <x-mary-datepicker
                 label="Fecha de nacimiento"
                 icon="o-calendar"
@@ -85,7 +74,7 @@
                 :config="$birthdateConfig"
             />
         </div>
-
+        
         <div>
             <x-mary-select
                 label="Lugar de nacimiento"
@@ -107,14 +96,24 @@
                 required
             />
         </div>
-
+        <div>
+            <x-mary-select
+                label="Nivel Académico"
+                :options="$academicLevels"
+                option-label="label"
+                option-value="label"
+                wire:model="form.academic_level"
+                required
+            />
+        </div>
+        
         <div>
             <x-mary-input
                 type="number"
-                label="No. de Hijos"
+                label="Personas que dependen de mí"
                 placeholder="0"
-                id="children"
-                wire:model.defer="form.children"
+                id="people_depending"
+                wire:model.defer="form.people_depending"
                 required
                 max="50"
             />  
@@ -123,10 +122,10 @@
         <div>
             <x-mary-input
                 type="number"
-                label="Personas que dependen de mí"
+                label="No. de Hijos"
                 placeholder="0"
-                id="people_depending"
-                wire:model.defer="form.people_depending"
+                id="children"
+                wire:model.defer="form.children"
                 required
                 max="50"
             />  
@@ -239,7 +238,7 @@
                 href="{{ route('auth.index') }}"
                 class="text-sm hover:text-white text-(--secondary-color)" 
             >
-                Ya estoy registrado
+                Ya estoy registrado(a)
             </a>
 
             <x-mary-button

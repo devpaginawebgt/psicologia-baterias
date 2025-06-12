@@ -23,8 +23,17 @@ class EmployeeLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'form.phone_number' => ['required', 'integer', 'exists:employees,phone_number']
-            // 'max_digits:8',
+            'form.phone_number' => ['required', 'integer', 'max_digits:8', 'exists:employees,phone_number']
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'form.phone_number.required'   => 'Ingresa tu número de teléfono',
+            'form.phone_number.integer'    => 'Formato de teléfono inválido',
+            'form.phone_number.max_digits' => 'El número de teléfono debe contener 8 dígitos',
+            'form.phone_number.exists'     => 'El número de teléfono no existe en nuestros registros, por favor regístrese.',
         ];
     }
 }

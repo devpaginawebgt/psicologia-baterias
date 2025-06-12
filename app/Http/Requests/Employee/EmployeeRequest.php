@@ -25,7 +25,7 @@ class EmployeeRequest extends FormRequest
     {
         return [
             'form.name'               => ['required', 'string',  'max:65'],
-            'form.phone_number'       => ['required', 'numeric', 'max_digits:8'],
+            'form.phone_number'       => ['required', 'integer', 'max_digits:8'],
             'form.genre'              => ['required', 'string',  Rule::in(EmployeeService::genres())],
             'form.academic_level'     => ['required', 'string',  Rule::in(EmployeeService::academic())],
             'form.birthdate'          => ['required', 'date',    'date_format:Y-m-d'],
@@ -42,6 +42,16 @@ class EmployeeRequest extends FormRequest
             'form.branch_address'     => ['required', 'string',  'max:75'],
             'form.position'           => ['required', 'string',  Rule::in(EmployeeService::positions())],
             'form.sales_productivity' => ['required', 'numeric', 'decimal:0,2', 'min:1'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'form.phone_number.required'   => 'Ingresa tu número de teléfono',
+            'form.phone_number.integer'    => 'Formato de teléfono inválido',
+            'form.phone_number.max_digits' => 'El número de teléfono debe contener 8 dígitos',
+            'form.phone_number.exists'     => 'El número de teléfono no existe en nuestros registros, por favor regístrese.',
         ];
     }
 }

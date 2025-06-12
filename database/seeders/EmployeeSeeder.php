@@ -17,7 +17,7 @@ class EmployeeSeeder extends Seeder
         Employee::create([
             'company_id' => 1,
             'name' => 'Dennis Herrera',
-            'phone_number' => '1234567890',
+            'phone_number' => '12345678',
             'birthdate' => Carbon::now()->subYears(30),
             'genre' => 'Masculino',
             'division_id' => 1,
