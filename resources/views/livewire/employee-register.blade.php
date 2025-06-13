@@ -20,10 +20,10 @@
         wire:submit="register"
     >
         @csrf
-        <div class="col-span-2">
+        <div>
             <x-mary-input
                 type="text"
-                label="Nombre y Apellidos"
+                label="Nombre"
                 placeholder="José Hernández López"
                 id="name"
                 wire:model.defer="form.name"
@@ -34,6 +34,22 @@
                 maxlength="65"
             />  
         </div>
+        
+        <div>
+            <x-mary-input
+                type="text"
+                label="Apellido"
+                placeholder="José Hernández López"
+                id="name"
+                wire:model.defer="form.lastname"
+                icon="o-user"
+                class="w-full"
+                autocomplete
+                required
+                maxlength="65"
+            />  
+        </div>
+
 
         <div>
             <x-mary-input
@@ -142,6 +158,7 @@
                 clearable
                 compact
                 compact-text="seleccionadas"
+                required
             />
         </div>
 
@@ -229,7 +246,6 @@
                 step="0.01"
                 prefix="Q"
                 money
-
             />  
         </div>
 

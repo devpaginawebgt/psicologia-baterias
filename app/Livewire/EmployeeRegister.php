@@ -45,6 +45,7 @@ class EmployeeRegister extends Component
 
         $this->form = [
             'name'               => '',
+            'lastname'           => '',
             'phone_number'       => '',
             'genre'              => 'Masculino',
             'academic_level'     => 'Primaria',

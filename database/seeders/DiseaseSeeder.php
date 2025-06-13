@@ -14,6 +14,7 @@ class DiseaseSeeder extends Seeder
     public function run(): void
     {
         $diseases = [
+            [ 'name' => 'Ninguna',              'initial' => 'N' ], 
             [ 'name' => 'Diabetes',             'initial' => 'D' ],
             [ 'name' => 'Hipertensión',         'initial' => 'H' ],
             [ 'name' => 'Sobrepeso / Obesidad', 'initial' => 'S' ],

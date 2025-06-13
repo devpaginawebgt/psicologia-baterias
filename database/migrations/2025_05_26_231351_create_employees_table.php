@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('company_id')->constrained()->onUpdate('cascade')->onDelete('cascade');;
             $table->string('name');
+            $table->string('lastname');
             $table->string('phone_number');
             $table->date('birthdate');
             $table->enum('genre', ['Masculino', 'Femenino']);
