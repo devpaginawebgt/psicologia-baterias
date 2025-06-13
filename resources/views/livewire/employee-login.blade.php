@@ -13,7 +13,7 @@
             wire:submit='login'
         >
             @csrf
-            <h1 class="uppercase text-xl font-semibold text-center text-(--secondary-color)">Ingreso</h1>
+            <h1 class="uppercase text-xl font-semibold text-center text-(--secondary-color) font-mono">Ingreso</h1>
         
             <div class="mb-2">
                 <x-mary-input

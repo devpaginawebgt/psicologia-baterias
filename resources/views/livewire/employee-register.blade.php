@@ -13,7 +13,7 @@
 @endphp
 
 <main class="bg-zinc-900 p-6 w-full sm:max-w-[28rem] lg:max-w-[40rem] flex flex-col rounded-sm">
-    <h1 class="uppercase text-xl font-semibold text-center text-(--secondary-color) mb-2">Formulario de registro</h1>
+    <h1 class="uppercase text-xl font-semibold text-center text-(--secondary-color) mb-2 font-mono">Formulario de registro</h1>
 
     <form
         class="w-full flex flex-col gap-2 lg:grid lg:grid-cols-2 lg:gap-x-4 lg:gap-y-4"

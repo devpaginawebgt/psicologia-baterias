@@ -17,7 +17,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         @vite(['resources/css/app.css', 'resources/css/main.css', 'resources/js/app.js'])
 
         <style>
@@ -31,19 +31,22 @@
     <body class="flex flex-col">
         <x-mary-toast position="toast-top toast-end" />
 
-        <header class="w-full bg-zinc-900 p-3 grid grid-cols-2 lg:grid-cols-3 items-center border-b border-zinc-700 z-30">
+        <header class="fixed top-0 w-full bg-zinc-900 p-3 flex justify-between gap-8 lg:gap-0 lg:grid lg:grid-cols-3 items-center border-b border-zinc-700 z-30">
             <div class="flex items-center gap-2 cursor-default">
                 <img
                     src="{{ $company->logo }}"
                     alt=""
-                    class="max-w-8 aspect-square w-full object-cover rounded-full"
+                    class="max-w-7 aspect-square w-full object-cover rounded-full"
                 >
                 <img
                     src="/logos/Logo FarmaCarex.png"
                     alt=""
-                    class="max-w-8 aspect-square w-full object-cover rounded-full"
+                    class="max-w-7 aspect-square w-full object-cover rounded-full"
                 >
-                <span class="text-sm lg:text-base text-nowrap">{{ $company->name }}</span>
+                <span class="ml-2 text-xs sm:text-sm lg:text-nowrap text-gray-300">
+                    {{-- {{ $company->name }} --}}
+                    Estrategias para mejorar Inteligencia Emocional y Social
+                </span>
             </div>
 
             <div class="hidden lg:flex lg:justify-center">
@@ -94,45 +97,46 @@
                 </button>
             </div>
         </header>
+        
+        <aside class="fixed top-14 left-0 lg:top-0 z-20 w-full lg:max-w-56 -translate-y-[150%] lg:!translate-y-0 lg:min-h-screen transition-all duration-500 ease-in-out" id="sideMenu">
+            <x-mary-menu class="w-full lg:min-w-40 lg:w-max lg:min-h-screen lg:h-full p-4 bg-zinc-900 border-r border-b lg:border-b-0 border-zinc-700 lg:pt-18">
+                @php
+                    $url = request()->path();
+                    $currentBatteryUrl = basename($url);
+                @endphp
 
-        <div class="flex h-full grow">
-            <aside class="fixed top-14 left-0 lg:relative lg:top-0 z-20 w-full lg:w-max -translate-y-[150%] lg:!translate-y-0 transition-all duration-500 ease-in-out" id="sideMenu">
-                <x-mary-menu class="w-full lg:min-w-40 lg:w-max lg:h-full p-4 bg-zinc-900 border-r border-b lg:border-b-0 border-zinc-700">
+                @foreach($batteries as $battery)
                     @php
-                        $url = request()->path();
-                        $currentBatteryUrl = basename($url);
+                        $active = $currentBatteryUrl == $battery->url 
+                            ? 'bg-zinc-700' 
+                            : '';
                     @endphp
-    
-                    @foreach($batteries as $battery)
-                        @php
-                            $active = $currentBatteryUrl == $battery->url 
-                                ? 'bg-zinc-700' 
-                                : '';
-                        @endphp
-                        <x-mary-menu-item
-                            class="-ml-2 {{ $active }}"
-                            href="{{ $battery->url }}"
-                        >
-                            <div class="flex items-center gap-2">
-                                <x-mary-icon
-                                    name="o-clipboard"
-                                    class="w-5"
-                                />
-                                {{ $battery->name }}
-                            </div>
-                        </x-mary-menu-item>
-                    @endforeach
                     <x-mary-menu-item
-                        href="{{ route('batteries.logout') }}"
-                        class="-ml-2 mt-2 lg:hidden"
+                        class="-ml-1 {{ $active }}"
+                        href="{{ $battery->url }}"
                     >
                         <div class="flex items-center gap-2">
-                            <x-mary-icon name="o-arrow-right-on-rectangle" />                        
-                            Salir
-                        </div                        
+                            <x-mary-icon
+                                name="o-clipboard"
+                                class="w-5"
+                            />
+                            {{ $battery->name }}
+                        </div>
                     </x-mary-menu-item>
-                </x-mary-menu>
-            </aside>
+                @endforeach
+                <x-mary-menu-item
+                    href="{{ route('batteries.logout') }}"
+                    class="-ml-1 mt-2 lg:hidden"
+                >
+                    <div class="flex items-center gap-2">
+                        <x-mary-icon name="o-arrow-right-on-rectangle" />                        
+                        Salir
+                    </div                        
+                </x-mary-menu-item>
+            </x-mary-menu>
+        </aside>
+
+        <div class="mt-12 lg:pl-56 w-full">
             {{ $slot }}
         </div>
 
