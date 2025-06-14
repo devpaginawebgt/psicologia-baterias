@@ -136,7 +136,7 @@
             </x-mary-menu>
         </aside>
 
-        <div class="mt-12 lg:pl-56 w-full">
+        <div class="mt-16 min-[344px]:mt-12 lg:pl-56 w-full">
             {{ $slot }}
         </div>
 

@@ -41,7 +41,6 @@
                             wire:model="form.{{ $question['id'] }}"
                             option-label="option_text"
                             option-value="id"
-                            required
                         />
                     @endif
                 @endforeach
