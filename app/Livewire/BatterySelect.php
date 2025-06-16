@@ -6,6 +6,7 @@ use App\Http\Requests\Batteries\BatterySelectRequest;
 use App\Http\Services\BatteryEmployeeService;
 use App\Http\Services\BatteryService;
 use App\Http\Services\CompanyService;
+use App\Http\Services\EmployeeService;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Mary\Traits\Toast;
@@ -15,17 +16,23 @@ class BatterySelect extends Component
     use Toast;
 
     //? Props
+    public $employee;
     public $company;
     public $batteries;
     public $battery;
     public $questions;
-    public $response;
 
+    //? Props
+    public $responded;
+    public $disabledResponse;
     public $form = [];
 
     public function mount(string $slug)
     {
+        $employeeService = app(EmployeeService::class);
         $batteryService = app(BatteryService::class);
+
+        $this->employee  = $employeeService->getById(intval(session('employee_id')));
         $this->battery = $batteryService->getBySlugResource($slug);
 
         // TODO: 404 batteries
@@ -34,16 +41,21 @@ class BatterySelect extends Component
 
         $companyService = app(CompanyService::class);
         $batteryEmployeeService = app(BatteryEmployeeService::class);
+
         // Set configurations
         $this->company = $companyService->getActive();
         $this->batteries = $batteryService->getAll();
-        $this->response = $batteryEmployeeService->getEmployeeResponse($this->battery['id']);
+        $this->responded = $batteryEmployeeService->getEmployeeResponse($this->battery['id']);
         $this->questions = $this->battery['questions'];
 
         // Set form keys
         foreach($this->questions as $question) {
             $this->form[$question['id']] = null;
         };
+
+        $session1 = $this->employee->emotional_social_session;
+        $session2 = $this->employee->emotional_management_session;
+        $this->disabledResponse = $this->responded && (!$session1 || !$session2);
 
         if ($toast = session('toast')) {
             $this->{$toast['type']}(

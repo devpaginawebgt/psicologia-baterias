@@ -26,13 +26,10 @@ class EmployeeConfig extends Component
     public function mount()
     {
         $employeeService = app(EmployeeService::class);
-        $this->employee  = $employeeService->getById(intval(session('employee_id')));
-
-        if (!$this->employee)
-            $employeeService->logout();
-
         $companyService  = app(CompanyService::class);
         $batteryService  = app(BatteryService::class);
+        
+        $this->employee  = $employeeService->getById(intval(session('employee_id')));
         $this->company   = $companyService->getActive();
         $this->batteries = $batteryService->getAll();
         $this->booleans  = $employeeService->getBooleans();

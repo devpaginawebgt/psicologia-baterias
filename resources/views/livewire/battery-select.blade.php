@@ -6,7 +6,7 @@
         separator
         class="relative w-full max-w-160 h-max text-sm bg-zinc-900"
     >
-        @if($response)
+        @if($responded)
             <x-mary-badge
                 value="Respondida"
                 class="badge-success badge-soft absolute -top-3 left-1/2 -translate-x-1/2 sm:top-4 sm:-right-4 sm:left-auto sm:translate-x-0"
@@ -22,8 +22,9 @@
                 <x-mary-button
                     wire:click="startBattery"
                     class="btn-sm btn-soft"
+                    :disabled="$disabledResponse"
                 >
-                    @if($response)
+                    @if($responded)
                         Retomar
                     @else
                         Comenzar    
