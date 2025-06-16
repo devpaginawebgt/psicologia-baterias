@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Http\Requests\EmployeeConfigRequest;
+use App\Http\Requests\Employee\EmployeeConfigRequest;
 use App\Http\Services\BatteryService;
 use App\Http\Services\CompanyService;
 use App\Http\Services\EmployeeService;
@@ -56,6 +56,8 @@ class EmployeeConfig extends Component
             return;
         }
 
+        $this->resetErrorBag();
+        
         $request = new EmployeeConfigRequest();
 
         Validator::make(

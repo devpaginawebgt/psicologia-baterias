@@ -74,6 +74,7 @@ class EmployeeRegister extends Component
 
     //? ----------- Component variables and methods -----------
     public function register() {
+        $this->resetErrorBag();
         $request = new EmployeeRequest();
 
         Validator::make(

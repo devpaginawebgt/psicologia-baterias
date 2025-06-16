@@ -8,6 +8,7 @@ use App\Http\Services\BatteryService;
 use App\Http\Services\CompanyService;
 use App\Http\Services\EmployeeService;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\MessageBag;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
@@ -75,13 +76,27 @@ class BatterySelect extends Component
 
     public function finishBattery()
     {
+        $this->resetErrorBag();
+        
         $request = new BatterySelectRequest();
 
-        Validator::make(
+        $validator = Validator::make(
             ['form' => $this->form],
             $request->rules(),
             $request->messages()
-        )->validate();
+        );
+
+        if ($validator->fails()) {
+            $this->error('Error', 'Por favor responda a todas las preguntas del cuestionario.');
+
+            foreach ($validator->errors()->getMessages() as $field => $messages) {
+                foreach ($messages as $message) {
+                    $this->addError($field, $message);
+                }
+            }
+
+            return;
+        }
 
         $batteryEmployeeService = app(BatteryEmployeeService::class);
         $result = $batteryEmployeeService->saveResponse($this->battery['id'], $this->form);

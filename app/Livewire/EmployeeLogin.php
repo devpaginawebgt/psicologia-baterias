@@ -29,6 +29,8 @@ class EmployeeLogin extends Component
 
     public function login()
     {
+        $this->resetErrorBag();
+        
         $request = new EmployeeLoginRequest();
 
         Validator::make(
