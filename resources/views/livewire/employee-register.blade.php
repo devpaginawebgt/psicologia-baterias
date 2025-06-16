@@ -24,7 +24,7 @@
             <x-mary-input
                 type="text"
                 label="Nombre"
-                placeholder="José Hernández López"
+                placeholder="Fernando José"
                 id="name"
                 wire:model.defer="form.name"
                 icon="o-user"
@@ -39,7 +39,7 @@
             <x-mary-input
                 type="text"
                 label="Apellido"
-                placeholder="José Hernández López"
+                placeholder="Hernández López"
                 id="name"
                 wire:model.defer="form.lastname"
                 icon="o-user"

@@ -43,7 +43,7 @@ class EmployeeRequest extends FormRequest
             'form.branch_number'      => ['required', 'integer', 'max:9999'],
             'form.branch_address'     => ['required', 'string',  'max:75'],
             'form.position'           => ['required', 'string',  Rule::in(EmployeeService::positions())],
-            'form.sales_productivity' => ['required', 'numeric', 'decimal:0,2', 'min:1'],
+            'form.sales_productivity' => ['required', 'numeric', 'decimal:0,2', 'min:1', 'max:999999'],
         ];
     }
 
@@ -58,6 +58,8 @@ class EmployeeRequest extends FormRequest
             'form.diseases.required'       => 'Seleccione una opción del listado',
             'form.diseases.array'          => 'Seleccione una opción del listado',
             'form.diseases.min'            => 'Seleccione una opción del listado',
+            'form.sales_productivity.max'  => 'El campo productividad no debe de ser mayor a Q 999,999.00',
+            'form.sales_productivity.min'  => 'El campo productividad es requerido',
         ];
     }
 }

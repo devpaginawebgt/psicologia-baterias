@@ -98,11 +98,14 @@
             </div>
         </header>
         
-        <aside class="fixed top-14 left-0 lg:top-0 z-20 w-full lg:max-w-56 -translate-y-[150%] lg:!translate-y-0 lg:min-h-screen transition-all duration-500 ease-in-out" id="sideMenu">
+        <aside class="fixed top-14 min-[344px]:top-12 left-0 lg:top-0 z-20 w-full lg:max-w-56 -translate-y-[150%] lg:!translate-y-0 lg:min-h-screen transition-all duration-500 ease-in-out" id="sideMenu">
             <x-mary-menu class="w-full lg:min-w-40 lg:w-max lg:min-h-screen lg:h-full p-4 bg-zinc-900 border-r border-b lg:border-b-0 border-zinc-700 lg:pt-18">
                 @php
                     $url = request()->path();
                     $currentBatteryUrl = basename($url);
+                    $activeConfig = $currentBatteryUrl == 'configuraciones'
+                        ? 'bg-zinc-700' 
+                        : '';
                 @endphp
 
                 @foreach($batteries as $battery)
@@ -112,8 +115,8 @@
                             : '';
                     @endphp
                     <x-mary-menu-item
-                        class="-ml-1 {{ $active }}"
-                        href="{{ $battery->url }}"
+                        class="-ml-2 {{ $active }}"
+                        href="/baterias/{{ $battery->url_type }}/{{ $battery->url }}"
                     >
                         <div class="flex items-center gap-2">
                             <x-mary-icon
@@ -124,9 +127,23 @@
                         </div>
                     </x-mary-menu-item>
                 @endforeach
+
+                <x-mary-menu-item
+                    class="-ml-2 {{ $activeConfig }}"
+                    href="{{ route('batteries.config') }}"
+                >
+                    <div class="flex items-center gap-2">
+                        <x-mary-icon
+                            name="o-cog"
+                            class="w-5"
+                        />
+                        Configuraciones
+                    </div>
+                </x-mary-menu-item>
+
                 <x-mary-menu-item
                     href="{{ route('batteries.logout') }}"
-                    class="-ml-1 mt-2 lg:hidden"
+                    class="-ml-2 mt-2 lg:hidden"
                 >
                     <div class="flex items-center gap-2">
                         <x-mary-icon name="o-arrow-right-on-rectangle" />                        
@@ -136,7 +153,7 @@
             </x-mary-menu>
         </aside>
 
-        <div class="mt-16 min-[344px]:mt-12 lg:pl-56 w-full">
+        <div class="mt-20 min-[344px]:mt-16 lg:mt-16 lg:pl-58 w-full">
             {{ $slot }}
         </div>
 

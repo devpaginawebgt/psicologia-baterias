@@ -98,6 +98,24 @@ class EmployeeService {
         return $employee;
     }
 
+    public function getById(int $id) {
+        return Employee::find($id);
+    }
+
+    public function updateSessions(int $employeeId, array $data) {
+        $employee = Employee::find($employeeId);
+        
+        if (!$employee)
+            $this->logout();
+
+        $update = $employee->update($data);
+
+        return [
+            'update' => $update,
+            'employee' => $employee
+        ];
+    }
+
     public static function getGenres() 
     {
         return [

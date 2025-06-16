@@ -1,4 +1,4 @@
-<main class="w-full p-8 flex justify-center">
+<main class="w-full p-4 flex justify-center">
     <x-mary-card
         title="Escala de {{ $battery['name'] }}"
         subtitle="{{ $battery['description'] }}"
