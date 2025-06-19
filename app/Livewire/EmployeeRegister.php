@@ -77,11 +77,23 @@ class EmployeeRegister extends Component
         $this->resetErrorBag();
         $request = new EmployeeRequest();
 
-        Validator::make(
+        $validator = Validator::make(
             ['form' => $this->form],
             $request->rules(),
             $request->messages()
-        )->validate();
+        );
+
+        if ($validator->fails()) {
+            $this->error('Error', 'Por favor llene todos los campos para registrarse.');
+
+            foreach ($validator->errors()->getMessages() as $field => $messages) {
+                foreach ($messages as $message) {
+                    $this->addError($field, $message);
+                }
+            }
+
+            return;
+        }
 
         $employeeService = app(EmployeeService::class);
         $employeeService->create($this->form);

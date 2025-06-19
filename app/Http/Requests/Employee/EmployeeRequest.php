@@ -55,9 +55,9 @@ class EmployeeRequest extends FormRequest
             'form.phone_number.max_digits' => 'El número de teléfono debe contener 8 dígitos',
             'form.phone_number.exists'     => 'El número de teléfono no existe en nuestros registros, por favor regístrese.',
             'form.phone_number.unique'     => 'Este número de teléfono ya está registrado, inicie sesión.',
-            'form.diseases.required'       => 'Seleccione una opción del listado',
-            'form.diseases.array'          => 'Seleccione una opción del listado',
-            'form.diseases.min'            => 'Seleccione una opción del listado',
+            'form.diseases.required'       => 'Seleccione una o varias opciones del listado',
+            'form.diseases.array'          => 'Seleccione una o varias opciones del listado',
+            'form.diseases.min'            => 'Seleccione una o varias opciones del listado',
             'form.sales_productivity.max'  => 'El campo productividad no debe de ser mayor a Q 999,999.00',
             'form.sales_productivity.min'  => 'El campo productividad es requerido',
         ];

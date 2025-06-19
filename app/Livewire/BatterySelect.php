@@ -37,8 +37,10 @@ class BatterySelect extends Component
         $this->battery = $batteryService->getBySlugResource($slug);
 
         // TODO: 404 batteries
-        if (!$this->battery)
-            dd('Error');
+        if (!$this->battery) {
+            $firstBattery = $batteryService->getFirst();
+            return redirect("/baterias/{$firstBattery['url_type']}/{$firstBattery['url']}");
+        }
 
         $companyService = app(CompanyService::class);
         $batteryEmployeeService = app(BatteryEmployeeService::class);
@@ -108,6 +110,7 @@ class BatterySelect extends Component
 
         $this->success('Guardado', $result['success']);
 
+        $this->responded = true;
         $this->step = 'finished';
     } 
 
