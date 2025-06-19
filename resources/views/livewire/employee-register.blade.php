@@ -13,18 +13,18 @@
 @endphp
 
 <main class="bg-zinc-900 p-6 w-full sm:max-w-[28rem] lg:max-w-[40rem] flex flex-col rounded-sm">
-    <h1 class="uppercase text-xl font-semibold text-center text-(--secondary-color) mb-2">Formulario de registro</h1>
+    <h1 class="uppercase text-xl font-semibold text-center text-(--secondary-color) mb-2 font-mono">Formulario de registro</h1>
 
     <form
         class="w-full flex flex-col gap-2 lg:grid lg:grid-cols-2 lg:gap-x-4 lg:gap-y-4"
         wire:submit="register"
     >
         @csrf
-        <div class="col-span-2">
+        <div>
             <x-mary-input
                 type="text"
-                label="Nombre y Apellidos"
-                placeholder="José Hernández López"
+                label="Nombre"
+                placeholder="Fernando José"
                 id="name"
                 wire:model.defer="form.name"
                 icon="o-user"
@@ -34,6 +34,22 @@
                 maxlength="65"
             />  
         </div>
+        
+        <div>
+            <x-mary-input
+                type="text"
+                label="Apellido"
+                placeholder="Hernández López"
+                id="name"
+                wire:model.defer="form.lastname"
+                icon="o-user"
+                class="w-full"
+                autocomplete
+                required
+                maxlength="65"
+            />  
+        </div>
+
 
         <div>
             <x-mary-input
@@ -142,6 +158,7 @@
                 clearable
                 compact
                 compact-text="seleccionadas"
+                required
             />
         </div>
 
@@ -229,9 +246,12 @@
                 step="0.01"
                 prefix="Q"
                 money
-
             />  
         </div>
+
+        <p class="mt-2 col-span-2 text-sm text-gray-500 text-center">
+            Al concluír el registro regresarás a la página de Inicio y podrás ingresar al sistema con tu número de teléfono.
+        </p>
 
         <div class="col-span-2 w-full flex justify-between items-center">
             <a

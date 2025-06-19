@@ -42,5 +42,15 @@ class BatterySeeder extends Seeder
             'end_message' => 'Gracias por completar el cuestionario.',
             'order' => 3,
         ]);
+
+        Battery::create([
+            'name' => 'Habilidades Sociales',
+            'url_type' => 'seleccionable',
+            'url' => 'habilidades-sociales',
+            'description' => 'A continuación encontrarás una lista de habilidades sociales. Deberás calificar tus habilidades marcando una opción en cada una de las afirmaciones.',
+            'instructions' => 'Haz click en comenzar para responder al cuestionario.',
+            'end_message' => 'Gracias por completar el cuestionario.',
+            'order' => 4,
+        ]);
     }
 }

@@ -1,0 +1,38 @@
+<main class="w-full p-4 flex justify-center">
+    <x-mary-card
+        title="Configuraciones"
+        subtitle="Usuario: {{ $employee->name }} {{ $employee->lastname }}"
+        shadow
+        separator
+        class="relative w-full max-w-160 h-max text-sm bg-zinc-900"
+    >
+        <div class="mb-8">
+            <x-mary-radio
+                label="¿Ha asistido al taller de Taller Inteligencia Emocional y Social?"
+                :options="$booleans"
+                wire:model="form.emotional_social_session"
+                option-label="label"
+                option-value="value"
+                inline
+            />
+        </div>
+
+        <div class="mb-8">
+            <x-mary-radio
+                label="¿Ha asistido al taller de Taller Herramientas para Manejo de Emociones?"
+                :options="$booleans"
+                wire:model="form.emotional_management_session"
+                option-label="label"
+                option-value="value"
+                inline
+            />
+        </div>
+
+        <x-mary-button
+            wire:click="updateSessions"
+            class="btn-sm btn-soft w-max"
+        >
+            Guardar
+        </x-mary-button>
+    </x-mary-card>
+</main>

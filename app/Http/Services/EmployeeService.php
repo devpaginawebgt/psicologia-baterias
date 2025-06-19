@@ -98,6 +98,34 @@ class EmployeeService {
         return $employee;
     }
 
+    public function getById(int $id) {
+        return Employee::find($id);
+    }
+
+    public function updateSessions(int $employeeId, array $data) {
+        $employee = Employee::find($employeeId);
+        
+        if (!$employee)
+            $this->logout();
+
+        $update = $employee->update($data);
+
+        return [
+            'update' => $update,
+            'employee' => $employee
+        ];
+    }
+
+    public function hasCompletedSessions(int $employeeId)
+    {
+        $employee = Employee::find($employeeId);
+
+        $session1 = $employee->emotional_social_session;
+        $session2 = $employee->emotional_management_session;
+
+        return ($session1 && $session2);
+    }
+
     public static function getGenres() 
     {
         return [

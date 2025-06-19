@@ -33,5 +33,18 @@ class BatteryCategorySeeder extends Seeder
         foreach($happinessCategories as $category) {
             BatteryCategory::create($category);
         }
+
+        $socialSkillsCategories = [
+            [ 'battery_id' => 4, 'name' => 'Primeras habilidades sociales' ],
+            [ 'battery_id' => 4, 'name' => 'Habilidades sociales avanzadas' ],
+            [ 'battery_id' => 4, 'name' => 'Habilidades relacionadas con los sentimientos' ],
+            [ 'battery_id' => 4, 'name' => 'Habilidades alternativas a la agresión.' ],
+            [ 'battery_id' => 4, 'name' => 'Habilidades para hacer frente al estrés.' ],
+            [ 'battery_id' => 4, 'name' => 'Habilidades de Planificación' ],
+        ];
+
+        foreach($socialSkillsCategories as $category) {
+            BatteryCategory::create($category);
+        }
     }
 }

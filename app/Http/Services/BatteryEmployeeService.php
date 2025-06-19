@@ -67,6 +67,46 @@ class BatteryEmployeeService {
 
         return ['success' => 'Respuesta guardada correctamente.'];
     }
+
+    public function hasRespondedTwice(int $employeeId, int $batteryId): bool
+    {
+        $batteryCounts = BatteryEmployee::where('employee_id', $employeeId)
+            ->where('battery_id', $batteryId)
+            ->count();
+
+        return $batteryCounts >= 2;
+    }
+
+    public function hasRespondedAllTwice(int $employeeId): bool
+    {
+        $batteryCounts = BatteryEmployee::where('employee_id', $employeeId)
+            ->selectRaw('battery_id, COUNT(*) as responses')
+            ->groupBy('battery_id')
+            ->pluck('responses', 'battery_id')
+            ->toArray();
+
+        $allBatteryIds = Battery::pluck('id')->toArray();
+
+        foreach ($allBatteryIds as $batteryId) {
+            if (!isset($batteryCounts[$batteryId]) || $batteryCounts[$batteryId] < 2) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public function hasRespondedAll(int $employeeId): bool
+    {
+        $allBatteryIds = Battery::pluck('id')->toArray();
+
+        $respondedBatteryIds = BatteryEmployee::where('employee_id', $employeeId)
+            ->distinct()
+            ->pluck('battery_id')
+            ->toArray();
+
+        return empty(array_diff($allBatteryIds, $respondedBatteryIds));
+    }
 }
 
 ?>

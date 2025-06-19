@@ -45,6 +45,7 @@ class EmployeeRegister extends Component
 
         $this->form = [
             'name'               => '',
+            'lastname'           => '',
             'phone_number'       => '',
             'genre'              => 'Masculino',
             'academic_level'     => 'Primaria',
@@ -73,13 +74,26 @@ class EmployeeRegister extends Component
 
     //? ----------- Component variables and methods -----------
     public function register() {
+        $this->resetErrorBag();
         $request = new EmployeeRequest();
 
-        Validator::make(
+        $validator = Validator::make(
             ['form' => $this->form],
             $request->rules(),
             $request->messages()
-        )->validate();
+        );
+
+        if ($validator->fails()) {
+            $this->error('Error', 'Por favor llene todos los campos para registrarse.');
+
+            foreach ($validator->errors()->getMessages() as $field => $messages) {
+                foreach ($messages as $message) {
+                    $this->addError($field, $message);
+                }
+            }
+
+            return;
+        }
 
         $employeeService = app(EmployeeService::class);
         $employeeService->create($this->form);

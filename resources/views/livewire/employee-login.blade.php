@@ -13,7 +13,7 @@
             wire:submit='login'
         >
             @csrf
-            <h1 class="uppercase text-xl font-semibold text-center text-(--secondary-color)">Ingreso</h1>
+            <h1 class="uppercase text-xl font-semibold text-center text-(--secondary-color) font-mono">Ingreso</h1>
         
             <div class="mb-2">
                 <x-mary-input
@@ -34,13 +34,17 @@
             >
                 Ingresar
             </x-mary-button>
-    
-            <a
-                href="{{ route('auth.form') }}"
-                class="text-sm mx-auto hover:text-white text-(--secondary-color)" 
-            >
-                Registrarse
-            </a>
+
+            <p class="text-sm text-gray-400 text-center">
+                Si estás accediendo por primera vez, deberás
+                <a
+                    href="{{ route('auth.form') }}"
+                    class="hover:text-white text-(--secondary-color) transition-all duration-200 ease-in-out"
+                >
+                registrarte
+                </a>.
+            </p>
+
         </form>
     </main>
 </div>

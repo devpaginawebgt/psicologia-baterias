@@ -1106,5 +1106,822 @@ class QuestionSeeder extends Seeder
                 QuestionOption::create($option);
             }
         }
+
+        $socialSkillsQuestions = [
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 8,
+                'question_type_id' => 1,
+                'question' => 'Prestas atención a la persona que te está hablando y haces un esfuerzo para comprender lo que te están diciendo.',
+                'points' => 5,
+                'order' => 1,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 8,
+                'question_type_id' => 1,
+                'question' => 'Inicias una conversación con otras personas y luego puedes mantenerla por un momento.',
+                'points' => 5,
+                'order' => 2,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 8,
+                'question_type_id' => 1,
+                'question' => 'Hablas con otras personas sobre cosas que interesan a ambos.',
+                'points' => 5,
+                'order' => 3,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 8,
+                'question_type_id' => 1,
+                'question' => 'Eliges la información que necesitas saber y se la pides a la persona adecuada.',
+                'points' => 5,
+                'order' => 4,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 8,
+                'question_type_id' => 1,
+                'question' => 'Dices a los demás que tú estás agradecida(o) con ellos por algo que hicieron por ti.',
+                'points' => 5,
+                'order' => 5,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 8,
+                'question_type_id' => 1,
+                'question' => 'Te esfuerzas por conocer nuevas personas por propia iniciativa.',
+                'points' => 5,
+                'order' => 6,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 8,
+                'question_type_id' => 1,
+                'question' => 'Presentas a nuevas personas con otros(as).',
+                'points' => 5,
+                'order' => 7,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 8,
+                'question_type_id' => 1,
+                'question' => 'Dices a los demás lo que te gusta de ellos o de lo que hacen.',
+                'points' => 5,
+                'order' => 8,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 9,
+                'question_type_id' => 1,
+                'question' => 'Pides ayuda cuando la necesitas.',
+                'points' => 5,
+                'order' => 9,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 9,
+                'question_type_id' => 1,
+                'question' => 'Te integras a un grupo para participar en una determinada actividad.',
+                'points' => 5,
+                'order' => 10,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 9,
+                'question_type_id' => 1,
+                'question' => 'Explicas con claridad a los demás cómo hacer una tarea específica.',
+                'points' => 5,
+                'order' => 11,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 9,
+                'question_type_id' => 1,
+                'question' => 'Prestas atención a las instrucciones, pides explicaciones y llevas adelante las instrucciones correctamente.',
+                'points' => 5,
+                'order' => 12,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 9,
+                'question_type_id' => 1,
+                'question' => 'Pides disculpas a los demás cuando has hecho algo que sabes que está mal.',
+                'points' => 5,
+                'order' => 13,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 9,
+                'question_type_id' => 1,
+                'question' => 'Intentas persuadir a los demás de que tus ideas son mejores y que serán de mayor utilidad que las de las otras personas.',
+                'points' => 5,
+                'order' => 14,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 10,
+                'question_type_id' => 1,
+                'question' => 'Intentas comprender y reconocer las emociones que experimentas.',
+                'points' => 5,
+                'order' => 15,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 10,
+                'question_type_id' => 1,
+                'question' => 'Permites que los demás conozcan lo que sientes.',
+                'points' => 5,
+                'order' => 16,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 10,
+                'question_type_id' => 1,
+                'question' => 'Intentas comprender lo que sienten los demás.',
+                'points' => 5,
+                'order' => 17,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 10,
+                'question_type_id' => 1,
+                'question' => 'Intentas comprender el enfado de las otras personas.',
+                'points' => 5,
+                'order' => 18,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 10,
+                'question_type_id' => 1,
+                'question' => 'Permites que los demás sepan que tú te interesas o te preocupas por ellos.',
+                'points' => 5,
+                'order' => 19,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 10,
+                'question_type_id' => 1,
+                'question' => 'Cuándo sientes miedo, piensas por qué lo sientes, y luego intentas hacer algo para disminuirlo.',
+                'points' => 5,
+                'order' => 20,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 10,
+                'question_type_id' => 1,
+                'question' => 'Te das a ti misma(o) una recompensa después de hacer algo bien.',
+                'points' => 5,
+                'order' => 21,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 11,
+                'question_type_id' => 1,
+                'question' => 'Sabes cuándo es necesario pedir permiso para hacer algo y luego se lo pides a la persona indicada.',
+                'points' => 5,
+                'order' => 22,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 11,
+                'question_type_id' => 1,
+                'question' => 'Compartes tus cosas con los demás.',
+                'points' => 5,
+                'order' => 23,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 11,
+                'question_type_id' => 1,
+                'question' => 'Ayudas a quien lo necesita.',
+                'points' => 5,
+                'order' => 24,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 11,
+                'question_type_id' => 1,
+                'question' => 'Si tú y alguien están en desacuerdo sobre algo, tratas de llegar a un acuerdo que satisfaga a ambos.',
+                'points' => 5,
+                'order' => 25,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 11,
+                'question_type_id' => 1,
+                'question' => 'Controlas tu carácter de modo que no se te escapan las cosas de la mano.',
+                'points' => 5,
+                'order' => 26,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 11,
+                'question_type_id' => 1,
+                'question' => 'Defiendes tus derechos dando a conocer a los demás cuál es tu punto de vista.',
+                'points' => 5,
+                'order' => 27,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 11,
+                'question_type_id' => 1,
+                'question' => 'Conservas el control cuando los demás te hacen bromas.',
+                'points' => 5,
+                'order' => 28,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 11,
+                'question_type_id' => 1,
+                'question' => 'Te mantienes al margen de situaciones que te pueden ocasionar problemas.',
+                'points' => 5,
+                'order' => 29,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 11,
+                'question_type_id' => 1,
+                'question' => 'Encuentras otras formas para resolver situaciones difíciles sin tener que pelearte.',
+                'points' => 5,
+                'order' => 30,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 12,
+                'question_type_id' => 1,
+                'question' => 'Le dices a los demás de modo claro, pero no con enfado, cuando ellos han hecho algo que no te gusta.',
+                'points' => 5,
+                'order' => 31,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 12,
+                'question_type_id' => 1,
+                'question' => 'Intentas escuchar a los demás y responder imparcialmente cuando ellos se quejan por ti.',
+                'points' => 5,
+                'order' => 32,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 12,
+                'question_type_id' => 1,
+                'question' => 'Expresas un halago sincero a los demás por la forma en que han jugado.',
+                'points' => 5,
+                'order' => 33,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 12,
+                'question_type_id' => 1,
+                'question' => 'Haces algo que te ayude a sentir menos vergüenza o a estar menos cohibido(a).',
+                'points' => 5,
+                'order' => 34,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 12,
+                'question_type_id' => 1,
+                'question' => 'Determinas si te han dejado de lado en alguna actividad y, luego, haces algo para sentirte mejor en esa situación.',
+                'points' => 5,
+                'order' => 35,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 12,
+                'question_type_id' => 1,
+                'question' => 'Manifiestas a los demás cuando sientes que una amiga no ha sido tratada de manera justa.',
+                'points' => 5,
+                'order' => 36,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 12,
+                'question_type_id' => 1,
+                'question' => 'Si alguien está tratando de convencerte de algo, piensas en la posición de esa persona y luego en la propia antes de decidir qué hacer.',
+                'points' => 5,
+                'order' => 37,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 12,
+                'question_type_id' => 1,
+                'question' => 'Intentas comprender la razón por la cual has fracasado en una situación particular.',
+                'points' => 5,
+                'order' => 38,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 12,
+                'question_type_id' => 1,
+                'question' => 'Reconoces y resuelves la confusión que te produce cuando los demás te explican una cosa, pero dicen y hacen otra.',
+                'points' => 5,
+                'order' => 39,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 12,
+                'question_type_id' => 1,
+                'question' => 'Comprendes de qué y por qué has sido acusada(o) y luego piensas en la mejor forma de relacionarte con la persona que hizo la acusación.',
+                'points' => 5,
+                'order' => 40,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 12,
+                'question_type_id' => 1,
+                'question' => 'Planificas la mejor forma para exponer tu punto de vista antes de una conversación problemática.',
+                'points' => 5,
+                'order' => 41,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 12,
+                'question_type_id' => 1,
+                'question' => 'Decides lo que quieres hacer cuando los demás quieren que hagas otra cosa distinta.',
+                'points' => 5,
+                'order' => 42,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 13,
+                'question_type_id' => 1,
+                'question' => 'Si te sientes aburrida(o), intentas encontrar algo interesante que hacer.',
+                'points' => 5,
+                'order' => 43,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 13,
+                'question_type_id' => 1,
+                'question' => 'Si surge un problema, intentas determinar qué lo causó.',
+                'points' => 5,
+                'order' => 44,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 13,
+                'question_type_id' => 1,
+                'question' => 'Tomas decisiones realistas sobre lo que te gustaría realizar antes de comenzar una tarea.',
+                'points' => 5,
+                'order' => 45,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 13,
+                'question_type_id' => 1,
+                'question' => 'Determinas de manera realista qué tan bien podrías realizar antes de comenzar una tarea.',
+                'points' => 5,
+                'order' => 46,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 13,
+                'question_type_id' => 1,
+                'question' => 'Determinas lo que necesitas saber y cómo conseguir la información.',
+                'points' => 5,
+                'order' => 47,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 13,
+                'question_type_id' => 1,
+                'question' => 'Determinas de forma realista cuál de tus numerosos problemas es el más importante y cuál debería solucionarse primero.',
+                'points' => 5,
+                'order' => 48,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 13,
+                'question_type_id' => 1,
+                'question' => 'Analizas entre varias posibilidades y luego eliges la que te hará sentirte mejor.',
+                'points' => 5,
+                'order' => 49,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+            [
+                'battery_id' => 4,
+                'battery_category_id' => 13,
+                'question_type_id' => 1,
+                'question' => 'Eres capaz de ignorar distracciones y solo prestas atención a lo que quieres hacer.',
+                'points' => 5,
+                'order' => 50,
+                'is_active' => true,
+                'options' => [
+                    [ 'option_text' => 'Nunca',           'points' => 1 ],
+                    [ 'option_text' => 'Muy pocas veces', 'points' => 2 ],
+                    [ 'option_text' => 'Alguna vez',      'points' => 3 ],
+                    [ 'option_text' => 'A menudo',        'points' => 4 ],
+                    [ 'option_text' => 'Siempre',         'points' => 5 ],
+                ]
+            ],
+        ];
+
+        foreach($socialSkillsQuestions as $question) {
+            $options = $question['options'];
+            unset($question['options']);
+
+            $dbQuestion = Question::create($question);
+
+            foreach($options as $index => $option) {
+                $option['question_id'] = $dbQuestion->id;
+                $option['order'] = $index + 1;
+
+                QuestionOption::create($option);
+            }
+        }
     }
 }
