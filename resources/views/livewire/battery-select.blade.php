@@ -34,10 +34,10 @@
 
         @elseif ($step === 'questions')
             <div class="flex flex-col gap-6">
-                @foreach($questions as $question)
+                @foreach($questions as $index => $question)
                     @if($question['type'] === 'select')
                         <x-mary-radio
-                            label="{{ $question['question'] }}"
+                            label="{{ $index + 1 }}. {{ $question['question'] }}"
                             :options="$question['options']"
                             wire:model="form.{{ $question['id'] }}"
                             option-label="option_text"
