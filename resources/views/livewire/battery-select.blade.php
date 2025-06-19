@@ -58,10 +58,22 @@
             <div>
                 <p>{{ $battery['end_message'] }}</p>
 
-                <x-mary-button wire:click="nextBattery" class="btn-sm btn-soft mt-4">
+                <x-mary-button
+                    wire:click="nextBattery"
+                    class="btn-sm btn-soft mt-4"
+                    :disabled="$disabledNext"
+                >
                     Siguiente Escala
                 </x-mary-button>
             </div>
         @endif
     </x-mary-card>
+
+    <x-mary-modal wire:model="modalRespondedAll" title="Completado" class="backdrop-blur">
+        ¡Gracias por completar todos los cuestionarios! Pronto se te notificará el siguiente paso.
+    </x-mary-modal>
+
+    <x-mary-modal wire:model="modalRespondedAllTwice" title="Completado" class="backdrop-blur">
+        ¡Gracias por completar todos los cuestionarios! Pronto se te mostrarán tus resultados.
+    </x-mary-modal>
 </main>

@@ -116,6 +116,16 @@ class EmployeeService {
         ];
     }
 
+    public function hasCompletedSessions(int $employeeId)
+    {
+        $employee = Employee::find($employeeId);
+
+        $session1 = $employee->emotional_social_session;
+        $session2 = $employee->emotional_management_session;
+
+        return ($session1 && $session2);
+    }
+
     public static function getGenres() 
     {
         return [

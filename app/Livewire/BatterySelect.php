@@ -28,6 +28,11 @@ class BatterySelect extends Component
     public $disabledResponse;
     public $form = [];
 
+    public $completedSessions = false;
+    public $modalRespondedAll = false;
+    public $modalRespondedAllTwice = false;
+    public $disabledNext = false;
+
     public function mount(string $slug)
     {
         $employeeService = app(EmployeeService::class);
@@ -56,9 +61,10 @@ class BatterySelect extends Component
             $this->form[$question['id']] = null;
         };
 
-        $session1 = $this->employee->emotional_social_session;
-        $session2 = $this->employee->emotional_management_session;
-        $this->disabledResponse = $this->responded && (!$session1 || !$session2);
+        $this->completedSessions = $employeeService->hasCompletedSessions($this->employee->id);
+        $respondedTwice = $batteryEmployeeService->hasRespondedTwice($this->employee->id, $this->battery['id']);
+
+        $this->disabledResponse = ($respondedTwice || $this->responded && !$this->completedSessions);
 
         if ($toast = session('toast')) {
             $this->{$toast['type']}(
@@ -111,7 +117,27 @@ class BatterySelect extends Component
         $this->success('Guardado', $result['success']);
 
         $this->responded = true;
+
+        $hasRespondedAllTwice = $batteryEmployeeService->hasRespondedAllTwice($this->employee->id);
+
+        if ($hasRespondedAllTwice) {
+            $this->modalRespondedAllTwice = true;
+            $this->disabledNext = true;
+            $this->step = 'finished';
+            return;
+        }
+
+        $hasRespondedAll = $batteryEmployeeService->hasRespondedAll($this->employee->id);
+
+        if ($hasRespondedAll && !$this->completedSessions) {
+            $this->modalRespondedAll = true;
+            $this->disabledNext = true;
+            $this->step = 'finished';
+            return;
+        }
+
         $this->step = 'finished';
+        return;
     } 
 
     public function nextBattery()
