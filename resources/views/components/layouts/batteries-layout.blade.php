@@ -36,12 +36,12 @@
                 <img
                     src="{{ $company->logo }}"
                     alt=""
-                    class="max-w-7 aspect-square w-full object-cover rounded-full"
+                    class="max-w-8 sm:max-w-9 aspect-square w-full object-cover rounded-full"
                 >
                 <img
                     src="/logos/Logo FarmaCarex.png"
                     alt=""
-                    class="max-w-7 aspect-square w-full object-cover rounded-full"
+                    class="max-w-8 sm:max-w-9 aspect-square w-full object-cover rounded-full"
                 >
                 <span class="ml-2 text-xs sm:text-sm lg:text-nowrap text-gray-300">
                     {{-- {{ $company->name }} --}}
@@ -53,7 +53,7 @@
                 <img
                     src="/logos/logo-psicolasa.png"
                     alt=""
-                    class="w-full max-w-8 object-contain aspect-square rounded-full scale-125"
+                    class="w-full max-w-8 sm:max-w-9 object-contain aspect-square rounded-full scale-125"
                 >
             </div>
 
@@ -87,7 +87,7 @@
                 <img
                     src="/logos/logo-psicolasa.png"
                     alt=""
-                    class="w-full max-w-6 object-contain aspect-square rounded-full scale-125"
+                    class="w-full max-w-8 object-contain aspect-square rounded-full scale-125"
                 >
                 <button
                     type="button"
@@ -98,7 +98,7 @@
             </div>
         </header>
         
-        <aside class="fixed top-14 min-[344px]:top-12 left-0 lg:top-0 z-20 w-full lg:max-w-56 -translate-y-[150%] lg:!translate-y-0 lg:min-h-screen transition-all duration-500 ease-in-out" id="sideMenu">
+        <aside class="fixed top-14 min-[366px]:top-12 left-0 lg:top-0 z-20 w-full lg:max-w-56 -translate-y-[150%] lg:!translate-y-0 lg:min-h-screen transition-all duration-500 ease-in-out" id="sideMenu">
             <x-mary-menu class="w-full lg:min-w-40 lg:w-max lg:min-h-screen lg:h-full p-4 bg-zinc-900 border-r border-b lg:border-b-0 border-zinc-700 lg:pt-18">
                 @php
                     $url = request()->path();
@@ -153,7 +153,7 @@
             </x-mary-menu>
         </aside>
 
-        <div class="mt-20 min-[344px]:mt-16 lg:mt-16 lg:pl-58 w-full">
+        <div class="mt-20 min-[357px]:mt-16 lg:mt-16 lg:pl-58 w-full">
             {{ $slot }}
         </div>
 
