@@ -249,6 +249,10 @@
             />  
         </div>
 
+        <p class="mt-2 col-span-2 text-sm text-gray-500 text-center">
+            Al concluír el registro regresarás a la página de Inicio y podrás ingresar al sistema con tu número de teléfono.
+        </p>
+
         <div class="col-span-2 w-full flex justify-between items-center">
             <a
                 href="{{ route('auth.index') }}"
