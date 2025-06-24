@@ -96,3 +96,13 @@ select:focus[data-flux-control] {
 .mary-table-pagination button {
     @apply cursor-pointer
 }
+
+/* Overwrite btn styles */
+.btn:is(:disabled, [disabled], .btn-disabled):not(.btn-link, .btn-ghost) {
+    background-color: oklch(25.33% 0.016 252.42);
+    opacity: 0.9;
+}
+
+.badge.badge-success {
+    background-color: oklch(25.33% 0.016 252.42);
+}
