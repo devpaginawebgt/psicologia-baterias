@@ -21,18 +21,18 @@ class EmployeeSeeder extends Seeder
             'phone_number' => '12345678',
             'birthdate' => Carbon::now()->subYears(30),
             'genre' => 'Masculino',
-            'division_id' => 1,
+            'division_id' => null,
             'academic_level' => 'Preparatoria',
             'marital_status' => 'Casado',
             'children' => 0,
             'people_depending' => 0,
             'transportation' => 'Auto',
             'hiring_date' => Carbon::now()->subMonths(8),
-            'shift' => 'Matutino',
-            'branch_number' => 2,
-            'branch_address' => 'Ciudad de México',
+            'shift' => null,
+            'branch_division_id' => 1,
+            'branch_subdivision_id' => 1,
             'position' => 'Dependiente',
-            'sales_productivity' => 2500.20,
+            'sales_productivity' => 30,
         ]);
     }
 }

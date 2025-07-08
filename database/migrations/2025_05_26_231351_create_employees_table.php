@@ -13,22 +13,35 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->constrained()->onUpdate('cascade')->onDelete('cascade');;
+
+            $table->foreignId('company_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
             $table->string('name');
             $table->string('lastname');
             $table->string('phone_number');
             $table->date('birthdate');
             $table->enum('genre', ['Masculino', 'Femenino']);
-            $table->foreignId('division_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
+            
+            $table->foreignId('division_id')
+                ->nullable()
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
             $table->enum('academic_level', ['Primaria', 'Secundaria', 'Preparatoria', 'Universidad', 'Posgrado']);
             $table->enum('marital_status', ['Soltero', 'Casado', 'Divorciado', 'Viudo', 'Union libre']);
             $table->integer('children');
             $table->integer('people_depending');
             $table->enum('transportation', ['Auto', 'Transporte Publico']);
             $table->date('hiring_date');
-            $table->enum('shift', ['Matutino', 'Vespertino', 'Nocturno', 'Mixto']);
-            $table->integer('branch_number');
-            $table->string('branch_address');
+            $table->enum('shift', ['Matutino', 'Vespertino', 'Nocturno', 'Mixto'])->nullable();
+            $table->unsignedBigInteger('branch_division_id');
+            $table->foreign('branch_division_id')->references('id')->on('divisions');
+            $table->unsignedBigInteger('branch_subdivision_id');
+            $table->foreign('branch_subdivision_id')->references('id')->on('subdivisions');
             $table->enum('position', ['Dependiente', 'Administrativo']);
             $table->decimal('sales_productivity', 8, 2);
             $table->boolean('emotional_social_session')->default(false);
