@@ -2,64 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subdivision;
+use App\Http\Services\SubdivisionService;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class SubdivisionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+    public function __construct(
+        private SubdivisionService $subdivisionService
+    ) {}
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    public function getByDivision(Request $request)
+    {        
+        $division_id = (int)$request->input('division');
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if (!$division_id)
+            return response()->json(['error' => 'No se encontró el departamento'], 422);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Subdivision $subdivision)
-    {
-        //
-    }
+        $subdivisions = $this->subdivisionService->getByDivision($division_id);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Subdivision $subdivision)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Subdivision $subdivision)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Subdivision $subdivision)
-    {
-        //
+        return response()->json([
+            'subdivisions' => $subdivisions
+        ]);   
     }
 }

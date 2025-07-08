@@ -6,6 +6,7 @@ use App\Http\Requests\Employee\EmployeeRequest;
 use App\Http\Services\DiseaseService;
 use App\Http\Services\DivisionService;
 use App\Http\Services\EmployeeService;
+use App\Http\Services\SubdivisionService;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Mary\Traits\Toast;
@@ -24,13 +25,15 @@ class EmployeeRegister extends Component
     public $positions;
     public $booleans;
     public $country;
-    public $divisions; 
+    public $divisions;
+    public $subdivisions;
     public $form;
 
     public function mount()
     {
         $diseaseService  = app(DiseaseService::class);
         $divisionService = app(DivisionService::class);
+        $subdivisionService = app(SubdivisionService::class);
 
         $this->genres          = EmployeeService::getGenres();
         $this->academicLevels  = EmployeeService::getAcademicLevels();
@@ -41,27 +44,26 @@ class EmployeeRegister extends Component
         $this->booleans        = EmployeeService::getBooleans();
         $this->country         = 1;
         $this->diseases        = $diseaseService->getAll();
-        $this->divisions       = $divisionService->getByCountry($this->country)->toArray();
+        $this->divisions       = $divisionService->getByCountry(1);
+        $this->subdivisions    = $subdivisionService->getByDivision(1);
 
         $this->form = [
-            'name'               => '',
-            'lastname'           => '',
-            'phone_number'       => '',
-            'genre'              => 'Masculino',
-            'academic_level'     => 'Primaria',
-            'birthdate'          => '',
-            'division_id'        => 1,
-            'marital_status'     => 'Soltero',
-            'children'           => null,
-            'people_depending'   => null,
-            'diseases'           => [],
-            'transportation'     => 'Auto',
-            'hiring_date'        => '',
-            'shift'              => 'Matutino',
-            'branch_number'      => '',
-            'branch_address'     => '',
-            'position'           => 'Dependiente',
-            'sales_productivity' => null,
+            'name'                  => '',
+            'lastname'              => '',
+            'phone_number'          => '',
+            'genre'                 => 'Masculino',
+            'academic_level'        => 'Primaria',
+            'birthdate'             => '',
+            'marital_status'        => 'Soltero',
+            'children'              => null,
+            'people_depending'      => null,
+            'diseases'              => [],
+            'transportation'        => 'Auto',
+            'hiring_date'           => '',
+            'branch_division_id'    => null,
+            'branch_subdivision_id' => null,
+            'position'              => 'Dependiente',
+            'sales_productivity'    => null,
         ];
 
         if ($toast = session('toast')) {
@@ -73,6 +75,7 @@ class EmployeeRegister extends Component
     }
 
     //? ----------- Component variables and methods -----------
+
     public function register() {
         $this->resetErrorBag();
         $request = new EmployeeRequest();

@@ -152,6 +152,8 @@ return [
     */
 
     'attributes' => [
+        'division'                => 'departamento',
+
         'form.name'               => 'nombre',
         'form.phone_number'       => 'teléfono',
         'form.genre'              => 'género',

@@ -1,8 +1,16 @@
 <?php
 
+use App\Http\Controllers\SubdivisionController;
 use Illuminate\Support\Facades\Route;
 
-// Index
+// Rutas públicas
+Route::controller(SubdivisionController::class)
+->prefix('/subdivisiones')
+->as('subdivisions')
+->group(function() {
+    Route::get('', 'getByDivision')->name('index');
+});
+
 Route::get('/', function() {
     return redirect()->route('auth.index');
 });
@@ -14,11 +22,3 @@ require __DIR__.'/auth.php';
 Route::group([], function() {
     require __DIR__.'/batteries.php';
 }); 
-
-
-
-//? Default routes
-// Route::view('dashboard', 'dashboard')
-//     ->middleware(['auth', 'verified'])
-//     ->name('dashboard');
-
