@@ -56,10 +56,7 @@ class EmployeeLogin extends Component
             'type'        => 'success',
         ]);
 
-        $batteryService = app(BatteryService::class);
-        $battery = $batteryService->getFirst();
-
-        return redirect("/baterias/{$battery['url_type']}/{$battery['url']}");
+        return redirect()->route('batteries.home');
     }
 
     public function render()

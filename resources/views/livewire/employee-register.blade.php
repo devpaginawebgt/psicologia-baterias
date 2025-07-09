@@ -91,7 +91,7 @@
             />
         </div>
         
-        <div>
+        {{-- <div>
             <x-mary-select
                 label="Lugar de nacimiento"
                 :options="$divisions"
@@ -100,7 +100,7 @@
                 wire:model="form.division_id"
                 required
             />
-        </div>
+        </div> --}}
 
         <div>
             <x-mary-select
@@ -186,7 +186,7 @@
             />
         </div>
 
-        <div>
+        {{-- <div>
             <x-mary-select
                 label="Turno de trabajo"
                 :options="$shifts"
@@ -196,30 +196,27 @@
                 wire:model="form.shift"
                 required
             />
+        </div> --}}
+
+        <div>
+            <x-mary-select
+                label="Departamento de Sucursal"
+                :options="$divisions"
+                id="branch_division"
+                wire:model="form.branch_division_id"
+                class="division"
+                required
+            />
         </div>
 
         <div>
-            <x-mary-input
-                type="number"
-                label="No. de Sucursal"
-                placeholder="120"
-                id="branch_number"
-                wire:model.defer="form.branch_number"
+            <x-mary-select
+                label="Municipio de Sucursal"
+                :options="$subdivisions"
+                id="branch_subdivision"
+                wire:model="form.branch_subdivision_id"
                 required
-                max="9999"
-            />  
-        </div>
-
-        <div>
-            <x-mary-input
-                type="text"
-                label="Dirección de Sucursal"
-                placeholder="Calle 8 No. 9"
-                id="branch_address"
-                wire:model.defer="form.branch_address"
-                maxlength="75"
-                required
-            />  
+            />
         </div>
 
         <div>
@@ -238,13 +235,14 @@
             <x-mary-input
                 type="number"
                 label="Productividad"
-                placeholder="500.00"
+                placeholder="20"
                 id="sales_productivity"
                 wire:model.defer="form.sales_productivity"
                 required
                 min="1"
+                max="100"
                 step="0.01"
-                prefix="Q"
+                suffix="%"
                 money
             />  
         </div>
@@ -269,4 +267,83 @@
             </x-mary-button>
         </div>
     </form>
+
+    <x-mary-modal
+        wire:model="dataModal"
+        title="Declaración de Consentimiento"
+        class="backdrop-blur"
+        persistent
+        separator
+    >
+        <div>
+            <p class="mb-4">
+                Por favor lee con atención el documento 
+                <a href="/materiales/Consentimiento.pdf" target="_blank" class="text-(--secondary-color)">
+                    Consentimiento Informado
+                </a>
+                donde se explican los aspectos relacionados al uso que se dará a los datos recabados.
+            </p>
+
+            <p>
+                Al hacer click en el botón 'Aceptar', confirmas haber leído y entendido el documento de 
+                consentimiento y consientes participar en el presente proyecto.
+            </p>
+        </div>
+
+        <x-slot:actions>
+            <div class="w-full flex justify-center items-center gap-3">
+                <x-mary-button
+                    class="btn-soft btn-modal"
+                    wire:click="acceptDataModal"
+                >
+                    Acepto
+                </x-mary-button>
+
+
+                <x-mary-button
+                    class="btn-soft btn-modal"
+                    wire:click="rejectDataModal"
+                >
+                    No Acepto
+                </x-mary-button>
+            </div>
+        </x-slot:actions>
+    </x-mary-modal>
 </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const divisionSelect    = document.querySelector('[id$="form.branch_division_id"]');
+        const subdivisionSelect = document.querySelector('[id$="form.branch_subdivision_id"]');
+
+        divisionSelect.addEventListener('change', async function() {
+            divisionSelect.setAttribute('disabled', true);
+            subdivisionSelect.setAttribute('disabled', true);
+            subdivisionSelect.innerHTML = '';
+            const response = await fetch(`/subdivisiones?division=${divisionSelect.value}`);
+
+            if (response.ok) {
+                const { subdivisions } = await response.json();
+
+                subdivisions.forEach(subdivision => {
+                    const option = document.createElement('option');
+                    option.value = subdivision.id;
+                    option.textContent = subdivision.name;
+                    subdivisionSelect.appendChild(option);
+                });
+            } else {
+                alert('Error al obtener los municipios, contacte a Soporte.');
+            }
+
+            divisionSelect.removeAttribute('disabled');
+            subdivisionSelect.removeAttribute('disabled');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.btn-modal')) {
+                document.querySelectorAll('.btn-modal')
+                    .forEach(button => button.disabled = true);
+            }
+        });
+    });
+</script>

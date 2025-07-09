@@ -26,12 +26,13 @@ class Employee extends Model
         'transportation',
         'hiring_date',
         'shift',
-        'branch_number',
-        'branch_address',
+        'branch_division_id',
+        'branch_subdivision_id',
         'position',
         'sales_productivity',
         'emotional_social_session',
         'emotional_management_session',
+        'informed_consent'
     ];
 
     public function diseases(): BelongsToMany

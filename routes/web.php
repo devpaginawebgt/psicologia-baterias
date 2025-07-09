@@ -1,24 +1,22 @@
 <?php
 
+use App\Http\Controllers\SubdivisionController;
+use App\Http\Middleware\EmployeeTokenIsValid;
 use Illuminate\Support\Facades\Route;
 
-// Index
-Route::get('/', function() {
-    return redirect()->route('auth.index');
-});
+// Resources routes
+require __DIR__.'/resources.php';
 
 // Auth routes
 require __DIR__.'/auth.php';
 
 // Signed in routes
-Route::group([], function() {
+Route::middleware(EmployeeTokenIsValid::class)
+->group(function() {
     require __DIR__.'/batteries.php';
 }); 
 
-
-
-//? Default routes
-// Route::view('dashboard', 'dashboard')
-//     ->middleware(['auth', 'verified'])
-//     ->name('dashboard');
-
+// Fallback route
+Route::fallback(function () {
+    return redirect()->route('batteries.home');
+});
