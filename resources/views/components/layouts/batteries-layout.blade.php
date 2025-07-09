@@ -116,10 +116,29 @@
                 @php
                     $url = request()->path();
                     $currentBatteryUrl = basename($url);
+
+                    $activeInicio = $currentBatteryUrl == 'inicio'
+                        ? 'bg-zinc-700' 
+                        : '';
+
                     $activeConfig = $currentBatteryUrl == 'configuraciones'
                         ? 'bg-zinc-700' 
                         : '';
+
                 @endphp
+
+                <x-mary-menu-item
+                    class="-ml-2 {{ $activeInicio }}"
+                    href="{{ route('batteries.home') }}"
+                >
+                    <div class="flex items-center gap-2">
+                        <x-mary-icon
+                            name="o-home"
+                            class="w-5 mb-0.5"
+                        />
+                        Inicio
+                    </div>
+                </x-mary-menu-item>
 
                 @foreach($batteries as $battery)
                     @php
