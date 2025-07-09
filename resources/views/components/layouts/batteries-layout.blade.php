@@ -31,7 +31,7 @@
     <body class="flex flex-col">
         <x-mary-toast position="toast-top toast-end" />
 
-        <header class="fixed top-0 w-full bg-zinc-900 p-3 flex justify-between gap-8 lg:gap-0 lg:grid lg:grid-cols-3 items-center border-b border-zinc-700 z-30">
+        {{-- <header class="fixed top-0 w-full bg-zinc-900 p-3 flex justify-between gap-8 lg:gap-0 lg:grid lg:grid-cols-3 items-center border-b border-zinc-700 z-30">
             <div class="flex items-center gap-2 cursor-default">
                 <img
                     src="{{ $company->logo }}"
@@ -44,7 +44,6 @@
                     class="max-w-8 sm:max-w-9 aspect-square w-full object-cover rounded-full"
                 >
                 <span class="ml-2 text-xs sm:text-sm lg:text-nowrap text-gray-300">
-                    {{-- {{ $company->name }} --}}
                     Estrategias para mejorar Inteligencia Emocional y Social
                 </span>
             </div>
@@ -67,22 +66,6 @@
                 </a>
             </div>
 
-
-            {{-- <form
-                action="{{ route('batteries.logout') }}"
-                method="GET"
-                class="justify-end hidden lg:flex"
-            >
-                @csrf
-                <button
-                    type="submit"
-                    class=""
-                >
-                    
-                </button>
-            </form> --}}
-
-            {{-- Small breakpoint menu button --}}
             <div class="flex justify-end gap-4 lg:hidden">
                 <img
                     src="/logos/logo-psicolasa.png"
@@ -92,6 +75,36 @@
                 <button
                     type="button"
                     class="text-(--secondary-color) font-semibold flex items-center cursor-pointer hover:text-white menu-btn"
+                >
+                    <span><x-mary-icon name="o-bars-3" /></span>
+                </button>
+            </div>
+        </header> --}}
+
+        <header class="fixed top-0 w-full bg-zinc-900 p-3 flex justify-between gap-8 lg:gap-0 items-center border-b border-zinc-700 z-30">
+            <div class="flex items-center gap-2 cursor-default">
+                <img
+                    src="/logos/logo-psicolasa.png"
+                    alt=""
+                    class="w-full max-w-8 sm:max-w-9 object-contain aspect-square rounded-full scale-125"
+                >
+                <span class="ml-2 text-xs sm:text-sm lg:text-nowrap text-gray-300">
+                    Estrategias para mejorar Inteligencia Emocional y Social
+                </span>
+            </div>
+
+            <div class="flex justify-end ">
+                <a
+                    href="{{ route('batteries.logout') }}"
+                    class="text-sm text-(--secondary-color) font-semibold cursor-pointer hover:text-white logout-btn hidden lg:flex items-center gap-2"
+                >
+                    Salir
+                    <x-mary-icon name="o-arrow-right-on-rectangle" />
+                </a>
+
+                <button
+                    type="button"
+                    class="text-(--secondary-color) font-semibold flex lg:hidden items-center cursor-pointer hover:text-white menu-btn"
                 >
                     <span><x-mary-icon name="o-bars-3" /></span>
                 </button>
@@ -150,6 +163,33 @@
                         Salir
                     </div                        
                 </x-mary-menu-item>
+
+                <div class="w-full flex justify-center items-center mt-auto gap-3 lg:gap-2 pt-4">
+                    <img
+                        src="{{ $company->logo }}"
+                        alt=""
+                        class="max-w-12 lg:max-w-10 aspect-square w-full object-cover rounded-full"
+                        title="Farmacia Ascavi"
+                    >
+                    <img
+                        src="/logos/Logo FarmaCarex.png"
+                        alt=""
+                        class="max-w-12 lg:max-w-10 aspect-square w-full object-cover rounded-full"
+                        title="FarmaCarex"
+                    >
+                    <img
+                        src="/logos/logo-selectpharma.png"
+                        alt=""
+                        class="max-w-12 lg:max-w-10 aspect-square w-full object-cover rounded-full"
+                        title="Selectpharma"
+                    >
+                    <img
+                        src="/logos/logo-el-punto.png"
+                        alt=""
+                        class="max-w-12 lg:max-w-10 aspect-square w-full object-cover rounded-full"
+                        title="Farmacia El Punto"
+                    >
+                </div>
             </x-mary-menu>
         </aside>
 
