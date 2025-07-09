@@ -1,7 +1,7 @@
 <main class="w-full p-4 flex justify-center">
     <x-mary-card
-        title="Inicio"
-        subtitle="¡Hola! Por favor, toma un tiempo para revisar el material que preparamos para ti"
+        title="Documentos y audios"
+        subtitle="A continuación encontrarás documentos importantes para el uso de la plataforma, documentos informativos y ejercicios que puedes practicar en tu día a día."
         shadow
         separator
         class="relative w-full max-w-160 h-max text-sm bg-zinc-900"

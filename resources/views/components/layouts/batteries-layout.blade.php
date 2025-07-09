@@ -132,10 +132,10 @@
                 >
                     <div class="flex items-center gap-2">
                         <x-mary-icon
-                            name="o-home"
+                            name="o-folder"
                             class="w-5 mb-0.5"
                         />
-                        Inicio
+                        Materiales
                     </div>
                 </x-mary-menu-item>
 
