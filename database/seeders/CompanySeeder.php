@@ -15,7 +15,7 @@ class CompanySeeder extends Seeder
     {
         Company::create([
             'country_id' => 1,
-            'name' => 'Farmacia Ascavi',
+            'name' => 'Farmacias Ascavi, Carex, Selectpharma y El Punto',
             'logo' => '/logos/Logo Farmacia Ascavi.png',
             'is_active' => true,
         ]);
