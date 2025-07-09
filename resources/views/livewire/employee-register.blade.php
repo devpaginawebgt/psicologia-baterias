@@ -267,6 +267,48 @@
             </x-mary-button>
         </div>
     </form>
+
+    <x-mary-modal
+        wire:model="dataModal"
+        title="Declaración de Consentimiento"
+        class="backdrop-blur"
+        persistent
+        separator
+    >
+        <div>
+            <p class="mb-4">
+                Por favor lee con atención el documento 
+                <a href="/materiales/Consentimiento.pdf" target="_blank" class="text-(--secondary-color)">
+                    Consentimiento Informado
+                </a>
+                donde se explican los aspectos relacionados al uso que se dará a los datos recabados.
+            </p>
+
+            <p>
+                Al hacer click en el botón 'Aceptar', confirmas haber leído y entendido el documento de 
+                consentimiento y consientes participar en el presente proyecto.
+            </p>
+        </div>
+
+        <x-slot:actions>
+            <div class="w-full flex justify-center items-center gap-3">
+                <x-mary-button
+                    class="btn-soft btn-modal"
+                    wire:click="acceptDataModal"
+                >
+                    Acepto
+                </x-mary-button>
+
+
+                <x-mary-button
+                    class="btn-soft btn-modal"
+                    wire:click="rejectDataModal"
+                >
+                    No Acepto
+                </x-mary-button>
+            </div>
+        </x-slot:actions>
+    </x-mary-modal>
 </main>
 
 <script>
@@ -297,6 +339,11 @@
             subdivisionSelect.removeAttribute('disabled');
         });
 
-        
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('.btn-modal')) {
+                document.querySelectorAll('.btn-modal')
+                    .forEach(button => button.disabled = true);
+            }
+        });
     });
 </script>

@@ -46,6 +46,7 @@ return new class extends Migration
             $table->decimal('sales_productivity', 8, 2);
             $table->boolean('emotional_social_session')->default(false);
             $table->boolean('emotional_management_session')->default(false);
+            $table->boolean('informed_consent')->default(false);
             $table->timestamps();
         });
     }

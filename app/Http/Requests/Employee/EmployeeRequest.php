@@ -44,6 +44,7 @@ class EmployeeRequest extends FormRequest
             'form.branch_subdivision_id' => ['required', 'integer', 'exists:subdivisions,id'],
             'form.position'              => ['required', 'string',  Rule::in(EmployeeService::positions())],
             'form.sales_productivity'    => ['required', 'numeric', 'decimal:0,2', 'min:1', 'max:99.99'],
+            'form.informed_consent'      => ['required', 'boolean', 'accepted'],
         ];
     }
 

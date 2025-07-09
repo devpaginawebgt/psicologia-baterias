@@ -32,6 +32,7 @@ class Employee extends Model
         'sales_productivity',
         'emotional_social_session',
         'emotional_management_session',
+        'informed_consent'
     ];
 
     public function diseases(): BelongsToMany
