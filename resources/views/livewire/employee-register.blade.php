@@ -285,7 +285,7 @@
             </p>
 
             <p>
-                Al hacer click en el botón 'Aceptar', confirmas haber leído y entendido el documento de 
+                Al hacer click en el botón 'Acepto', confirmas haber leído y entendido el documento de 
                 consentimiento y consientes participar en el presente proyecto.
             </p>
         </div>
