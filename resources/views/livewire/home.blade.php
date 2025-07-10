@@ -10,7 +10,7 @@
             <x-reusable.pdf name="Carta Introductoria" filename="Carta Introductoria.pdf" />
             <x-reusable.pdf name="Reuniones vía Zoom" filename="Reuniones Zoom.pdf" />
             <x-reusable.pdf name="Consentimiento" filename="Consentimiento.pdf" />
-            <x-reusable.pdf name="Ejercicios de Emociones para Casa" filename="Ejercicios de Emociones para Casa.pdf" />
+            <x-reusable.pdf name="Ejercicios de Emociones para Casa" filename="Ejercicios de Emociones para casa.pdf" />
             <x-reusable.pdf name="Ejercicios reducción de Estrés para casa" filename="Ejercicios reduccion Estres para casa.pdf" />
             
             <x-reusable.audio filename="AUDIO-2025-05-06.m4a" />
