@@ -126,19 +126,6 @@
 
                 @endphp
 
-                <x-mary-menu-item
-                    class="-ml-2 {{ $activeInicio }}"
-                    href="{{ route('batteries.home') }}"
-                >
-                    <div class="flex items-center gap-2">
-                        <x-mary-icon
-                            name="o-folder"
-                            class="w-5 mb-0.5"
-                        />
-                        Materiales
-                    </div>
-                </x-mary-menu-item>
-
                 @foreach($batteries as $battery)
                     @php
                         $active = $currentBatteryUrl == $battery->url 
@@ -158,6 +145,19 @@
                         </div>
                     </x-mary-menu-item>
                 @endforeach
+                
+                <x-mary-menu-item
+                    class="-ml-2 {{ $activeInicio }}"
+                    href="{{ route('batteries.home') }}"
+                >
+                    <div class="flex items-center gap-2">
+                        <x-mary-icon
+                            name="o-folder"
+                            class="w-5 mb-0.5"
+                        />
+                        Materiales
+                    </div>
+                </x-mary-menu-item>
 
                 <x-mary-menu-item
                     class="-ml-2 {{ $activeConfig }}"
