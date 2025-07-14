@@ -1,0 +1,18 @@
+<main class="w-full p-4 flex justify-center">
+    <x-mary-card
+        title="Documentos y audios"
+        subtitle="A continuación encontrarás documentos importantes para el uso de la plataforma, documentos informativos y ejercicios que puedes practicar en tu día a día."
+        shadow
+        separator
+        class="relative w-full max-w-160 h-max text-sm bg-zinc-900"
+    >
+        <div class="flex flex-col gap-2">
+            <x-reusable.pdf name="Reuniones vía Zoom" filename="Reuniones Zoom.pdf" />
+            <x-reusable.pdf name="Ejercicios de Emociones para Casa" filename="Ejercicios de Emociones para casa.pdf" />
+            <x-reusable.pdf name="Ejercicios reducción de Estrés para casa" filename="Ejercicios reduccion Estres para casa.pdf" />
+            
+            <x-reusable.audio filename="AUDIO-2025-05-06.m4a" />
+            <x-reusable.audio filename="AUDIO-2025-07-04.m4a" />
+        </div>
+    </x-mary-card>
+</main>

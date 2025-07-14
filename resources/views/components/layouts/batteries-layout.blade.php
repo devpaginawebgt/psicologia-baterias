@@ -114,21 +114,38 @@
             <x-mary-menu class="w-full lg:min-w-40 lg:w-max lg:max-w-60 lg:min-h-screen lg:h-full p-4 bg-zinc-900 border-r border-b lg:border-b-0 border-zinc-700 lg:pt-18">
                 @php
                     $url = request()->path();
-                    $currentBatteryUrl = basename($url);
+                    $currentUrl = basename($url);
 
-                    $activeInicio = $currentBatteryUrl == 'inicio'
+                    $activeInicio = $currentUrl == 'inicio'
                         ? 'bg-zinc-700' 
                         : '';
 
-                    $activeConfig = $currentBatteryUrl == 'configuraciones'
+                    $activeMaterials = $currentUrl == 'materiales'
+                        ? 'bg-zinc-700' 
+                        : '';
+
+                    $activeConfig = $currentUrl == 'configuraciones'
                         ? 'bg-zinc-700' 
                         : '';
 
                 @endphp
 
+                <x-mary-menu-item
+                    class="-ml-2 {{ $activeInicio }}"
+                    href="{{ route('batteries.home') }}"
+                >
+                    <div class="flex items-center gap-2">
+                        <x-mary-icon
+                            name="o-home"
+                            class="w-5 mb-0.5"
+                        />
+                        Inicio
+                    </div>
+                </x-mary-menu-item>
+
                 @foreach($batteries as $battery)
                     @php
-                        $active = $currentBatteryUrl == $battery->url 
+                        $active = $currentUrl == $battery->url 
                             ? 'bg-zinc-700' 
                             : '';
                     @endphp
@@ -147,8 +164,8 @@
                 @endforeach
                 
                 <x-mary-menu-item
-                    class="-ml-2 {{ $activeInicio }}"
-                    href="{{ route('batteries.home') }}"
+                    class="-ml-2 {{ $activeMaterials }}"
+                    href="{{ route('batteries.materials') }}"
                 >
                     <div class="flex items-center gap-2">
                         <x-mary-icon

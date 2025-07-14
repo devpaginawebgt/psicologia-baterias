@@ -4,32 +4,27 @@ namespace App\Livewire;
 
 use App\Http\Services\BatteryService;
 use App\Http\Services\CompanyService;
-use App\Http\Services\EmployeeService;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
-class Home extends Component
+class Materials extends Component
 {
     use Toast;
 
     //? Props
-    public $employee;
     public $company;
     public $batteries;
 
     //? Reactive properties
-    public $informed_consent;
+    public $form;
 
     public function mount()
     {
-        $employeeService = app(EmployeeService::class);
         $companyService  = app(CompanyService::class);
         $batteryService  = app(BatteryService::class);
         
-        $this->employee         = $employeeService->getById(intval(session('employee_id')));
-        $this->informed_consent = boolval($this->employee->informed_consent);
-        $this->company          = $companyService->getActive();
-        $this->batteries        = $batteryService->getAll();
+        $this->company   = $companyService->getActive();
+        $this->batteries = $batteryService->getAll();
 
         if ($toast = session('toast')) {
             $this->{$toast['type']}(
@@ -39,16 +34,9 @@ class Home extends Component
         }
     }
 
-    public function confirmConsent()
-    {
-        $employeeService = app(EmployeeService::class);
-        $employeeService->confirmConsent($this->employee->id);
-        $this->informed_consent = true;
-    }
-
     public function render()
     {
-        return view('livewire.home')
+        return view('livewire.materials')
             ->layout('components.layouts.batteries-layout', [
                 'company' => $this->company,
                 'batteries' => $this->batteries,
