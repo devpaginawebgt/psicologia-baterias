@@ -44,6 +44,15 @@ class Home extends Component
         $employeeService = app(EmployeeService::class);
         $employeeService->confirmConsent($this->employee->id);
         $this->informed_consent = true;
+        
+        $this->success(
+            'Éxito',
+            '¡Gracias por confirmar tu participación! Ya puedes comenzar a responder las escalas.',
+            null,
+            'o-check-circle',
+            'alert-success',
+            8000
+        );
     }
 
     public function render()

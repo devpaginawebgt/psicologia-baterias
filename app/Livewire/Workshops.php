@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
-class EmployeeConfig extends Component
+class Workshops extends Component
 {
     use Toast;
 
@@ -80,7 +80,7 @@ class EmployeeConfig extends Component
 
     public function render()
     {
-        return view('livewire.employee-config')
+        return view('livewire.workshops')
             ->layout('components.layouts.batteries-layout', [
                 'company' => $this->company,
                 'batteries' => $this->batteries,

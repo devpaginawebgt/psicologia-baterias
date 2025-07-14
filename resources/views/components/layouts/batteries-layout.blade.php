@@ -116,7 +116,7 @@
                     $url = request()->path();
                     $currentUrl = basename($url);
 
-                    $activeInicio = $currentUrl == 'inicio'
+                    $activeHome = $currentUrl == 'inicio'
                         ? 'bg-zinc-700' 
                         : '';
 
@@ -124,14 +124,14 @@
                         ? 'bg-zinc-700' 
                         : '';
 
-                    $activeConfig = $currentUrl == 'configuraciones'
+                    $activeWorkshops = $currentUrl == 'talleres'
                         ? 'bg-zinc-700' 
                         : '';
 
                 @endphp
 
                 <x-mary-menu-item
-                    class="-ml-2 {{ $activeInicio }}"
+                    class="-ml-2 {{ $activeHome }}"
                     href="{{ route('batteries.home') }}"
                 >
                     <div class="flex items-center gap-2">
@@ -177,15 +177,15 @@
                 </x-mary-menu-item>
 
                 <x-mary-menu-item
-                    class="-ml-2 {{ $activeConfig }}"
-                    href="{{ route('batteries.config') }}"
+                    class="-ml-2 {{ $activeWorkshops }}"
+                    href="{{ route('batteries.workshops') }}"
                 >
                     <div class="flex items-center gap-2">
                         <x-mary-icon
-                            name="o-cog"
-                            class="w-5"
+                            name="o-calendar"
+                            class="w-5 mb-0.5"
                         />
-                        Configuraciones
+                        Talleres
                     </div>
                 </x-mary-menu-item>
 
