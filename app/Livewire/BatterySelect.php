@@ -24,11 +24,14 @@ class BatterySelect extends Component
     public $questions;
 
     //? Props
-    public $responded;
-    public $disabledResponse;
     public $form = [];
 
-    public $completedSessions = false;
+    public $informed_consent;
+    public $completedSessions;
+    public $responded;
+    public $respondedTwice;
+    public $disabledResponse;
+
     public $modalRespondedAll = false;
     public $modalRespondedAllTwice = false;
     public $disabledNext = false;
@@ -50,21 +53,27 @@ class BatterySelect extends Component
         $companyService = app(CompanyService::class);
         $batteryEmployeeService = app(BatteryEmployeeService::class);
 
-        // Set configurations
+        // Set layout and view config
         $this->company = $companyService->getActive();
         $this->batteries = $batteryService->getAll();
-        $this->responded = $batteryEmployeeService->getEmployeeResponse($this->battery['id']);
         $this->questions = $this->battery['questions'];
+
+        // Set user response config
+        $this->informed_consent = boolval($this->employee->informed_consent);
+        $this->responded = $batteryEmployeeService->getEmployeeResponse($this->battery['id']);
+        $this->completedSessions = $employeeService->hasCompletedSessions($this->employee->id);
+        $this->respondedTwice = $batteryEmployeeService->hasRespondedTwice($this->employee->id, $this->battery['id']);
+
+        $this->disabledResponse = (
+            !$this->informed_consent || 
+            $this->responded && !$this->completedSessions || 
+            $this->respondedTwice
+        );
 
         // Set form keys
         foreach($this->questions as $question) {
             $this->form[$question['id']] = null;
         };
-
-        $this->completedSessions = $employeeService->hasCompletedSessions($this->employee->id);
-        $respondedTwice = $batteryEmployeeService->hasRespondedTwice($this->employee->id, $this->battery['id']);
-
-        $this->disabledResponse = ($respondedTwice || $this->responded && !$this->completedSessions);
 
         if ($toast = session('toast')) {
             $this->{$toast['type']}(

@@ -14,22 +14,44 @@
         @endif
     
         @if ($step === 'start')
-            <div>
-                <p class="mb-4 text-gray-300">
-                    {{ $battery['instructions'] }}
-                </p>
+            <div>              
+                @if (!$informed_consent)
+                    <p class="mb-4 text-gray-300">
+                        Debes leer el documento Consentimiento Informado y confirmar tu participación en el módulo 
+                        <a href="{{ route('batteries.home') }}" class="text-(--secondary-color) font-semibold">
+                            Inicio
+                        </a>
+                        para responder a las escalas.
+                    </p>
+                @elseif ($responded || $respondedTwice)
+                    <p class="mb-4 text-gray-300">
+                        Ya has respondido este cuestionario.
+                    </p>
 
-                <x-mary-button
-                    wire:click="startBattery"
-                    class="btn-sm btn-soft"
-                    :disabled="$disabledResponse"
-                >
-                    @if($responded)
-                        Retomar
-                    @else
-                        Comenzar    
-                    @endif
-                </x-mary-button>
+                    <x-mary-button
+                        wire:click="nextBattery"
+                        class="btn-sm btn-soft"
+                        :disabled="$disabledNext"
+                    >
+                        Siguiente Escala
+                    </x-mary-button>
+                @else
+                    <p class="mb-4 text-gray-300">
+                        {{ $battery['instructions'] }}
+                    </p>
+                    
+                    <x-mary-button
+                        wire:click="startBattery"
+                        class="btn-sm btn-soft"
+                        :disabled="$disabledResponse"
+                    >
+                        @if($responded)
+                            Retomar
+                        @else
+                            Comenzar    
+                        @endif
+                    </x-mary-button>
+                @endif
             </div>
 
         @elseif ($step === 'questions')
@@ -56,21 +78,29 @@
              
         @elseif ($step === 'finished')
             <div>
-                <p>{{ $battery['end_message'] }}</p>
+                @if ($respondedTwice)
+                    ¡Has completado esta escala!
+                @else
+                    <p>{{ $battery['end_message'] }}</p>
 
-                <x-mary-button
-                    wire:click="nextBattery"
-                    class="btn-sm btn-soft mt-4"
-                    :disabled="$disabledNext"
-                >
-                    Siguiente Escala
-                </x-mary-button>
+                    <x-mary-button
+                        wire:click="nextBattery"
+                        class="btn-sm btn-soft mt-4"
+                        :disabled="$disabledNext"
+                    >
+                        Siguiente Escala
+                    </x-mary-button>
+                @endif
             </div>
         @endif
     </x-mary-card>
 
     <x-mary-modal wire:model="modalRespondedAll" title="Completado" class="backdrop-blur">
-        ¡Gracias por completar todos los cuestionarios! Pronto se te notificará el siguiente paso.
+        ¡Gracias por completar todos los cuestionarios! El siguiente paso es asistir a los talleres, 
+        puedes encontrar más información en el módulo
+        <a href="{{ route('batteries.workshops') }}" class="text-(--secondary-color) font-semibold">
+            Talleres
+        </a>.
     </x-mary-modal>
 
     <x-mary-modal wire:model="modalRespondedAllTwice" title="Completado" class="backdrop-blur">
