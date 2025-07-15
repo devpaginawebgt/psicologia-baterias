@@ -1,20 +1,42 @@
 <main class="w-full p-4 flex justify-center">
     <x-mary-card
-        title="Documentos y audios"
-        subtitle="A continuación encontrarás documentos importantes para el uso de la plataforma, documentos informativos y ejercicios que puedes practicar en tu día a día."
+        title="Inicio"
         shadow
         separator
         class="relative w-full max-w-160 h-max text-sm bg-zinc-900"
     >
-        <div class="flex flex-col gap-2">
+        <p class="mb-4">
+            ¡Bienvenido! Antes de dar inicio, por favor toma un tiempo para leer el siguiente documento.
+        </p>
+
+        <div class="mb-6">
             <x-reusable.pdf name="Carta Introductoria" filename="Carta Introductoria.pdf" />
-            <x-reusable.pdf name="Reuniones vía Zoom" filename="Reuniones Zoom.pdf" />
-            <x-reusable.pdf name="Consentimiento" filename="Consentimiento.pdf" />
-            <x-reusable.pdf name="Ejercicios de Emociones para Casa" filename="Ejercicios de Emociones para Casa.pdf" />
-            <x-reusable.pdf name="Ejercicios reducción de Estrés para casa" filename="Ejercicios reduccion Estres para casa.pdf" />
-            
-            <x-reusable.audio filename="AUDIO-2025-05-06.m4a" />
-            <x-reusable.audio filename="AUDIO-2025-07-04.m4a" />
+        </div>
+
+        <p class="mb-4">
+            Al terminar, lee el documento de consentimiento. Es un paso importante para continuar y tener acceso a las escalas.
+        </p>
+
+        <div class="mb-6">
+            <x-reusable.pdf name="Consentimiento Informado" filename="Consentimiento Informado.pdf" />
+        </div>
+
+        <p class="mb-6">
+            Por último, al hacer click en el botón <strong>Acepto participar</strong> confirmas haber leído y entendido el documento
+            <a href="/materiales/Consentimiento.pdf" target="_blank" class="text-(--secondary-color)">
+                Consentimiento Informado
+            </a>
+            y consientes participar en el presente proyecto.
+        </p>
+
+        <div class="w-full flex items-center">
+            <x-mary-button
+                wire:click="confirmConsent"
+                class="btn-sm btn-soft w-max mx-auto btn-consent"
+                :disabled="$informed_consent"
+            >
+                Acepto participar
+            </x-mary-button>
         </div>
     </x-mary-card>
 </main>

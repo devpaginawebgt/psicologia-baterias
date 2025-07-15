@@ -155,6 +155,7 @@ return [
         'division'                => 'departamento',
 
         'form.name'               => 'nombre',
+        'form.lastname'           => 'apellido',
         'form.phone_number'       => 'teléfono',
         'form.genre'              => 'género',
         'form.academic_level'     => 'nivel académico',

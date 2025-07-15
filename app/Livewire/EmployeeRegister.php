@@ -28,8 +28,6 @@ class EmployeeRegister extends Component
     public $divisions;
     public $subdivisions;
     public $form;
-    public $dataModal = true;
-    
 
     public function mount()
     {
@@ -66,7 +64,6 @@ class EmployeeRegister extends Component
             'branch_subdivision_id' => 1,
             'position'              => 'Dependiente',
             'sales_productivity'    => null,
-            'informed_consent'      => false,
         ];
 
         if ($toast = session('toast')) {
@@ -78,17 +75,6 @@ class EmployeeRegister extends Component
     }
 
     //? ----------- Component variables and methods -----------
-    public function acceptDataModal()
-    {
-        $this->form['informed_consent'] = true;
-        $this->dataModal = false;
-    }
-
-    public function rejectDataModal()
-    {
-        return redirect()->route('auth.index');
-    }
-
     public function register() 
     {
         $this->resetErrorBag();

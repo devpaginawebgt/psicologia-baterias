@@ -102,6 +102,15 @@ class EmployeeService {
         return Employee::find($id);
     }
 
+    public function confirmConsent(int $employeeId)
+    {
+        $employee = Employee::find($employeeId);
+
+        $update = $employee->update(['informed_consent' => true]);
+
+        return $update;
+    }
+
     public function updateSessions(int $employeeId, array $data) {
         $employee = Employee::find($employeeId);
         

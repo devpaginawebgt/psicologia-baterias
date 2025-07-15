@@ -110,38 +110,42 @@
             </div>
         </header>
         
-        <aside class="fixed top-14 min-[366px]:top-12 left-0 lg:top-0 z-20 w-full lg:max-w-56 -translate-y-[150%] lg:!translate-y-0 lg:min-h-screen transition-all duration-500 ease-in-out" id="sideMenu">
-            <x-mary-menu class="w-full lg:min-w-40 lg:w-max lg:min-h-screen lg:h-full p-4 bg-zinc-900 border-r border-b lg:border-b-0 border-zinc-700 lg:pt-18">
+        <aside class="fixed top-14 min-[366px]:top-12 left-0 lg:top-0 z-20 w-full lg:max-w-60 -translate-y-[150%] lg:!translate-y-0 lg:min-h-screen transition-all duration-500 ease-in-out" id="sideMenu">
+            <x-mary-menu class="w-full lg:min-w-40 lg:w-max lg:max-w-60 lg:min-h-screen lg:h-full p-4 bg-zinc-900 border-r border-b lg:border-b-0 border-zinc-700 lg:pt-18">
                 @php
                     $url = request()->path();
-                    $currentBatteryUrl = basename($url);
+                    $currentUrl = basename($url);
 
-                    $activeInicio = $currentBatteryUrl == 'inicio'
+                    $activeHome = $currentUrl == 'inicio'
                         ? 'bg-zinc-700' 
                         : '';
 
-                    $activeConfig = $currentBatteryUrl == 'configuraciones'
+                    $activeMaterials = $currentUrl == 'materiales'
+                        ? 'bg-zinc-700' 
+                        : '';
+
+                    $activeWorkshops = $currentUrl == 'talleres'
                         ? 'bg-zinc-700' 
                         : '';
 
                 @endphp
 
                 <x-mary-menu-item
-                    class="-ml-2 {{ $activeInicio }}"
+                    class="-ml-2 {{ $activeHome }}"
                     href="{{ route('batteries.home') }}"
                 >
                     <div class="flex items-center gap-2">
                         <x-mary-icon
-                            name="o-folder"
+                            name="o-home"
                             class="w-5 mb-0.5"
                         />
-                        Materiales
+                        Inicio
                     </div>
                 </x-mary-menu-item>
 
                 @foreach($batteries as $battery)
                     @php
-                        $active = $currentBatteryUrl == $battery->url 
+                        $active = $currentUrl == $battery->url 
                             ? 'bg-zinc-700' 
                             : '';
                     @endphp
@@ -158,17 +162,30 @@
                         </div>
                     </x-mary-menu-item>
                 @endforeach
-
+                
                 <x-mary-menu-item
-                    class="-ml-2 {{ $activeConfig }}"
-                    href="{{ route('batteries.config') }}"
+                    class="-ml-2 {{ $activeMaterials }}"
+                    href="{{ route('batteries.materials') }}"
                 >
                     <div class="flex items-center gap-2">
                         <x-mary-icon
-                            name="o-cog"
-                            class="w-5"
+                            name="o-folder"
+                            class="w-5 mb-0.5"
                         />
-                        Configuraciones
+                        Materiales
+                    </div>
+                </x-mary-menu-item>
+
+                <x-mary-menu-item
+                    class="-ml-2 {{ $activeWorkshops }}"
+                    href="{{ route('batteries.workshops') }}"
+                >
+                    <div class="flex items-center gap-2">
+                        <x-mary-icon
+                            name="o-calendar"
+                            class="w-5 mb-0.5"
+                        />
+                        Talleres
                     </div>
                 </x-mary-menu-item>
 
@@ -182,30 +199,42 @@
                     </div                        
                 </x-mary-menu-item>
 
-                <div class="w-full flex justify-center items-center mt-auto gap-3 lg:gap-2 pt-4">
+                <div class="w-full flex justify-center items-center flex-wrap mt-auto gap-3 lg:gap-2 pt-4">
                     <img
                         src="{{ $company->logo }}"
                         alt=""
-                        class="max-w-12 lg:max-w-10 aspect-square w-full object-cover rounded-full"
+                        class="max-w-10 aspect-square w-full object-cover rounded-full"
                         title="Farmacia Ascavi"
                     >
                     <img
                         src="/logos/Logo FarmaCarex.png"
                         alt=""
-                        class="max-w-12 lg:max-w-10 aspect-square w-full object-cover rounded-full"
+                        class="max-w-10 aspect-square w-full object-cover rounded-full"
                         title="FarmaCarex"
                     >
                     <img
                         src="/logos/logo-selectpharma.png"
                         alt=""
-                        class="max-w-12 lg:max-w-10 aspect-square w-full object-cover rounded-full"
+                        class="max-w-10 aspect-square w-full object-cover rounded-full"
                         title="Selectpharma"
                     >
                     <img
                         src="/logos/logo-el-punto.png"
                         alt=""
-                        class="max-w-12 lg:max-w-10 aspect-square w-full object-cover rounded-full"
+                        class="max-w-10 aspect-square w-full object-cover rounded-full"
                         title="Farmacia El Punto"
+                    >
+                    <img
+                        src="/logos/logo-medpharma.png"
+                        alt=""
+                        class="max-w-10 aspect-square w-full object-cover rounded-full"
+                        title="Medpharma"
+                    >
+                    <img
+                        src="/logos/logo-leven.png"
+                        alt=""
+                        class="max-w-10 aspect-square w-full object-cover rounded-full"
+                        title="Leven"
                     >
                 </div>
             </x-mary-menu>
