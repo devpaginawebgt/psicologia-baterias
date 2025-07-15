@@ -23,7 +23,7 @@
                         </a>
                         para responder a las escalas.
                     </p>
-                @elseif ($responded || $respondedTwice)
+                @elseif ($responded && !$completedSessions || $respondedTwice)
                     <p class="mb-4 text-gray-300">
                         Ya has respondido este cuestionario.
                     </p>
