@@ -19,6 +19,7 @@ class Home extends Component
 
     //? Reactive properties
     public $informed_consent;
+    public $disableSubmit = false;
 
     public function mount()
     {
@@ -41,6 +42,7 @@ class Home extends Component
 
     public function confirmConsent()
     {
+        $this->disableSubmit = true;
         $employeeService = app(EmployeeService::class);
         $employeeService->confirmConsent($this->employee->id);
         $this->informed_consent = true;
@@ -53,6 +55,8 @@ class Home extends Component
             'alert-success',
             8000
         );
+
+        $this->disableSubmit = false;
     }
 
     public function render()

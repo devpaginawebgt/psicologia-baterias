@@ -14,6 +14,7 @@ class EmployeeLogin extends Component
     use Toast;
 
     public $form;
+    public $disableSubmit = false;
 
     public function mount()
     {
@@ -39,6 +40,8 @@ class EmployeeLogin extends Component
             $request->messages()
         )->validate();
 
+        $this->disableSubmit = true;
+
         $employeeService = app(EmployeeService::class);
         $login = $employeeService->login($this->form);
 
@@ -55,6 +58,8 @@ class EmployeeLogin extends Component
             'title'       => 'Bienvenido',
             'type'        => 'success',
         ]);
+
+        $this->disableSubmit = false;
 
         return redirect()->route('batteries.home');
     }

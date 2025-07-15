@@ -71,6 +71,8 @@
                 <x-mary-button
                     wire:click="finishBattery"
                     class="btn-sm btn-soft mt-4 w-max"
+                    :disabled="$disableSubmit"
+                    spinner="finishBattery"
                 >
                     Finalizar
                 </x-mary-button>

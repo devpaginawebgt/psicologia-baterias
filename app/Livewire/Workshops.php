@@ -22,6 +22,8 @@ class Workshops extends Component
 
     //? Reactive properties
     public $form;
+    public $disableSubmit = false;
+    public $completedSessions;
 
     public function mount()
     {
@@ -29,10 +31,11 @@ class Workshops extends Component
         $companyService  = app(CompanyService::class);
         $batteryService  = app(BatteryService::class);
         
-        $this->employee  = $employeeService->getById(intval(session('employee_id')));
-        $this->company   = $companyService->getActive();
-        $this->batteries = $batteryService->getAll();
-        $this->booleans  = $employeeService->getBooleans();
+        $this->employee          = $employeeService->getById(intval(session('employee_id')));
+        $this->completedSessions = $employeeService->hasCompletedSessions($this->employee->id);
+        $this->company           = $companyService->getActive();
+        $this->batteries         = $batteryService->getAll();
+        $this->booleans          = $employeeService->getBooleans();
 
         $this->form = [
             'emotional_social_session' => $this->employee->emotional_social_session,
@@ -66,6 +69,8 @@ class Workshops extends Component
             $request->messages()
         )->validate();
 
+        $this->disableSubmit = true;
+
         $employeeService = app(EmployeeService::class);
         $result = $employeeService->updateSessions($this->employee->id, $this->form);
 
@@ -75,7 +80,10 @@ class Workshops extends Component
         }
 
         $this->employee = $result['employee'];
+        $this->completedSessions = $employeeService->hasCompletedSessions($this->employee->id);
         $this->success('Éxito', 'Tu información se ha actualizado correctamente.');
+
+        $this->disableSubmit = false;
     }
 
     public function render()

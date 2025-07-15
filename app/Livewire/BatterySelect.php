@@ -24,6 +24,7 @@ class BatterySelect extends Component
     public $questions;
 
     //? Props
+    public $disableSubmit = false;
     public $form = [];
 
     public $informed_consent;
@@ -115,6 +116,8 @@ class BatterySelect extends Component
             return;
         }
 
+        $this->disableSubmit = true;
+
         $batteryEmployeeService = app(BatteryEmployeeService::class);
         $result = $batteryEmployeeService->saveResponse($this->battery['id'], $this->form);
 
@@ -144,6 +147,8 @@ class BatterySelect extends Component
             $this->step = 'finished';
             return;
         }
+
+        $this->disableSubmit = false;
 
         $this->step = 'finished';
         return;

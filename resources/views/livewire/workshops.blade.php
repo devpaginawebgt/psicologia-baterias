@@ -22,6 +22,7 @@
                 option-label="label"
                 option-value="value"
                 inline
+                :disabled="$completedSessions"
             />
         </div>
 
@@ -33,12 +34,15 @@
                 option-label="label"
                 option-value="value"
                 inline
+                :disabled="$completedSessions"
             />
         </div>
 
         <x-mary-button
+            :disabled="$completedSessions || $disableSubmit"
             wire:click="updateSessions"
             class="btn-sm btn-soft w-max"
+            spinner="updateSessions"
         >
             Guardar
         </x-mary-button>

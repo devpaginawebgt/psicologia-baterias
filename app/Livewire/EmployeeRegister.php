@@ -28,6 +28,7 @@ class EmployeeRegister extends Component
     public $divisions;
     public $subdivisions;
     public $form;
+    public $disableSubmit = false;
 
     public function mount()
     {
@@ -98,6 +99,8 @@ class EmployeeRegister extends Component
             return;
         }
 
+        $this->disableSubmit = true;
+
         $employeeService = app(EmployeeService::class);
         $employeeService->create($this->form);
 
@@ -106,6 +109,8 @@ class EmployeeRegister extends Component
             'description' => 'Te has registrado correctamente.',
             'type'        => 'success',
         ]);
+
+        $this->disableSubmit = false;
 
         return redirect()->route('auth.index');
     }
