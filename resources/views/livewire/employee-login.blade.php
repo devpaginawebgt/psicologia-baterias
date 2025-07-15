@@ -31,6 +31,8 @@
             <x-mary-button
                 type="submit"
                 class="w-full bg-(--primary-color) mb-5"
+                :disabled="$disableSubmit"
+                spinner="login"
             >
                 Ingresar
             </x-mary-button>

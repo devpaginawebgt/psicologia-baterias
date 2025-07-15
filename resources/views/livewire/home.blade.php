@@ -33,7 +33,8 @@
             <x-mary-button
                 wire:click="confirmConsent"
                 class="btn-sm btn-soft w-max mx-auto btn-consent"
-                :disabled="$informed_consent"
+                :disabled="$informed_consent || $disableSubmit"
+                spinner="confirmConsent"
             >
                 Acepto participar
             </x-mary-button>

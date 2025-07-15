@@ -1,14 +1,18 @@
 @php
-    $birthdateConfig = [ 'dateFormat' => 'Y-m-d' ];
+    $birthdateConfig = [ 
+        'dateFormat' => 'Y-m-d',
+    ];
     $hiringConfig    = [ 
         'plugins' => [ 
             [ 
                 'monthSelectPlugin' => [ 
                     'dateFormat' => 'Y-m-01',
-                    'theme' => 'dark'
+                    'theme' => 'dark',
+                    'maxDate' => 'today',
                 ] 
             ] 
-        ] 
+        ],
+        'maxDate' => 'today',
     ];
 @endphp
 
@@ -262,6 +266,8 @@
             <x-mary-button
                 type="submit"
                 class="bg-(--primary-color)"
+                :disabled="$disableSubmit"
+                spinner="register"
             >
                 Registrarse
             </x-mary-button>
