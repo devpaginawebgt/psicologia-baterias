@@ -1,6 +1,7 @@
 @php
     $birthdateConfig = [ 
         'dateFormat' => 'Y-m-d',
+        'maxDate' => 'today',
     ];
     $hiringConfig    = [ 
         'plugins' => [ 
