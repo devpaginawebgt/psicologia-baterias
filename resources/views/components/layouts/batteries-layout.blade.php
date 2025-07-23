@@ -213,16 +213,16 @@
                         title="FarmaCarex"
                     >
                     <img
-                        src="/logos/logo-selectpharma.png"
-                        alt=""
-                        class="max-w-10 aspect-square w-full object-cover rounded-full"
-                        title="Selectpharma"
-                    >
-                    <img
                         src="/logos/logo-el-punto.png"
                         alt=""
                         class="max-w-10 aspect-square w-full object-cover rounded-full"
                         title="Farmacia El Punto"
+                    >
+                    {{-- <img
+                        src="/logos/logo-selectpharma.png"
+                        alt=""
+                        class="max-w-10 aspect-square w-full object-cover rounded-full"
+                        title="Selectpharma"
                     >
                     <img
                         src="/logos/logo-medpharma.png"
@@ -235,7 +235,7 @@
                         alt=""
                         class="max-w-10 aspect-square w-full object-cover rounded-full"
                         title="Leven"
-                    >
+                    > --}}
                 </div>
             </x-mary-menu>
         </aside>
