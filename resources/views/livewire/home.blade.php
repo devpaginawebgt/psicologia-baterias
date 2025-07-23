@@ -39,5 +39,16 @@
                 Acepto participar
             </x-mary-button>
         </div>
+
+        @if($informed_consent)
+            <div class="w-full flex items-center mt-5">
+                <x-mary-button
+                    class="btn-sm btn-soft w-max mx-auto"
+                    link="{{ '/baterias/' . $first_battery['url_type'] . '/' . $first_battery['url'] }}"
+                >
+                    Primera Escala
+                </x-mary-button>
+            </div>
+        @endif
     </x-mary-card>
 </main>

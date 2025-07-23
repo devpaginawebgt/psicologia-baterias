@@ -20,6 +20,7 @@ class Home extends Component
     //? Reactive properties
     public $informed_consent;
     public $disableSubmit = false;
+    public $first_battery;
 
     public function mount()
     {
@@ -31,6 +32,7 @@ class Home extends Component
         $this->informed_consent = boolval($this->employee->informed_consent);
         $this->company          = $companyService->getActive();
         $this->batteries        = $batteryService->getAll();
+        $this->first_battery    = $batteryService->getFirst();
 
         if ($toast = session('toast')) {
             $this->{$toast['type']}(

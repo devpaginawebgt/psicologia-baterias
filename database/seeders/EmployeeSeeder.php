@@ -23,7 +23,7 @@ class EmployeeSeeder extends Seeder
             'genre' => 'Masculino',
             'division_id' => null,
             'academic_level' => 'Preparatoria',
-            'marital_status' => 'Casado',
+            'marital_status' => 'Casado(a)',
             'children' => 0,
             'people_depending' => 0,
             'transportation' => 'Auto',

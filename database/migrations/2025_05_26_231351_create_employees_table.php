@@ -32,7 +32,7 @@ return new class extends Migration
                 ->onDelete('cascade');
 
             $table->enum('academic_level', ['Primaria', 'Secundaria', 'Preparatoria', 'Universidad', 'Posgrado']);
-            $table->enum('marital_status', ['Soltero', 'Casado', 'Divorciado', 'Viudo', 'Union libre']);
+            $table->enum('marital_status', ['Soltero(a)', 'Casado(a)', 'Divorciado(a)', 'Viudo(a)', 'Union libre(a)']);
             $table->integer('children');
             $table->integer('people_depending');
             $table->enum('transportation', ['Auto', 'Transporte Publico']);
