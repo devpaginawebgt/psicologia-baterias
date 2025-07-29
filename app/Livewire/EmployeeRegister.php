@@ -55,7 +55,7 @@ class EmployeeRegister extends Component
             'genre'                 => 'Masculino',
             'academic_level'        => 'Primaria',
             'birthdate'             => '',
-            'marital_status'        => 'Soltero',
+            'marital_status'        => 'Soltero(a)',
             'children'              => null,
             'people_depending'      => null,
             'diseases'              => [],
