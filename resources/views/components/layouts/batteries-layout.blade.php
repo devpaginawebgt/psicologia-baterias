@@ -128,6 +128,10 @@
                         ? 'bg-zinc-700' 
                         : '';
 
+                    $activeDashboard = $currentUrl == 'dashboard'
+                        ? 'bg-zinc-700'
+                        : '';
+
                 @endphp
 
                 <x-mary-menu-item
@@ -188,6 +192,21 @@
                         Talleres
                     </div>
                 </x-mary-menu-item>
+
+                @if($employee->is_admin)
+                    <x-mary-menu-item
+                        class="-ml-2 {{ $activeDashboard }}"
+                        href="{{ route('batteries.dashboard') }}"
+                    >
+                        <div class="flex items-center gap-2">
+                            <x-mary-icon
+                                name="o-presentation-chart-line"
+                                class="w-5 mb-0.5"
+                            />
+                            Dashboard
+                        </div>
+                    </x-mary-menu-item>
+                @endif
 
                 <x-mary-menu-item
                     href="{{ route('batteries.logout') }}"
