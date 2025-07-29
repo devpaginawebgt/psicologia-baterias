@@ -253,7 +253,18 @@
         </div>
 
         <p class="mt-2 col-span-2 text-sm text-gray-500 text-center">
-            Al concluír el registro regresarás a la página de Inicio y podrás ingresar al sistema con tu número de teléfono.
+            Soporte Técnico de plataforma
+            <a
+                href="https://wa.me/50234832086"
+                target="_blank"
+                class="text-gray-300 hover:text-white transition-all duration-300 ease-in-out"
+            >
+                Whatsapp +502 3483-2086
+            </a>
+        </p>
+
+        <p class="mt-0 col-span-2 text-sm text-gray-500 text-center">
+            Al concluír el registro regresarás a la página de Inicio y podrás ingresar al sistema con tu número de teléfono. 
         </p>
 
         <div class="col-span-2 w-full flex justify-between items-center">
