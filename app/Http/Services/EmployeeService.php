@@ -25,7 +25,7 @@ class EmployeeService {
         }
 
         // Validate active company
-        if ($employee->company_id !== $activeCompany->id) {
+        if ($employee->company_id !== $activeCompany->id && !$employee->is_admin) {
             return [
                 'error' => true,
                 'message' => 'No se puede ingresar al sistema, compañía incorrecta.'
