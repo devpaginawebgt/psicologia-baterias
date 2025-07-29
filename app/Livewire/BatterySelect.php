@@ -168,6 +168,7 @@ class BatterySelect extends Component
             ->layout('components.layouts.batteries-layout', [
                 'company' => $this->company,
                 'batteries' => $this->batteries,
+                'employee' => $this->employee
             ]);
     }
 }
