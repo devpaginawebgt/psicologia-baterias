@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BatteryController;
+use App\Http\Middleware\EmployeeIsAdmin;
 use App\Livewire\BatterySelect;
 use App\Livewire\Dashboard;
 use App\Livewire\Home;
@@ -14,7 +15,9 @@ Route::prefix('baterias')->as('batteries')->group(function() {
     });
 
     // Admin routes
-    Route::get('dashboard', Dashboard::class)->name('.dashboard');
+    Route::middleware(EmployeeIsAdmin::class)->group(function() {
+        Route::get('dashboard', Dashboard::class)->name('.dashboard');
+    });
     
     // Select Batteries
     Route::get('inicio', Home::class)->name('.home');
