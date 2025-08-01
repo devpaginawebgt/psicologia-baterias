@@ -64,7 +64,7 @@ class EmployeeRegister extends Component
             'branch_division_id'    => 1,
             'branch_subdivision_id' => 1,
             'position'              => 'Dependiente',
-            'sales_productivity'    => null,
+            // 'sales_productivity'    => null,
         ];
 
         if ($toast = session('toast')) {

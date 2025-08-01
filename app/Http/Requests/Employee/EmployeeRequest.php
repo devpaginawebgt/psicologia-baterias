@@ -43,7 +43,7 @@ class EmployeeRequest extends FormRequest
             'form.branch_division_id'    => ['required', 'integer', 'exists:divisions,id'],
             'form.branch_subdivision_id' => ['required', 'integer', 'exists:subdivisions,id'],
             'form.position'              => ['required', 'string',  Rule::in(EmployeeService::positions())],
-            'form.sales_productivity'    => ['required', 'numeric', 'decimal:0,2', 'min:1', 'max:99.99'],
+            // 'form.sales_productivity'    => ['required', 'numeric', 'decimal:0,2', 'min:1', 'max:99.99'],
         ];
     }
 
@@ -58,8 +58,8 @@ class EmployeeRequest extends FormRequest
             'form.diseases.required' => 'Seleccione una o varias opciones del listado',
             'form.diseases.array'    => 'Seleccione una o varias opciones del listado',
             'form.diseases.min'      => 'Seleccione una o varias opciones del listado',
-            'form.sales_productivity.max'  => 'El campo productividad no debe de ser mayor a Q 999,999.00',
-            'form.sales_productivity.min'  => 'El campo productividad es requerido',
+            // 'form.sales_productivity.max'  => 'El campo productividad no debe de ser mayor a Q 999,999.00',
+            // 'form.sales_productivity.min'  => 'El campo productividad es requerido',
             'form.branch_division_id.required' => 'Seleccione el departamento de la Sucursal',
             'form.branch_division_id.integer'  => 'Seleccione el departamento de la Sucursal',
             'form.branch_division_id.exists'   => 'Seleccione el departamento de la Sucursal',
