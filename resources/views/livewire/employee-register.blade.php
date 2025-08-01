@@ -224,7 +224,7 @@
             />
         </div>
 
-        <div>
+        <div class="w-full lg:max-w-72 lg:col-span-2 lg:mx-auto">
             <x-mary-select
                 label="Cargo"
                 :options="$positions"
@@ -233,10 +233,11 @@
                 id="position"
                 wire:model="form.position"
                 required
+                class="lg:w-full lg:grow"
             />
         </div>
 
-        <div>
+        {{-- <div>
             <x-mary-input
                 type="number"
                 label="Productividad"
@@ -250,9 +251,9 @@
                 suffix="%"
                 money
             />  
-        </div>
+        </div> --}}
 
-        <p class="mt-2 col-span-2 text-sm text-gray-500 text-center">
+        <p class="mt-4 col-span-2 text-sm text-gray-500 text-center">
             Soporte Técnico de plataforma
             <a
                 href="https://wa.me/50234832086"
