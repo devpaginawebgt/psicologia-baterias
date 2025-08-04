@@ -43,8 +43,9 @@
         @if($informed_consent)
             <div class="w-full flex items-center mt-5">
                 <x-mary-button
+                    wire:click="firstBattery"
                     class="btn-sm btn-soft w-max mx-auto"
-                    link="{{ '/baterias/' . $first_battery['url_type'] . '/' . $first_battery['url'] }}"
+                    spinner="firstBattery"
                 >
                     Primera Escala
                 </x-mary-button>
