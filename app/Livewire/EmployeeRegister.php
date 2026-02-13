@@ -78,6 +78,9 @@ class EmployeeRegister extends Component
     //? ----------- Component variables and methods -----------
     public function register() 
     {
+        $this->error('Error', 'La ventana de inscripción se ha cerrado.');
+        return;
+
         $this->resetErrorBag();
         $request = new EmployeeRequest();
 

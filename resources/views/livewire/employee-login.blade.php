@@ -30,14 +30,28 @@
     
             <x-mary-button
                 type="submit"
-                class="w-full bg-(--primary-color) mb-5"
+                class="w-full bg-(--primary-color) mb-4"
                 :disabled="$disableSubmit"
                 spinner="login"
             >
                 Ingresar
             </x-mary-button>
 
-            <p class="text-sm text-gray-400 text-center">
+            <div class="flex flex-col gap-1 text-sm text-center">
+                <p class="text-gray-500">
+                    Soporte Técnico de plataforma
+                </p>
+
+                <a
+                    href="https://wa.me/50234832086"
+                    target="_blank"
+                    class="text-gray-300 hover:text-white transition-all duration-300 ease-in-out"
+                >
+                    Whatsapp +502 3483-2086
+                </a>
+            </div>
+
+            {{-- <p class="text-sm text-gray-400 text-center">
                 Si estás accediendo por primera vez, deberás
                 <a
                     href="{{ route('auth.form') }}"
@@ -45,7 +59,7 @@
                 >
                 registrarte
                 </a>.
-            </p>
+            </p> --}}
 
         </form>
     </main>
