@@ -8,6 +8,7 @@ use App\Http\Services\DivisionService;
 use App\Http\Services\EmployeeService;
 use App\Http\Services\SubdivisionService;
 use Illuminate\Support\Facades\Validator;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
@@ -16,17 +17,17 @@ class EmployeeRegister extends Component
     use Toast;
 
     //? ----------- Options and form configuration -----------
-    public $genres;
-    public $academicLevels;
-    public $maritalStatuses;
-    public $shifts;
-    public $diseases;
-    public $transportations;
-    public $positions;
-    public $booleans;
-    public $country;
-    public $divisions;
-    public $subdivisions;
+    #[Locked] public $genres;
+    #[Locked] public $academicLevels;
+    #[Locked] public $maritalStatuses;
+    #[Locked] public $shifts;
+    #[Locked] public $diseases;
+    #[Locked] public $transportations;
+    #[Locked] public $positions;
+    #[Locked] public $booleans;
+    #[Locked] public $country;
+    #[Locked] public $divisions;
+    #[Locked] public $subdivisions;
     public $form;
     public $disableSubmit = false;
 
@@ -102,10 +103,12 @@ class EmployeeRegister extends Component
             return;
         }
 
+        $validated = $validator->validated()['form'];
+
         $this->disableSubmit = true;
 
         $employeeService = app(EmployeeService::class);
-        $employeeService->create($this->form);
+        $employeeService->create($validated);
 
         session()->flash('toast', [
             'title'       => '¡Éxito!',

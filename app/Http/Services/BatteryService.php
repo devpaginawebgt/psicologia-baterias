@@ -41,6 +41,20 @@ class BatteryService {
         return (new BatteryResource(Battery::find($id)))->toArray(request());
     }
 
-}
+    public function redirectTo($battery)
+    {
+        $type = data_get($battery, 'url_type');
+        $slug = data_get($battery, 'url');
 
-?>
+        $routeName = match ($type) {
+            'seleccionable' => 'batteries.select',
+            default => null,
+        };
+
+        if ($routeName === null) {
+            abort(404);
+        }
+
+        return redirect()->route($routeName, ['slug' => $slug]);
+    }
+}

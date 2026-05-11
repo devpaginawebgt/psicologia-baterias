@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Http\Services\BatteryService;
 use App\Http\Services\CompanyService;
 use App\Http\Services\EmployeeService;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
@@ -13,9 +14,9 @@ class Materials extends Component
     use Toast;
 
     //? Props
-    public $employee;
-    public $company;
-    public $batteries;
+    #[Locked] public $employee;
+    #[Locked] public $company;
+    #[Locked] public $batteries;
 
     //? Reactive properties
     public $form;

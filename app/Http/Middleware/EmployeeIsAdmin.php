@@ -19,8 +19,13 @@ class EmployeeIsAdmin
         $employeeId = intval(session('employee_id'));
         $employee = Employee::find($employeeId);
 
-        if (!$employee->is_admin)
+        if (!$employee) {
+            abort(403);
+        }
+
+        if (!$employee->is_admin) {
             return redirect()->route('batteries.home');
+        }
 
         return $next($request);
     }
