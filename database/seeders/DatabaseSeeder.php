@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
 
             // Company
             CompanySeeder::class,
-            // EmployeeSeeder::class,
+            EmployeeSeeder::class,
 
             // Batteries
             BatterySeeder::class,

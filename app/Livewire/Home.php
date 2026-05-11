@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Http\Services\BatteryService;
 use App\Http\Services\CompanyService;
 use App\Http\Services\EmployeeService;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
@@ -13,12 +14,12 @@ class Home extends Component
     use Toast;
 
     //? Props
-    public $employee;
-    public $company;
-    public $batteries;
+    #[Locked] public $employee;
+    #[Locked] public $company;
+    #[Locked] public $batteries;
 
     //? Reactive properties
-    public $informed_consent;
+    #[Locked] public $informed_consent;
     public $disableSubmit = false;
 
     public function mount()
@@ -43,8 +44,11 @@ class Home extends Component
     public function confirmConsent()
     {
         $this->disableSubmit = true;
+
+        $employeeId = intval(session('employee_id'));
+
         $employeeService = app(EmployeeService::class);
-        $employeeService->confirmConsent($this->employee->id);
+        $employeeService->confirmConsent($employeeId);
         $this->informed_consent = true;
         
         $this->success(
@@ -63,7 +67,7 @@ class Home extends Component
     {
         $batteryService = app(BatteryService::class);
         $first_battery  = $batteryService->getFirst();
-        return redirect("/baterias/{$first_battery['url_type']}/{$first_battery['url']}");
+        return $batteryService->redirectTo($first_battery);
     }
 
     public function render()

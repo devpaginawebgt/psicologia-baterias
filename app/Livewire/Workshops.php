@@ -7,6 +7,7 @@ use App\Http\Services\BatteryService;
 use App\Http\Services\CompanyService;
 use App\Http\Services\EmployeeService;
 use Illuminate\Support\Facades\Validator;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
@@ -15,15 +16,15 @@ class Workshops extends Component
     use Toast;
 
     //? Props
-    public $company;
-    public $batteries;
-    public $employee;
-    public $booleans;
+    #[Locked] public $company;
+    #[Locked] public $batteries;
+    #[Locked] public $employee;
+    #[Locked] public $booleans;
 
     //? Reactive properties
     public $form;
     public $disableSubmit = false;
-    public $completedSessions;
+    #[Locked] public $completedSessions;
 
     public function mount()
     {
@@ -71,8 +72,10 @@ class Workshops extends Component
 
         $this->disableSubmit = true;
 
+        $employeeId = intval(session('employee_id'));
+
         $employeeService = app(EmployeeService::class);
-        $result = $employeeService->updateSessions($this->employee->id, $this->form);
+        $result = $employeeService->updateSessions($employeeId, $this->form);
 
         if ($result['update'] == false) {
             $this->error('Error', 'No se actualizó la información, intente de nuevo.');
@@ -80,7 +83,7 @@ class Workshops extends Component
         }
 
         $this->employee = $result['employee'];
-        $this->completedSessions = $employeeService->hasCompletedSessions($this->employee->id);
+        $this->completedSessions = $employeeService->hasCompletedSessions($employeeId);
         $this->success('Éxito', 'Tu información se ha actualizado correctamente.');
 
         $this->disableSubmit = false;

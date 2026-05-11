@@ -17,7 +17,7 @@
     ];
 @endphp
 
-<main class="bg-zinc-900 p-6 w-full sm:max-w-[28rem] lg:max-w-[40rem] flex flex-col rounded-sm">
+<main class="bg-zinc-900 p-6 w-full sm:max-w-md lg:max-w-160 flex flex-col rounded-sm">
     <h1 class="uppercase text-xl font-semibold text-center text-(--secondary-color) mb-2 font-mono">Formulario de registro</h1>
 
     <form
@@ -279,7 +279,8 @@
             <x-mary-button
                 type="submit"
                 class="bg-(--primary-color)"
-                :disabled="$disableSubmit"
+                {{-- :disabled="$disableSubmit" --}}
+                disabled
                 spinner="register"
             >
                 Registrarse

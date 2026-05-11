@@ -8,7 +8,7 @@ use App\Http\Services\BatteryService;
 use App\Http\Services\CompanyService;
 use App\Http\Services\EmployeeService;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\MessageBag;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
@@ -17,25 +17,25 @@ class BatterySelect extends Component
     use Toast;
 
     //? Props
-    public $employee;
-    public $company;
-    public $batteries;
-    public $battery;
-    public $questions;
+    #[Locked] public $employee;
+    #[Locked] public $company;
+    #[Locked] public $batteries;
+    #[Locked] public $battery;
+    #[Locked] public $questions;
 
     //? Props
     public $disableSubmit = false;
     public $form = [];
 
-    public $informed_consent;
-    public $completedSessions;
-    public $responded;
-    public $respondedTwice;
-    public $disabledResponse;
+    #[Locked] public $informed_consent;
+    #[Locked] public $completedSessions;
+    #[Locked] public $responded;
+    #[Locked] public $respondedTwice;
+    #[Locked] public $disabledResponse;
 
     public $modalRespondedAll = false;
     public $modalRespondedAllTwice = false;
-    public $disabledNext = false;
+    #[Locked] public $disabledNext = false;
 
     public function mount(string $slug)
     {
@@ -48,7 +48,7 @@ class BatterySelect extends Component
         // TODO: 404 batteries
         if (!$this->battery) {
             $firstBattery = $batteryService->getFirst();
-            return redirect("/baterias/{$firstBattery['url_type']}/{$firstBattery['url']}");
+            return $batteryService->redirectTo($firstBattery);
         }
 
         $companyService = app(CompanyService::class);
@@ -85,7 +85,7 @@ class BatterySelect extends Component
     }
 
     //? Dynamic props
-    public $step = 'start';
+    #[Locked] public $step = 'start';
 
     public function startBattery()
     {
@@ -159,7 +159,7 @@ class BatterySelect extends Component
         $batteryService = app(BatteryService::class);
         $battery = $batteryService->getNext($this->battery['order']);
 
-        return redirect("/baterias/{$battery['url_type']}/{$battery['url']}");
+        return $batteryService->redirectTo($battery);
     }
 
     public function render()

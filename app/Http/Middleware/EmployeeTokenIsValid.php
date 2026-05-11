@@ -30,9 +30,9 @@ class EmployeeTokenIsValid
         if (!$token || !$employeeId) 
             return forgetToken();
 
-        // Validate token
+        // Validate token (compare hashed)
         $dbToken = EmployeeToken::where('employee_id', $employeeId)
-            ->where('token', $token)
+            ->where('token', hash('sha256', $token))
             ->first();
 
         if (!$dbToken)

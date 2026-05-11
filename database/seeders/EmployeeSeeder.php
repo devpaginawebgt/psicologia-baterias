@@ -33,7 +33,7 @@ class EmployeeSeeder extends Seeder
             'branch_subdivision_id' => 1,
             'position' => 'Dependiente',
             'sales_productivity' => 30,
-            'informed_consent' => true
+            'informed_consent' => false
         ]);
     }
 }

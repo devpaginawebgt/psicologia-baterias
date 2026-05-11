@@ -30,9 +30,6 @@ class Employee extends Model
         'branch_subdivision_id',
         'position',
         'sales_productivity',
-        'emotional_social_session',
-        'emotional_management_session',
-        'informed_consent'
     ];
 
     public function diseases(): BelongsToMany

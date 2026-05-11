@@ -3,8 +3,8 @@
 namespace App\Livewire;
 
 use App\Http\Requests\Employee\EmployeeLoginRequest;
-use App\Http\Services\BatteryService;
 use App\Http\Services\EmployeeService;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 use Mary\Traits\Toast;
@@ -31,7 +31,17 @@ class EmployeeLogin extends Component
     public function login()
     {
         $this->resetErrorBag();
-        
+
+        $key = 'login:' . request()->ip();
+
+        if (RateLimiter::tooManyAttempts($key, 5)) {
+            $seconds = RateLimiter::availableIn($key);
+            $this->error('Error', "Demasiados intentos. Intenta de nuevo en {$seconds} segundos.");
+            return;
+        }
+
+        RateLimiter::hit($key, 60);
+
         $request = new EmployeeLoginRequest();
 
         Validator::make(

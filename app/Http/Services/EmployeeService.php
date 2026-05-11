@@ -2,7 +2,6 @@
 
 namespace App\Http\Services;
 
-use App\Http\Requests\Employee\EmployeeLoginRequest;
 use App\Models\Employee;
 use App\Models\EmployeeToken;
 use Illuminate\Support\Str;
@@ -35,14 +34,14 @@ class EmployeeService {
         // Get current token and delete it
         $currentToken = EmployeeToken::where('employee_id', $employee->id)->first();
         if ($currentToken) $currentToken->delete();
-        
-        // Generate new token
-        $token = Str::random(24);
-        $expiration = Carbon::now()->addDays(7)->toDateTimeString();
+
+        // Generate new token (plain stays in session, hashed goes to DB)
+        $plainToken = Str::random(40);
+        $expiration = Carbon::now()->addHours(24)->toDateTimeString();
 
         $dbToken = EmployeeToken::create([
             'employee_id' => $employee->id,
-            'token' => $token,
+            'token' => hash('sha256', $plainToken),
             'expires_at' => $expiration
         ]);
 
@@ -51,14 +50,14 @@ class EmployeeService {
                 'error' => true,
                 'message' => 'Error al iniciar sesión. Contacta a soporte.'
             ];
-        }            
+        }
 
         session(['employee_id' => $employee->id]);
-        session(['e_token' => $token]);
+        session(['e_token' => $plainToken]);
 
         return [
             'message' => 'Éxito',
-            'token' => $token
+            'token' => $plainToken
         ];
     }
 
@@ -76,9 +75,9 @@ class EmployeeService {
         if (!$token || !$employeeId) 
             return forgetToken();
 
-        // Validate token
+        // Validate token (compare hashed)
         $dbToken = EmployeeToken::where('employee_id', $employeeId)
-            ->where('token', $token)
+            ->where('token', hash('sha256', $token))
             ->first();
 
         if (!$dbToken)
@@ -106,22 +105,25 @@ class EmployeeService {
     {
         $employee = Employee::find($employeeId);
 
-        $update = $employee->update(['informed_consent' => true]);
+        if (!$employee) return false;
 
-        return $update;
+        return $employee->forceFill(['informed_consent' => true])->save();
     }
 
     public function updateSessions(int $employeeId, array $data) {
         $employee = Employee::find($employeeId);
-        
-        if (!$employee)
-            $this->logout();
 
-        $update = $employee->update($data);
+        if (!$employee)
+            return ['update' => false, 'employee' => null];
+
+        $update = $employee->forceFill([
+            'emotional_social_session' => (bool) ($data['emotional_social_session'] ?? false),
+            'emotional_management_session' => (bool) ($data['emotional_management_session'] ?? false),
+        ])->save();
 
         return [
             'update' => $update,
-            'employee' => $employee
+            'employee' => $employee->fresh(),
         ];
     }
 
