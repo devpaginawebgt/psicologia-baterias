@@ -17,6 +17,12 @@ class QuestionOption extends Model
         'order',
     ];
 
+    protected function casts() {
+        return [
+            'order' => 'integer',
+        ];
+    }
+
     public function question(): BelongsTo
     {
         return $this->belongsTo(Question::class);

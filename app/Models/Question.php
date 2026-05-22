@@ -24,7 +24,8 @@ class Question extends Model
 
     protected function casts() {
         return [
-            'is_active' => 'boolean'
+            'is_active' => 'boolean',
+            'order' => 'integer',
         ];
     }
 

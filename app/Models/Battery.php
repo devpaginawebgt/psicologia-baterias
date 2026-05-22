@@ -21,6 +21,13 @@ class Battery extends Model
         'order',
     ];
 
+    public function casts(): array
+    {
+        return [
+            'order' => 'integer',
+        ];
+    }
+
     public function questions(): HasMany
     {
         return $this->hasMany(Question::class)->orderBy('order');

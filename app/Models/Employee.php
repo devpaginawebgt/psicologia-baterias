@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Employee extends Model
 {
@@ -32,8 +33,22 @@ class Employee extends Model
         'sales_productivity',
     ];
 
+    public function casts(): array
+    {
+        return [
+            'birthdate'          => 'date',
+            'hiring_date'        => 'date',
+            'sales_productivity' => 'decimal'
+        ];
+    }
+
     public function diseases(): BelongsToMany
     {
         return $this->belongsToMany(Disease::class);
+    }
+
+    public function employeeBatteries(): HasMany
+    {
+        return $this->hasMany(BatteryEmployee::class, 'employee_id');
     }
 }
