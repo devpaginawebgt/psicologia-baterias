@@ -110,32 +110,24 @@
             </div>
         </header>
         
-        <aside class="fixed top-14 min-[366px]:top-12 left-0 lg:top-0 z-20 w-full lg:max-w-60 -translate-y-[150%] lg:!translate-y-0 lg:min-h-screen transition-all duration-500 ease-in-out" id="sideMenu">
+        <aside class="fixed top-14 min-[366px]:top-12 left-0 lg:top-0 z-20 w-full lg:max-w-60 -translate-y-[150%] lg:translate-y-0! lg:min-h-screen transition-all duration-500 ease-in-out" id="sideMenu">
             <x-mary-menu class="w-full lg:min-w-40 lg:w-max lg:max-w-60 lg:min-h-screen lg:h-full p-4 bg-zinc-900 border-r border-b lg:border-b-0 border-zinc-700 lg:pt-18">
                 @php
-                    $url = request()->path();
-                    $currentUrl = basename($url);
+                    $activeClass = 'bg-zinc-700';
 
-                    $activeHome = $currentUrl == 'inicio'
-                        ? 'bg-zinc-700' 
-                        : '';
+                    $isActive = function (string ...$routeNames) use ($activeClass) {
+                        return \Illuminate\Support\Facades\Route::is(...$routeNames) ? $activeClass : '';
+                    };
 
-                    $activeMaterials = $currentUrl == 'materiales'
-                        ? 'bg-zinc-700' 
-                        : '';
-
-                    $activeWorkshops = $currentUrl == 'talleres'
-                        ? 'bg-zinc-700' 
-                        : '';
-
-                    $activeDashboard = $currentUrl == 'dashboard'
-                        ? 'bg-zinc-700'
-                        : '';
-
+                    $isActiveBattery = fn ($battery) =>
+                        \Illuminate\Support\Facades\Route::is('batteries.select')
+                            && request()->route('slug') === $battery->url
+                                ? $activeClass
+                                : '';
                 @endphp
 
                 <x-mary-menu-item
-                    class="-ml-2 {{ $activeHome }}"
+                    class="-ml-2 {{ $isActive('batteries.home') }}"
                     href="{{ route('batteries.home') }}"
                 >
                     <div class="flex items-center gap-2">
@@ -148,13 +140,8 @@
                 </x-mary-menu-item>
 
                 @foreach($batteries as $battery)
-                    @php
-                        $active = $currentUrl == $battery->url 
-                            ? 'bg-zinc-700' 
-                            : '';
-                    @endphp
                     <x-mary-menu-item
-                        class="-ml-2 {{ $active }}"
+                        class="-ml-2 {{ $isActiveBattery($battery) }}"
                         href="/baterias/{{ $battery->url_type }}/{{ $battery->url }}"
                     >
                         <div class="flex items-center gap-2">
@@ -166,9 +153,9 @@
                         </div>
                     </x-mary-menu-item>
                 @endforeach
-                
+
                 <x-mary-menu-item
-                    class="-ml-2 {{ $activeMaterials }}"
+                    class="-ml-2 {{ $isActive('batteries.materials') }}"
                     href="{{ route('batteries.materials') }}"
                 >
                     <div class="flex items-center gap-2">
@@ -181,7 +168,7 @@
                 </x-mary-menu-item>
 
                 <x-mary-menu-item
-                    class="-ml-2 {{ $activeWorkshops }}"
+                    class="-ml-2 {{ $isActive('batteries.workshops') }}"
                     href="{{ route('batteries.workshops') }}"
                 >
                     <div class="flex items-center gap-2">
@@ -193,9 +180,24 @@
                     </div>
                 </x-mary-menu-item>
 
+                @if (!$employee->is_admin)
+                    <x-mary-menu-item
+                        class="-ml-2 {{ $isActive('results') }}"
+                        href="{{ route('results') }}"
+                    >
+                        <div class="flex items-center gap-2">
+                            <x-mary-icon
+                                name="o-document-text"
+                                class="w-5 mb-0.5"
+                            />
+                            Resultados
+                        </div>
+                    </x-mary-menu-item>
+                @endif
+
                 @if($employee->is_admin)
                     <x-mary-menu-item
-                        class="-ml-2 {{ $activeDashboard }}"
+                        class="-ml-2 {{ $isActive('batteries.dashboard') }}"
                         href="{{ route('batteries.dashboard') }}"
                     >
                         <div class="flex items-center gap-2">
