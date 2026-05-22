@@ -28,7 +28,8 @@ class AppServiceProvider extends ServiceProvider
 
         $defaultInfoComponents = [
             'components.layouts.batteries-layout', 
-            'livewire.employee-results'
+            'livewire.employee-results',
+            'livewire.employee-detailed-results'
         ];
 
         View::composer($defaultInfoComponents, function ($view) {

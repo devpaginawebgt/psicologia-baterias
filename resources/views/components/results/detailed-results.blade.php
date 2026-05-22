@@ -8,17 +8,34 @@
     <div class="space-y-4">
         @foreach($responses as $submission)
             <div class="border border-zinc-700 rounded p-3">
-                <div class="text-xs text-zinc-400 mb-2">
+                <div class="text-xs text-zinc-400 mb-3">
                     Intento {{ $loop->iteration }}
-                    @if($submission->submittion_date)   
+                    @if($submission->submittion_date)
                         — {{ $submission->submittion_date->format('d/m/Y H:i') }}
                     @endif
                 </div>
-                <ul class="text-sm space-y-1">
+
+                <ul class="divide-y divide-zinc-800">
                     @foreach($submission->responses as $response)
-                        <li class="flex justify-between gap-2">
-                            <span class="text-zinc-300">Pregunta {{ $response->question_id }}</span>
-                            <span class="font-semibold">{{ $response->response_text ?? $response->points }}</span>
+                        <li class="py-6 first:pt-0 last:pb-0">
+                            @if($response->category)
+                                <span class="inline-block text-xs uppercase tracking-wide text-zinc-400 bg-zinc-800 border border-zinc-700 rounded px-2 py-0.5 mb-2">
+                                    {{ $response->category->name }}
+                                </span>
+                            @endif
+                            <p class="text-zinc-300 mb-1">
+                                {{ $response->question?->order }}.
+                                {{ $response->question?->question }}
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-zinc-200 font-semibold">
+                                    {{ $response->response_text ?? '—' }}
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {{ $response->points }} / {{ $response->question?->points }} pts
+                                </span>
+                                <span class="text-zinc-400">
+                                </span>
+                            </div>
                         </li>
                     @endforeach
                 </ul>

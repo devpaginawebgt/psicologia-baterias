@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Response extends Model
 {
@@ -37,13 +36,13 @@ class Response extends Model
         return $this->belongsTo(BatteryCategory::class, 'battery_category_id');
     }
 
-    public function question(): HasOne
+    public function question(): BelongsTo
     {
-        return $this->hasOne(Question::class, 'question_id');
+        return $this->belongsTo(Question::class, 'question_id');
     }
 
-    public function questionOption(): HasOne
+    public function questionOption(): BelongsTo
     {
-        return $this->hasOne(QuestionOption::class, 'question_option_id');
+        return $this->belongsTo(QuestionOption::class, 'question_option_id');
     }
 }
