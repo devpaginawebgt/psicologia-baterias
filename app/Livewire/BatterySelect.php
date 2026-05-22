@@ -61,11 +61,13 @@ class BatterySelect extends Component
         $this->completedSessions = $employeeService->hasCompletedSessions($this->employee->id);
         $this->respondedTwice = $batteryEmployeeService->hasRespondedTwice($this->employee->id, $this->battery['id']);
 
-        $this->disabledResponse = (
-            !$this->informed_consent ||
-            $this->responded && !$this->completedSessions ||
-            $this->respondedTwice
-        );
+        $this->disabledResponse = true;
+
+        // $this->disabledResponse = (
+        //     !$this->informed_consent ||
+        //     $this->responded && !$this->completedSessions ||
+        //     $this->respondedTwice
+        // );
 
         // Set form keys
         foreach($this->questions as $question) {
@@ -85,12 +87,20 @@ class BatterySelect extends Component
 
     public function startBattery()
     {
+        $this->error('Error', 'El proyecto ha concluído, ya no se aceptan respuestas a las escalas.');
+
+        return;
+
         $this->step = 'questions';
     }
 
     public function finishBattery()
     {
         $this->resetErrorBag();
+
+        $this->error('Error', 'El proyecto ha concluído, ya no se aceptan respuestas a las escalas.');
+
+        return;
 
         $request = new BatterySelectRequest();
 
