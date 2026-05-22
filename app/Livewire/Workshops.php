@@ -3,21 +3,19 @@
 namespace App\Livewire;
 
 use App\Http\Requests\Employee\EmployeeConfigRequest;
-use App\Http\Services\BatteryService;
-use App\Http\Services\CompanyService;
 use App\Http\Services\EmployeeService;
 use Illuminate\Support\Facades\Validator;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
+#[Layout('components.layouts.batteries-layout')]
 class Workshops extends Component
 {
     use Toast;
 
     //? Props
-    #[Locked] public $company;
-    #[Locked] public $batteries;
     #[Locked] public $employee;
     #[Locked] public $booleans;
 
@@ -29,13 +27,9 @@ class Workshops extends Component
     public function mount()
     {
         $employeeService = app(EmployeeService::class);
-        $companyService  = app(CompanyService::class);
-        $batteryService  = app(BatteryService::class);
-        
+
         $this->employee          = $employeeService->getById(intval(session('employee_id')));
         $this->completedSessions = $employeeService->hasCompletedSessions($this->employee->id);
-        $this->company           = $companyService->getActive();
-        $this->batteries         = $batteryService->getAll();
         $this->booleans          = $employeeService->getBooleans();
 
         $this->form = [
@@ -61,7 +55,7 @@ class Workshops extends Component
         }
 
         $this->resetErrorBag();
-        
+
         $request = new EmployeeConfigRequest();
 
         Validator::make(
@@ -91,11 +85,6 @@ class Workshops extends Component
 
     public function render()
     {
-        return view('livewire.workshops')
-            ->layout('components.layouts.batteries-layout', [
-                'company' => $this->company,
-                'batteries' => $this->batteries,
-                'employee' => $this->employee
-            ]);
+        return view('livewire.workshops');
     }
 }

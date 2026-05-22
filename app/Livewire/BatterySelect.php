@@ -5,21 +5,20 @@ namespace App\Livewire;
 use App\Http\Requests\Batteries\BatterySelectRequest;
 use App\Http\Services\BatteryEmployeeService;
 use App\Http\Services\BatteryService;
-use App\Http\Services\CompanyService;
 use App\Http\Services\EmployeeService;
 use Illuminate\Support\Facades\Validator;
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Mary\Traits\Toast;
 
+#[Layout('components.layouts.batteries-layout')]
 class BatterySelect extends Component
 {
     use Toast;
 
     //? Props
     #[Locked] public $employee;
-    #[Locked] public $company;
-    #[Locked] public $batteries;
     #[Locked] public $battery;
     #[Locked] public $questions;
 
@@ -51,12 +50,9 @@ class BatterySelect extends Component
             return $batteryService->redirectTo($firstBattery);
         }
 
-        $companyService = app(CompanyService::class);
         $batteryEmployeeService = app(BatteryEmployeeService::class);
 
-        // Set layout and view config
-        $this->company = $companyService->getActive();
-        $this->batteries = $batteryService->getAll();
+        // Set view config
         $this->questions = $this->battery['questions'];
 
         // Set user response config
@@ -66,8 +62,8 @@ class BatterySelect extends Component
         $this->respondedTwice = $batteryEmployeeService->hasRespondedTwice($this->employee->id, $this->battery['id']);
 
         $this->disabledResponse = (
-            !$this->informed_consent || 
-            $this->responded && !$this->completedSessions || 
+            !$this->informed_consent ||
+            $this->responded && !$this->completedSessions ||
             $this->respondedTwice
         );
 
@@ -95,7 +91,7 @@ class BatterySelect extends Component
     public function finishBattery()
     {
         $this->resetErrorBag();
-        
+
         $request = new BatterySelectRequest();
 
         $validator = Validator::make(
@@ -152,7 +148,7 @@ class BatterySelect extends Component
 
         $this->step = 'finished';
         return;
-    } 
+    }
 
     public function nextBattery()
     {
@@ -164,11 +160,6 @@ class BatterySelect extends Component
 
     public function render()
     {
-        return view('livewire.battery-select')
-            ->layout('components.layouts.batteries-layout', [
-                'company' => $this->company,
-                'batteries' => $this->batteries,
-                'employee' => $this->employee
-            ]);
+        return view('livewire.battery-select');
     }
 }
