@@ -10,6 +10,7 @@
             <div class="border border-zinc-700 rounded p-3">
                 <div class="text-xs text-zinc-400 mb-3">
                     Intento {{ $loop->iteration }}
+                    <span class="text-zinc-300"> - {{ $submission->response_points }} pts</span>
                     @if($submission->submittion_date)
                         — {{ $submission->submittion_date->format('d/m/Y H:i') }}
                     @endif
