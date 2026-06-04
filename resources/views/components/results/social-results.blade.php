@@ -45,20 +45,20 @@
     };
 
     // Helper para mostrar el percentil calculado
-    $calculatePercentile = fn (int $points) =>
-        (int) round(($points * 100) / $totalPossiblePoints);
+    // $calculatePercentile = fn (int $points) =>
+    //     (int) round(($points * 100) / $totalPossiblePoints);
 
     // Resolver por Percentil (columna 3 de la tabla)
-    $resolveLevelByPercentile = function (int $points) use ($totalPossiblePoints) {
-        $percentile = ($points * 100) / $totalPossiblePoints;
-        return match (true) {
-            $percentile <= 25 => 1,
-            $percentile <= 42 => 2,
-            $percentile <= 57 => 3,
-            $percentile <= 74 => 4,
-            default           => 5,
-        };
-    };
+    // $resolveLevelByPercentile = function (int $points) use ($totalPossiblePoints) {
+    //     $percentile = ($points * 100) / $totalPossiblePoints;
+    //     return match (true) {
+    //         $percentile <= 25 => 1,
+    //         $percentile <= 42 => 2,
+    //         $percentile <= 57 => 3,
+    //         $percentile <= 74 => 4,
+    //         default           => 5,
+    //     };
+    // };
 
     // Puntaje por dimensión — solo nombres. Todas las categorías comparten los mismos
     // levels y umbrales de percentil de la batería (definidos arriba).
