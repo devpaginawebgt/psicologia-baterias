@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -38,7 +39,7 @@ class Employee extends Model
         return [
             'birthdate'          => 'date',
             'hiring_date'        => 'date',
-            'sales_productivity' => 'decimal'
+            'sales_productivity' => 'decimal:2',
         ];
     }
 
@@ -50,5 +51,25 @@ class Employee extends Model
     public function employeeBatteries(): HasMany
     {
         return $this->hasMany(BatteryEmployee::class, 'employee_id');
+    }
+
+    public function company(): BelongsTo
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function division(): BelongsTo
+    {
+        return $this->belongsTo(Division::class);
+    }
+
+    public function branchDivision(): BelongsTo
+    {
+        return $this->belongsTo(Division::class, 'branch_division_id');
+    }
+
+    public function branchSubdivision(): BelongsTo
+    {
+        return $this->belongsTo(Subdivision::class, 'branch_subdivision_id');
     }
 }

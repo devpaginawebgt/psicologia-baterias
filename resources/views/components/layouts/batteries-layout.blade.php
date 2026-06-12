@@ -180,7 +180,7 @@
                     </div>
                 </x-mary-menu-item>
 
-                {{-- @if (!$employee->is_admin)
+                @if (!$employee->is_admin)
                     <x-mary-menu-item
                         class="-ml-2 {{ $isActive('results') }}"
                         href="{{ route('results') }}"
@@ -193,7 +193,7 @@
                             Resultados
                         </div>
                     </x-mary-menu-item>
-                @endif --}}
+                @endif
 
                 @if($employee->is_admin)
                     <x-mary-menu-item
@@ -206,6 +206,19 @@
                                 class="w-5 mb-0.5"
                             />
                             Dashboard
+                        </div>
+                    </x-mary-menu-item>
+
+                    <x-mary-menu-item
+                        class="-ml-2 {{ $isActive('batteries.report.employees') }}"
+                        href="{{ route('batteries.report.employees') }}"
+                    >
+                        <div class="flex items-center gap-2">
+                            <x-mary-icon
+                                name="o-users"
+                                class="w-5 mb-0.5"
+                            />
+                            Reporte de empleados
                         </div>
                     </x-mary-menu-item>
                 @endif
