@@ -171,6 +171,146 @@ class BatteryPointsService {
         ];
     }
 
+    //! ESCALA DE FELICIDAD
+
+    public function getHappinessResult(BatteryEmployee $battery)
+    {
+        $points = $battery->response_points;
+
+        if (is_null($points)) {
+            return (object) [
+                'level'     => $this::DefaultLevel,
+                'points'    => $this::DefaultPoints,
+                'sublevels' => collect([
+                    4 => (object) ['level' => $this::DefaultLevel, 'points' => $this::DefaultPoints],
+                    5 => (object) ['level' => $this::DefaultLevel, 'points' => $this::DefaultPoints],
+                    6 => (object) ['level' => $this::DefaultLevel, 'points' => $this::DefaultPoints],
+                    7 => (object) ['level' => $this::DefaultLevel, 'points' => $this::DefaultPoints],
+                ]),
+            ];
+        }
+
+        $levels = [
+            1 => [
+                'title'   => 'Muy baja',
+                'content' => 'Probablemente te sientes descontento, con dificultades emocionales o de bienestar que impactan significativamente tu calidad de vida.',
+            ],
+            2 => [
+                'title'   => 'Baja',
+                'content' => 'Puedes estar experimentando insatisfacción o dificultades que afectan tu percepción de bienestar.',
+            ],
+            3 => [
+                'title'   => 'Media',
+                'content' => 'La satisfacción y el bienestar son moderados, y puede haber altibajos en cómo percibes tu vida.',
+            ],
+            4 => [
+                'title'   => 'Alta',
+                'content' => 'Generalmente te sientes bien y tienes una percepción positiva de tu vida.',
+            ],
+            5 => [
+                'title'   => 'Muy alta',
+                'content' => 'Te sientes muy satisfecho(a) y positivo(a) respecto a tu bienestar y tu vida en general.',
+            ],
+        ];
+
+        $resolveLevel = fn (int $points) => match (true) {
+            $points < 88  => 1,
+            $points < 96  => 2,
+            $points < 111 => 3,
+            $points < 119 => 4,
+            default       => 5,
+        };
+
+        $level = $levels[$resolveLevel($points)];
+
+        // Puntaje por dimensión (battery_category_id según BatteryCategorySeeder)
+        //   4 => Sentido positivo de la vida, 5 => Satisfacción con la vida,
+        //   6 => Realización personal,        7 => Alegría de vivir
+        $categoryDefinitions = collect([
+            4 => [
+                'name' => 'Sentido positivo de la vida',
+                // Escala invertida: menos puntos = mejor percepción
+                'resolver' => fn ($p) => match (true) {
+                    $p <= 24 => 4,
+                    $p <= 38 => 3,
+                    $p <= 51 => 2,
+                    default  => 1,
+                },
+                'levels' => [
+                    1 => ['title' => 'Baja'],
+                    2 => ['title' => 'Media'],
+                    3 => ['title' => 'Alta'],
+                    4 => ['title' => 'Muy alta'],
+                ],
+            ],
+            5 => [
+                'name' => 'Satisfacción con la vida',
+                'resolver' => fn ($p) => match (true) {
+                    $p <= 12 => 1,
+                    $p <= 18 => 2,
+                    $p <= 24 => 3,
+                    default  => 4,
+                },
+                'levels' => [
+                    1 => ['title' => 'Baja'],
+                    2 => ['title' => 'Media'],
+                    3 => ['title' => 'Alta'],
+                    4 => ['title' => 'Muy alta'],
+                ],
+            ],
+            6 => [
+                'name' => 'Realización personal',
+                'resolver' => fn ($p) => match (true) {
+                    $p <= 12 => 1,
+                    $p <= 18 => 2,
+                    $p <= 24 => 3,
+                    default  => 4,
+                },
+                'levels' => [
+                    1 => ['title' => 'Baja'],
+                    2 => ['title' => 'Media'],
+                    3 => ['title' => 'Alta'],
+                    4 => ['title' => 'Muy alta'],
+                ],
+            ],
+            7 => [
+                'name' => 'Alegría de vivir',
+                'resolver' => fn ($p) => match (true) {
+                    $p <= 8  => 1,
+                    $p <= 12 => 2,
+                    $p <= 16 => 3,
+                    default  => 4,
+                },
+                'levels' => [
+                    1 => ['title' => 'Baja'],
+                    2 => ['title' => 'Media'],
+                    3 => ['title' => 'Alta'],
+                    4 => ['title' => 'Muy alta'],
+                ],
+            ],
+        ]);
+
+        $pointsByCategory = fn ($submission) => $submission?->responses->groupBy('battery_category_id')->map->sum('points') ?? collect();
+
+        $categoryPoints = $pointsByCategory($battery);
+
+        $sublevels = $categoryDefinitions->map(function($definition, $categoryId) use ($categoryPoints) {
+            $catPoints = $categoryPoints->get($categoryId, 0);
+            $catLevel  = $definition['levels'][$definition['resolver']($catPoints)];
+
+            return (object) [
+                'points' => $catPoints,
+                'level'  => $catLevel['title'],
+            ];
+        });
+
+        return (object) [
+            'level'     => $level['title'],
+            'points'    => $points,
+            'sublevels' => $sublevels,
+        ];
+    }
+
 }
 
 ?>

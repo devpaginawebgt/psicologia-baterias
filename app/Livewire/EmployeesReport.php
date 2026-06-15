@@ -97,6 +97,17 @@ class EmployeesReport extends Component
             ['key' => 'emotional_repair_level_1',      'label' => 'Pretest Reparación de las Emociones (I. E.)'],
             ['key' => 'emotional_repair_points_1',     'label' => 'Pretest Reparación de las Emociones (I. E.) Puntos'],
 
+            ['key' => 'happiness_level_1',             'label' => 'Pretest Felicidad'],
+            ['key' => 'happiness_points_1',            'label' => 'Pretest Felicidad Puntos'],
+            ['key' => 'positive_meaning_level_1',      'label' => 'Pretest Sentido positivo de la vida (Felicidad)'],
+            ['key' => 'positive_meaning_points_1',     'label' => 'Pretest Sentido positivo de la vida (Felicidad) Puntos'],
+            ['key' => 'life_satisfaction_level_1',     'label' => 'Pretest Satisfacción con la vida (Felicidad)'],
+            ['key' => 'life_satisfaction_points_1',    'label' => 'Pretest Satisfacción con la vida (Felicidad) Puntos'],
+            ['key' => 'personal_fulfillment_level_1',  'label' => 'Pretest Realización personal (Felicidad)'],
+            ['key' => 'personal_fulfillment_points_1', 'label' => 'Pretest Realización personal (Felicidad) Puntos'],
+            ['key' => 'joy_of_living_level_1',         'label' => 'Pretest Alegría de vivir (Felicidad)'],
+            ['key' => 'joy_of_living_points_1',        'label' => 'Pretest Alegría de vivir (Felicidad) Puntos'],
+
             ['key' => 'emotional_social_session',     'label' => 'Taller Inteligencia Emocional y Social',                  'sortable' => false],
             ['key' => 'emotional_management_session', 'label' => 'Taller Herramientas para el manejo de las emociones',     'sortable' => false],
             ['key' => 'created_at',                   'label' => 'Fecha Registro',                                          'sortable' => false],
@@ -116,6 +127,12 @@ class EmployeesReport extends Component
 
             $emotional_results = $user_batteries->get(2, collect())->map(function($user_battery) use($pointsService) {
                 return $pointsService->getEmotionalResult($user_battery);
+            });
+
+            // Resultado Felicidad
+
+            $happiness_results = $user_batteries->get(3, collect())->map(function($user_battery) use($pointsService) {
+                return $pointsService->getHappinessResult($user_battery);
             });
 
             // Resultado Escala Emocional
@@ -154,6 +171,18 @@ class EmployeesReport extends Component
                 'clarity_points_1'             => $emotional_results->get(1)?->sublevels->get(2)->points ?? $pointsService::DefaultPoints,
                 'emotional_repair_level_1'     => $emotional_results->get(1)?->sublevels->get(3)->level  ?? $pointsService::DefaultLevel,
                 'emotional_repair_points_1'    => $emotional_results->get(1)?->sublevels->get(3)->points ?? $pointsService::DefaultPoints,
+
+                // Felicidad
+                'happiness_level_1'             => $happiness_results->get(1)?->level  ?? $pointsService::DefaultLevel,
+                'happiness_points_1'            => $happiness_results->get(1)?->points ?? $pointsService::DefaultPoints,
+                'positive_meaning_level_1'      => $happiness_results->get(1)?->sublevels->get(4)->level  ?? $pointsService::DefaultLevel,
+                'positive_meaning_points_1'     => $happiness_results->get(1)?->sublevels->get(4)->points ?? $pointsService::DefaultPoints,
+                'life_satisfaction_level_1'     => $happiness_results->get(1)?->sublevels->get(5)->level  ?? $pointsService::DefaultLevel,
+                'life_satisfaction_points_1'    => $happiness_results->get(1)?->sublevels->get(5)->points ?? $pointsService::DefaultPoints,
+                'personal_fulfillment_level_1'  => $happiness_results->get(1)?->sublevels->get(6)->level  ?? $pointsService::DefaultLevel,
+                'personal_fulfillment_points_1' => $happiness_results->get(1)?->sublevels->get(6)->points ?? $pointsService::DefaultPoints,
+                'joy_of_living_level_1'         => $happiness_results->get(1)?->sublevels->get(7)->level  ?? $pointsService::DefaultLevel,
+                'joy_of_living_points_1'        => $happiness_results->get(1)?->sublevels->get(7)->points ?? $pointsService::DefaultPoints,
 
 
 
