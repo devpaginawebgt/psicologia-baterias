@@ -53,6 +53,7 @@ class EmployeesReport extends Component
                 'diseases', 
                 'employeeBatteries' => fn($q) => $q->orderBy('submittion_date', 'asc'),
                 'employeeBatteries.responses',
+                'employeeBatteries.battery.questions',
             ])
             ->when($this->search, function ($query) {
                 $query->where(function ($q) {
@@ -108,6 +109,21 @@ class EmployeesReport extends Component
             ['key' => 'joy_of_living_level_1',         'label' => 'Pretest Alegría de vivir (Felicidad)'],
             ['key' => 'joy_of_living_points_1',        'label' => 'Pretest Alegría de vivir (Felicidad) Puntos'],
 
+            ['key' => 'social_level_1',                    'label' => 'Pretest Habilidades Sociales'],
+            ['key' => 'social_points_1',                   'label' => 'Pretest Habilidades Sociales Puntos'],
+            ['key' => 'first_social_skills_level_1',       'label' => 'Pretest Primeras habilidades sociales (H. S.)'],
+            ['key' => 'first_social_skills_points_1',      'label' => 'Pretest Primeras habilidades sociales (H. S.) Puntos'],
+            ['key' => 'advanced_social_skills_level_1',    'label' => 'Pretest Habilidades sociales avanzadas (H. S.)'],
+            ['key' => 'advanced_social_skills_points_1',   'label' => 'Pretest Habilidades sociales avanzadas (H. S.) Puntos'],
+            ['key' => 'feelings_skills_level_1',           'label' => 'Pretest Habilidades relacionadas con los sentimientos (H. S.)'],
+            ['key' => 'feelings_skills_points_1',          'label' => 'Pretest Habilidades relacionadas con los sentimientos (H. S.) Puntos'],
+            ['key' => 'aggression_alternatives_level_1',   'label' => 'Pretest Habilidades alternativas a la agresión (H. S.)'],
+            ['key' => 'aggression_alternatives_points_1',  'label' => 'Pretest Habilidades alternativas a la agresión (H. S.) Puntos'],
+            ['key' => 'stress_coping_level_1',             'label' => 'Pretest Habilidades para hacer frente al estrés (H. S.)'],
+            ['key' => 'stress_coping_points_1',            'label' => 'Pretest Habilidades para hacer frente al estrés (H. S.) Puntos'],
+            ['key' => 'planning_skills_level_1',           'label' => 'Pretest Habilidades de Planificación (H. S.)'],
+            ['key' => 'planning_skills_points_1',          'label' => 'Pretest Habilidades de Planificación (H. S.) Puntos'],
+
             ['key' => 'emotional_social_session',     'label' => 'Taller Inteligencia Emocional y Social',                  'sortable' => false],
             ['key' => 'emotional_management_session', 'label' => 'Taller Herramientas para el manejo de las emociones',     'sortable' => false],
             ['key' => 'created_at',                   'label' => 'Fecha Registro',                                          'sortable' => false],
@@ -133,6 +149,12 @@ class EmployeesReport extends Component
 
             $happiness_results = $user_batteries->get(3, collect())->map(function($user_battery) use($pointsService) {
                 return $pointsService->getHappinessResult($user_battery);
+            });
+
+            // Resultado Habilidades Sociales
+
+            $social_results = $user_batteries->get(4, collect())->map(function($user_battery) use($pointsService) {
+                return $pointsService->getSocialResult($user_battery);
             });
 
             // Resultado Escala Emocional
@@ -183,6 +205,22 @@ class EmployeesReport extends Component
                 'personal_fulfillment_points_1' => $happiness_results->get(1)?->sublevels->get(6)->points ?? $pointsService::DefaultPoints,
                 'joy_of_living_level_1'         => $happiness_results->get(1)?->sublevels->get(7)->level  ?? $pointsService::DefaultLevel,
                 'joy_of_living_points_1'        => $happiness_results->get(1)?->sublevels->get(7)->points ?? $pointsService::DefaultPoints,
+
+                // Habilidades sociales
+                'social_level_1'                    => $social_results->get(1)?->level  ?? $pointsService::DefaultLevel,
+                'social_points_1'                   => $social_results->get(1)?->points ?? $pointsService::DefaultPoints,
+                'first_social_skills_level_1'       => $social_results->get(1)?->sublevels->get(8)->level   ?? $pointsService::DefaultLevel,
+                'first_social_skills_points_1'      => $social_results->get(1)?->sublevels->get(8)->points  ?? $pointsService::DefaultPoints,
+                'advanced_social_skills_level_1'    => $social_results->get(1)?->sublevels->get(9)->level   ?? $pointsService::DefaultLevel,
+                'advanced_social_skills_points_1'   => $social_results->get(1)?->sublevels->get(9)->points  ?? $pointsService::DefaultPoints,
+                'feelings_skills_level_1'           => $social_results->get(1)?->sublevels->get(10)->level  ?? $pointsService::DefaultLevel,
+                'feelings_skills_points_1'          => $social_results->get(1)?->sublevels->get(10)->points ?? $pointsService::DefaultPoints,
+                'aggression_alternatives_level_1'   => $social_results->get(1)?->sublevels->get(11)->level  ?? $pointsService::DefaultLevel,
+                'aggression_alternatives_points_1'  => $social_results->get(1)?->sublevels->get(11)->points ?? $pointsService::DefaultPoints,
+                'stress_coping_level_1'             => $social_results->get(1)?->sublevels->get(12)->level  ?? $pointsService::DefaultLevel,
+                'stress_coping_points_1'            => $social_results->get(1)?->sublevels->get(12)->points ?? $pointsService::DefaultPoints,
+                'planning_skills_level_1'           => $social_results->get(1)?->sublevels->get(13)->level  ?? $pointsService::DefaultLevel,
+                'planning_skills_points_1'          => $social_results->get(1)?->sublevels->get(13)->points ?? $pointsService::DefaultPoints,
 
 
 

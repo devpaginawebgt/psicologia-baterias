@@ -28,6 +28,7 @@ class EmployeesExport implements FromQuery, WithHeadings, WithMapping, WithChunk
                 'diseases',
                 'employeeBatteries' => fn($q) => $q->orderBy('submittion_date', 'asc'),
                 'employeeBatteries.responses',
+                'employeeBatteries.battery.questions',
             ])
             ->when($this->search, function ($query) {
                 $query->where(function ($q) {
@@ -89,6 +90,21 @@ class EmployeesExport implements FromQuery, WithHeadings, WithMapping, WithChunk
             'Pretest Alegría de vivir (Felicidad)',
             'Pretest Alegría de vivir (Felicidad) Puntos',
 
+            'Pretest Habilidades Sociales',
+            'Pretest Habilidades Sociales Puntos',
+            'Pretest Primeras habilidades sociales (H. S.)',
+            'Pretest Primeras habilidades sociales (H. S.) Puntos',
+            'Pretest Habilidades sociales avanzadas (H. S.)',
+            'Pretest Habilidades sociales avanzadas (H. S.) Puntos',
+            'Pretest Habilidades relacionadas con los sentimientos (H. S.)',
+            'Pretest Habilidades relacionadas con los sentimientos (H. S.) Puntos',
+            'Pretest Habilidades alternativas a la agresión (H. S.)',
+            'Pretest Habilidades alternativas a la agresión (H. S.) Puntos',
+            'Pretest Habilidades para hacer frente al estrés (H. S.)',
+            'Pretest Habilidades para hacer frente al estrés (H. S.) Puntos',
+            'Pretest Habilidades de Planificación (H. S.)',
+            'Pretest Habilidades de Planificación (H. S.) Puntos',
+
             'Taller Inteligencia Emocional y Social',
             'Taller Herramientas para el manejo de las emociones',
             'Fecha Registro',
@@ -102,6 +118,7 @@ class EmployeesExport implements FromQuery, WithHeadings, WithMapping, WithChunk
         $stressResults    = $userBatteries->get(1, collect())->map(fn($b) => $this->pointsService->getStressResult($b));
         $emotionalResults = $userBatteries->get(2, collect())->map(fn($b) => $this->pointsService->getEmotionalResult($b));
         $happinessResults = $userBatteries->get(3, collect())->map(fn($b) => $this->pointsService->getHappinessResult($b));
+        $socialResults    = $userBatteries->get(4, collect())->map(fn($b) => $this->pointsService->getSocialResult($b));
 
         $defaultLevel  = $this->pointsService::DefaultLevel;
         $defaultPoints = $this->pointsService::DefaultPoints;
@@ -150,6 +167,22 @@ class EmployeesExport implements FromQuery, WithHeadings, WithMapping, WithChunk
             $happinessResults->get(1)?->sublevels->get(6)->points ?? $defaultPoints,
             $happinessResults->get(1)?->sublevels->get(7)->level  ?? $defaultLevel,
             $happinessResults->get(1)?->sublevels->get(7)->points ?? $defaultPoints,
+
+            // Habilidades Sociales
+            $socialResults->get(1)?->level  ?? $defaultLevel,
+            $socialResults->get(1)?->points ?? $defaultPoints,
+            $socialResults->get(1)?->sublevels->get(8)->level   ?? $defaultLevel,
+            $socialResults->get(1)?->sublevels->get(8)->points  ?? $defaultPoints,
+            $socialResults->get(1)?->sublevels->get(9)->level   ?? $defaultLevel,
+            $socialResults->get(1)?->sublevels->get(9)->points  ?? $defaultPoints,
+            $socialResults->get(1)?->sublevels->get(10)->level  ?? $defaultLevel,
+            $socialResults->get(1)?->sublevels->get(10)->points ?? $defaultPoints,
+            $socialResults->get(1)?->sublevels->get(11)->level  ?? $defaultLevel,
+            $socialResults->get(1)?->sublevels->get(11)->points ?? $defaultPoints,
+            $socialResults->get(1)?->sublevels->get(12)->level  ?? $defaultLevel,
+            $socialResults->get(1)?->sublevels->get(12)->points ?? $defaultPoints,
+            $socialResults->get(1)?->sublevels->get(13)->level  ?? $defaultLevel,
+            $socialResults->get(1)?->sublevels->get(13)->points ?? $defaultPoints,
 
             $employee->emotional_social_session ? 'Asistió' : 'No asistió',
             $employee->emotional_management_session ? 'Asistió' : 'No asistió',

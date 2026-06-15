@@ -311,6 +311,98 @@ class BatteryPointsService {
         ];
     }
 
+    //! ESCALA DE HABILIDADES SOCIALES
+
+    public function getSocialResult(BatteryEmployee $battery)
+    {
+        $points = $battery->response_points;
+
+        $defaultSublevels = collect([
+            8  => (object) ['level' => $this::DefaultLevel, 'points' => $this::DefaultPoints],
+            9  => (object) ['level' => $this::DefaultLevel, 'points' => $this::DefaultPoints],
+            10 => (object) ['level' => $this::DefaultLevel, 'points' => $this::DefaultPoints],
+            11 => (object) ['level' => $this::DefaultLevel, 'points' => $this::DefaultPoints],
+            12 => (object) ['level' => $this::DefaultLevel, 'points' => $this::DefaultPoints],
+            13 => (object) ['level' => $this::DefaultLevel, 'points' => $this::DefaultPoints],
+        ]);
+
+        if (is_null($points)) {
+            return (object) [
+                'level'     => $this::DefaultLevel,
+                'points'    => $this::DefaultPoints,
+                'sublevels' => $defaultSublevels,
+            ];
+        }
+
+        $levels = [
+            1 => ['title' => 'Deficiente Nivel'],
+            2 => ['title' => 'Bajo Nivel'],
+            3 => ['title' => 'Normal Nivel'],
+            4 => ['title' => 'Buen Nivel'],
+            5 => ['title' => 'Excelente Nivel'],
+        ];
+
+        // Resolver por Puntaje Directo
+        $resolveLevel = fn (int $points) => match (true) {
+            $points <= 25  => 1,
+            $points <= 77  => 2,
+            $points <= 156 => 3,
+            $points <= 204 => 4,
+            default        => 5,
+        };
+
+        $level = $levels[$resolveLevel($points)];
+
+        // Puntaje por dimensión (battery_category_id según BatteryCategorySeeder)
+        //   8  => Primeras habilidades sociales
+        //   9  => Habilidades sociales avanzadas
+        //   10 => Habilidades relacionadas con los sentimientos
+        //   11 => Habilidades alternativas a la agresión
+        //   12 => Habilidades para hacer frente al estrés
+        //   13 => Habilidades de Planificación
+        $categoryIds = [8, 9, 10, 11, 12, 13];
+
+        // Máximo de puntos posibles por categoría = suma de `points` de las
+        // preguntas activas de esa categoría en la batería.
+        $maxPointsByCategory = $battery->battery?->questions
+            ->where('is_active', true)
+            ->groupBy('battery_category_id')
+            ->map->sum('points') ?? collect();
+
+        $categoryPoints = $battery->responses->groupBy('battery_category_id')->map->sum('points');
+
+        // Resolver de nivel por categoría usando percentil (puntos obtenidos / máximo posible).
+        $resolveCategoryLevel = function (int $points, int $max) {
+            if ($max <= 0) return 1;
+
+            $percentile = ($points * 100) / $max;
+            return match (true) {
+                $percentile <= 25 => 1,
+                $percentile <= 42 => 2,
+                $percentile <= 57 => 3,
+                $percentile <= 74 => 4,
+                default           => 5,
+            };
+        };
+
+        $sublevels = collect($categoryIds)->mapWithKeys(function ($categoryId) use ($categoryPoints, $maxPointsByCategory, $levels, $resolveCategoryLevel) {
+            $catPoints = $categoryPoints->get($categoryId, 0);
+            $catMax    = $maxPointsByCategory->get($categoryId, 0);
+            $catLevel  = $levels[$resolveCategoryLevel($catPoints, $catMax)];
+
+            return [$categoryId => (object) [
+                'points' => $catPoints,
+                'level'  => $catLevel['title'],
+            ]];
+        });
+
+        return (object) [
+            'level'     => $level['title'],
+            'points'    => $points,
+            'sublevels' => $sublevels,
+        ];
+    }
+
 }
 
 ?>
