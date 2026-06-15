@@ -90,7 +90,7 @@
     {{-- Primera fase: respuesta inicial --}}
     <div class="border border-zinc-700 rounded p-4">
         <div class="mb-4 text-sm flex items-center justify-between">
-            <span class="text-zinc-300">Primera fase</span>
+            <span class="text-zinc-300">Pre-test</span>
             @if($firstSubmission?->submittion_date)
                 <span class="text-zinc-400">{{ $firstSubmission->submittion_date->format('d/m/Y H:i') }}</span>
             @endif
@@ -147,7 +147,7 @@
     {{-- Segunda fase: asistencia a talleres --}}
     <div class="border border-zinc-700 rounded p-4">
         <div class="mb-4 text-sm">
-            <span class="text-zinc-300">Segunda fase — Talleres</span>
+            <span class="text-zinc-300">Talleres</span>
         </div>
 
         <ul class="text-sm space-y-2">
@@ -181,7 +181,7 @@
     {{-- Tercera fase: respuesta posterior a talleres --}}
     <div class="border border-zinc-700 rounded p-4">
         <div class="mb-4 text-sm flex items-center justify-between">
-            <span class="text-zinc-300">Tercera fase</span>
+            <span class="text-zinc-300">Post-test</span>
             @if($secondSubmission?->submittion_date)
                 <span class="text-zinc-400">{{ $secondSubmission->submittion_date->format('d/m/Y H:i') }}</span>
             @endif
