@@ -21,7 +21,7 @@
         <div class="mb-4 max-w-md">
             <x-mary-input
                 wire:model.live.debounce.400ms="search"
-                placeholder="Buscar por nombre, teléfono, puesto o compañía..."
+                placeholder="Buscar por nombre, teléfono o puesto..."
                 icon="o-magnifying-glass"
                 clearable
             />

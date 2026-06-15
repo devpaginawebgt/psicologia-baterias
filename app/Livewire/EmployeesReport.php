@@ -86,47 +86,94 @@ class EmployeesReport extends Component
             ['key' => 'position',                      'label' => 'Puesto'],
             ['key' => 'diseases',                      'label' => 'Enfermedades crónicas'],
             ['key' => 'informed_consent',              'label' => 'Consentimiento informado',                               'sortable' => false],
+            ['key' => 'project_completed',             'label' => 'Completó Proyecto',                                      'sortable' => false],
 
-            ['key' => 'stress_level_1',                'label' => 'Pretest Estrés'],
-            ['key' => 'stress_points_1',               'label' => 'Pretest Estrés Puntos'],
-            ['key' => 'emotional_level_1',             'label' => 'Pretest Inteligencia Emocional'],
-            ['key' => 'emotional_points_1',            'label' => 'Pretest Inteligencia Emocional Puntos'],
-            ['key' => 'attention_level_1',             'label' => 'Pretest Atención Emocional (I. E.)'],
-            ['key' => 'attention_points_1',            'label' => 'Pretest Atención Emocional (I. E.) Puntos'],
-            ['key' => 'clarity_level_1',               'label' => 'Pretest Claridad Emocional (I. E.)'],
-            ['key' => 'clarity_points_1',              'label' => 'Pretest Claridad Emocional (I. E.) Puntos'],
-            ['key' => 'emotional_repair_level_1',      'label' => 'Pretest Reparación de las Emociones (I. E.)'],
-            ['key' => 'emotional_repair_points_1',     'label' => 'Pretest Reparación de las Emociones (I. E.) Puntos'],
+            //? PRE-TEST
 
-            ['key' => 'happiness_level_1',             'label' => 'Pretest Felicidad'],
-            ['key' => 'happiness_points_1',            'label' => 'Pretest Felicidad Puntos'],
-            ['key' => 'positive_meaning_level_1',      'label' => 'Pretest Sentido positivo de la vida (Felicidad)'],
-            ['key' => 'positive_meaning_points_1',     'label' => 'Pretest Sentido positivo de la vida (Felicidad) Puntos'],
-            ['key' => 'life_satisfaction_level_1',     'label' => 'Pretest Satisfacción con la vida (Felicidad)'],
-            ['key' => 'life_satisfaction_points_1',    'label' => 'Pretest Satisfacción con la vida (Felicidad) Puntos'],
-            ['key' => 'personal_fulfillment_level_1',  'label' => 'Pretest Realización personal (Felicidad)'],
-            ['key' => 'personal_fulfillment_points_1', 'label' => 'Pretest Realización personal (Felicidad) Puntos'],
-            ['key' => 'joy_of_living_level_1',         'label' => 'Pretest Alegría de vivir (Felicidad)'],
-            ['key' => 'joy_of_living_points_1',        'label' => 'Pretest Alegría de vivir (Felicidad) Puntos'],
+            ['key' => 'stress_level_1',                'label' => 'Pre-test Estrés'],
+            ['key' => 'stress_points_1',               'label' => 'Pre-test Estrés Puntos'],
 
-            ['key' => 'social_level_1',                    'label' => 'Pretest Habilidades Sociales'],
-            ['key' => 'social_points_1',                   'label' => 'Pretest Habilidades Sociales Puntos'],
-            ['key' => 'first_social_skills_level_1',       'label' => 'Pretest Primeras habilidades sociales (H. S.)'],
-            ['key' => 'first_social_skills_points_1',      'label' => 'Pretest Primeras habilidades sociales (H. S.) Puntos'],
-            ['key' => 'advanced_social_skills_level_1',    'label' => 'Pretest Habilidades sociales avanzadas (H. S.)'],
-            ['key' => 'advanced_social_skills_points_1',   'label' => 'Pretest Habilidades sociales avanzadas (H. S.) Puntos'],
-            ['key' => 'feelings_skills_level_1',           'label' => 'Pretest Habilidades relacionadas con los sentimientos (H. S.)'],
-            ['key' => 'feelings_skills_points_1',          'label' => 'Pretest Habilidades relacionadas con los sentimientos (H. S.) Puntos'],
-            ['key' => 'aggression_alternatives_level_1',   'label' => 'Pretest Habilidades alternativas a la agresión (H. S.)'],
-            ['key' => 'aggression_alternatives_points_1',  'label' => 'Pretest Habilidades alternativas a la agresión (H. S.) Puntos'],
-            ['key' => 'stress_coping_level_1',             'label' => 'Pretest Habilidades para hacer frente al estrés (H. S.)'],
-            ['key' => 'stress_coping_points_1',            'label' => 'Pretest Habilidades para hacer frente al estrés (H. S.) Puntos'],
-            ['key' => 'planning_skills_level_1',           'label' => 'Pretest Habilidades de Planificación (H. S.)'],
-            ['key' => 'planning_skills_points_1',          'label' => 'Pretest Habilidades de Planificación (H. S.) Puntos'],
+            ['key' => 'emotional_level_1',             'label' => 'Pre-test Inteligencia Emocional'],
+            ['key' => 'emotional_points_1',            'label' => 'Pre-test Inteligencia Emocional Puntos'],
+            ['key' => 'attention_level_1',             'label' => 'Pre-test Atención Emocional (I. E.)'],
+            ['key' => 'attention_points_1',            'label' => 'Pre-test Atención Emocional (I. E.) Puntos'],
+            ['key' => 'clarity_level_1',               'label' => 'Pre-test Claridad Emocional (I. E.)'],
+            ['key' => 'clarity_points_1',              'label' => 'Pre-test Claridad Emocional (I. E.) Puntos'],
+            ['key' => 'emotional_repair_level_1',      'label' => 'Pre-test Reparación de las Emociones (I. E.)'],
+            ['key' => 'emotional_repair_points_1',     'label' => 'Pre-test Reparación de las Emociones (I. E.) Puntos'],
+
+            ['key' => 'happiness_level_1',             'label' => 'Pre-test Felicidad'],
+            ['key' => 'happiness_points_1',            'label' => 'Pre-test Felicidad Puntos'],
+            ['key' => 'positive_meaning_level_1',      'label' => 'Pre-test Sentido positivo de la vida (Felicidad)'],
+            ['key' => 'positive_meaning_points_1',     'label' => 'Pre-test Sentido positivo de la vida (Felicidad) Puntos'],
+            ['key' => 'life_satisfaction_level_1',     'label' => 'Pre-test Satisfacción con la vida (Felicidad)'],
+            ['key' => 'life_satisfaction_points_1',    'label' => 'Pre-test Satisfacción con la vida (Felicidad) Puntos'],
+            ['key' => 'personal_fulfillment_level_1',  'label' => 'Pre-test Realización personal (Felicidad)'],
+            ['key' => 'personal_fulfillment_points_1', 'label' => 'Pre-test Realización personal (Felicidad) Puntos'],
+            ['key' => 'joy_of_living_level_1',         'label' => 'Pre-test Alegría de vivir (Felicidad)'],
+            ['key' => 'joy_of_living_points_1',        'label' => 'Pre-test Alegría de vivir (Felicidad) Puntos'],
+
+            ['key' => 'social_level_1',                    'label' => 'Pre-test Habilidades Sociales'],
+            ['key' => 'social_points_1',                   'label' => 'Pre-test Habilidades Sociales Puntos'],
+            ['key' => 'first_social_skills_level_1',       'label' => 'Pre-test Primeras habilidades sociales (H. S.)'],
+            ['key' => 'first_social_skills_points_1',      'label' => 'Pre-test Primeras habilidades sociales (H. S.) Puntos'],
+            ['key' => 'advanced_social_skills_level_1',    'label' => 'Pre-test Habilidades sociales avanzadas (H. S.)'],
+            ['key' => 'advanced_social_skills_points_1',   'label' => 'Pre-test Habilidades sociales avanzadas (H. S.) Puntos'],
+            ['key' => 'feelings_skills_level_1',           'label' => 'Pre-test Habilidades relacionadas con los sentimientos (H. S.)'],
+            ['key' => 'feelings_skills_points_1',          'label' => 'Pre-test Habilidades relacionadas con los sentimientos (H. S.) Puntos'],
+            ['key' => 'aggression_alternatives_level_1',   'label' => 'Pre-test Habilidades alternativas a la agresión (H. S.)'],
+            ['key' => 'aggression_alternatives_points_1',  'label' => 'Pre-test Habilidades alternativas a la agresión (H. S.) Puntos'],
+            ['key' => 'stress_coping_level_1',             'label' => 'Pre-test Habilidades para hacer frente al estrés (H. S.)'],
+            ['key' => 'stress_coping_points_1',            'label' => 'Pre-test Habilidades para hacer frente al estrés (H. S.) Puntos'],
+            ['key' => 'planning_skills_level_1',           'label' => 'Pre-test Habilidades de Planificación (H. S.)'],
+            ['key' => 'planning_skills_points_1',          'label' => 'Pre-test Habilidades de Planificación (H. S.) Puntos'],
+
+            //? TALLERES
 
             ['key' => 'emotional_social_session',     'label' => 'Taller Inteligencia Emocional y Social',                  'sortable' => false],
             ['key' => 'emotional_management_session', 'label' => 'Taller Herramientas para el manejo de las emociones',     'sortable' => false],
-            ['key' => 'created_at',                   'label' => 'Fecha Registro',                                          'sortable' => false],
+
+            //? POST-TEST
+
+            ['key' => 'stress_level_2',                'label' => 'Post-test Estrés'],
+            ['key' => 'stress_points_2',               'label' => 'Post-test Estrés Puntos'],
+
+            ['key' => 'emotional_level_2',             'label' => 'Post-test Inteligencia Emocional'],
+            ['key' => 'emotional_points_2',            'label' => 'Post-test Inteligencia Emocional Puntos'],
+            ['key' => 'attention_level_2',             'label' => 'Post-test Atención Emocional (I. E.)'],
+            ['key' => 'attention_points_2',            'label' => 'Post-test Atención Emocional (I. E.) Puntos'],
+            ['key' => 'clarity_level_2',               'label' => 'Post-test Claridad Emocional (I. E.)'],
+            ['key' => 'clarity_points_2',              'label' => 'Post-test Claridad Emocional (I. E.) Puntos'],
+            ['key' => 'emotional_repair_level_2',      'label' => 'Post-test Reparación de las Emociones (I. E.)'],
+            ['key' => 'emotional_repair_points_2',     'label' => 'Post-test Reparación de las Emociones (I. E.) Puntos'],
+
+            ['key' => 'happiness_level_2',             'label' => 'Post-test Felicidad'],
+            ['key' => 'happiness_points_2',            'label' => 'Post-test Felicidad Puntos'],
+            ['key' => 'positive_meaning_level_2',      'label' => 'Post-test Sentido positivo de la vida (Felicidad)'],
+            ['key' => 'positive_meaning_points_2',     'label' => 'Post-test Sentido positivo de la vida (Felicidad) Puntos'],
+            ['key' => 'life_satisfaction_level_2',     'label' => 'Post-test Satisfacción con la vida (Felicidad)'],
+            ['key' => 'life_satisfaction_points_2',    'label' => 'Post-test Satisfacción con la vida (Felicidad) Puntos'],
+            ['key' => 'personal_fulfillment_level_2',  'label' => 'Post-test Realización personal (Felicidad)'],
+            ['key' => 'personal_fulfillment_points_2', 'label' => 'Post-test Realización personal (Felicidad) Puntos'],
+            ['key' => 'joy_of_living_level_2',         'label' => 'Post-test Alegría de vivir (Felicidad)'],
+            ['key' => 'joy_of_living_points_2',        'label' => 'Post-test Alegría de vivir (Felicidad) Puntos'],
+
+            ['key' => 'social_level_2',                    'label' => 'Post-test Habilidades Sociales'],
+            ['key' => 'social_points_2',                   'label' => 'Post-test Habilidades Sociales Puntos'],
+            ['key' => 'first_social_skills_level_2',       'label' => 'Post-test Primeras habilidades sociales (H. S.)'],
+            ['key' => 'first_social_skills_points_2',      'label' => 'Post-test Primeras habilidades sociales (H. S.) Puntos'],
+            ['key' => 'advanced_social_skills_level_2',    'label' => 'Post-test Habilidades sociales avanzadas (H. S.)'],
+            ['key' => 'advanced_social_skills_points_2',   'label' => 'Post-test Habilidades sociales avanzadas (H. S.) Puntos'],
+            ['key' => 'feelings_skills_level_2',           'label' => 'Post-test Habilidades relacionadas con los sentimientos (H. S.)'],
+            ['key' => 'feelings_skills_points_2',          'label' => 'Post-test Habilidades relacionadas con los sentimientos (H. S.) Puntos'],
+            ['key' => 'aggression_alternatives_level_2',   'label' => 'Post-test Habilidades alternativas a la agresión (H. S.)'],
+            ['key' => 'aggression_alternatives_points_2',  'label' => 'Post-test Habilidades alternativas a la agresión (H. S.) Puntos'],
+            ['key' => 'stress_coping_level_2',             'label' => 'Post-test Habilidades para hacer frente al estrés (H. S.)'],
+            ['key' => 'stress_coping_points_2',            'label' => 'Post-test Habilidades para hacer frente al estrés (H. S.) Puntos'],
+            ['key' => 'planning_skills_level_2',           'label' => 'Post-test Habilidades de Planificación (H. S.)'],
+            ['key' => 'planning_skills_points_2',          'label' => 'Post-test Habilidades de Planificación (H. S.) Puntos'],
+
+            ['key' => 'created_at',                        'label' => 'Fecha Inscripción',                                          'sortable' => false],
         ];
 
         $rows = $employees->getCollection()->map(function ($e) use($pointsService) {
@@ -139,11 +186,15 @@ class EmployeesReport extends Component
                 return $pointsService->getStressResult($user_battery);
             });
 
+            $stress_complete = $stress_results->count() === 2;
+
             // Resultado Inteligencia Emocional
 
             $emotional_results = $user_batteries->get(2, collect())->map(function($user_battery) use($pointsService) {
                 return $pointsService->getEmotionalResult($user_battery);
             });
+
+            $emotional_complete = $emotional_results->count() === 2;
 
             // Resultado Felicidad
 
@@ -151,11 +202,20 @@ class EmployeesReport extends Component
                 return $pointsService->getHappinessResult($user_battery);
             });
 
+            $happiness_complete = $happiness_results->count() === 2;
+
             // Resultado Habilidades Sociales
 
             $social_results = $user_batteries->get(4, collect())->map(function($user_battery) use($pointsService) {
                 return $pointsService->getSocialResult($user_battery);
             });
+
+            $social_complete = $social_results->count() === 2;
+
+            $completed_batteries = boolval($stress_complete && $emotional_complete && $happiness_complete && $social_complete);
+            $completed_sessions = boolval($e->emotional_social_session && $e->emotional_management_session);
+
+            $project_completed = boolval($completed_batteries && $completed_sessions);
 
             // Resultado Escala Emocional
 
@@ -177,56 +237,99 @@ class EmployeesReport extends Component
                 'position'                     => $e->position,
                 'diseases'                     => $e->diseases->pluck('name')->join(', ') ?: 'Ninguna',
                 'informed_consent'             => $e->informed_consent ? 'Aceptó' : 'No aceptó',
+                'project_completed'            => $project_completed ? 'Sí' : 'No',
 
                 // Pre-test
 
                 // Nivel de estrés
-                'stress_level_1'               => $stress_results->get(1)?->level ?? $pointsService::DefaultLevel,
-                'stress_points_1'              => $stress_results->get(1)?->points ?? $pointsService::DefaultPoints,
+                'stress_level_1'               => $stress_results->get(0)?->level ?? $pointsService::DefaultLevel,
+                'stress_points_1'              => $stress_results->get(0)?->points ?? $pointsService::DefaultPoints,
 
                 // Inteligencia emocional
-                'emotional_level_1'            => $emotional_results->get(1)?->level ?? $pointsService::DefaultLevel,
-                'emotional_points_1'           => $emotional_results->get(1)?->points ?? $pointsService::DefaultPoints,
-                'attention_level_1'            => $emotional_results->get(1)?->sublevels->get(1)->level  ?? $pointsService::DefaultLevel,
-                'attention_points_1'           => $emotional_results->get(1)?->sublevels->get(1)->points ?? $pointsService::DefaultPoints,
-                'clarity_level_1'              => $emotional_results->get(1)?->sublevels->get(2)->level  ?? $pointsService::DefaultLevel,
-                'clarity_points_1'             => $emotional_results->get(1)?->sublevels->get(2)->points ?? $pointsService::DefaultPoints,
-                'emotional_repair_level_1'     => $emotional_results->get(1)?->sublevels->get(3)->level  ?? $pointsService::DefaultLevel,
-                'emotional_repair_points_1'    => $emotional_results->get(1)?->sublevels->get(3)->points ?? $pointsService::DefaultPoints,
+                'emotional_level_1'            => $emotional_results->get(0)?->level ?? $pointsService::DefaultLevel,
+                'emotional_points_1'           => $emotional_results->get(0)?->points ?? $pointsService::DefaultPoints,
+                'attention_level_1'            => $emotional_results->get(0)?->sublevels->get(1)->level  ?? $pointsService::DefaultLevel,
+                'attention_points_1'           => $emotional_results->get(0)?->sublevels->get(1)->points ?? $pointsService::DefaultPoints,
+                'clarity_level_1'              => $emotional_results->get(0)?->sublevels->get(2)->level  ?? $pointsService::DefaultLevel,
+                'clarity_points_1'             => $emotional_results->get(0)?->sublevels->get(2)->points ?? $pointsService::DefaultPoints,
+                'emotional_repair_level_1'     => $emotional_results->get(0)?->sublevels->get(3)->level  ?? $pointsService::DefaultLevel,
+                'emotional_repair_points_1'    => $emotional_results->get(0)?->sublevels->get(3)->points ?? $pointsService::DefaultPoints,
 
                 // Felicidad
-                'happiness_level_1'             => $happiness_results->get(1)?->level  ?? $pointsService::DefaultLevel,
-                'happiness_points_1'            => $happiness_results->get(1)?->points ?? $pointsService::DefaultPoints,
-                'positive_meaning_level_1'      => $happiness_results->get(1)?->sublevels->get(4)->level  ?? $pointsService::DefaultLevel,
-                'positive_meaning_points_1'     => $happiness_results->get(1)?->sublevels->get(4)->points ?? $pointsService::DefaultPoints,
-                'life_satisfaction_level_1'     => $happiness_results->get(1)?->sublevels->get(5)->level  ?? $pointsService::DefaultLevel,
-                'life_satisfaction_points_1'    => $happiness_results->get(1)?->sublevels->get(5)->points ?? $pointsService::DefaultPoints,
-                'personal_fulfillment_level_1'  => $happiness_results->get(1)?->sublevels->get(6)->level  ?? $pointsService::DefaultLevel,
-                'personal_fulfillment_points_1' => $happiness_results->get(1)?->sublevels->get(6)->points ?? $pointsService::DefaultPoints,
-                'joy_of_living_level_1'         => $happiness_results->get(1)?->sublevels->get(7)->level  ?? $pointsService::DefaultLevel,
-                'joy_of_living_points_1'        => $happiness_results->get(1)?->sublevels->get(7)->points ?? $pointsService::DefaultPoints,
+                'happiness_level_1'             => $happiness_results->get(0)?->level  ?? $pointsService::DefaultLevel,
+                'happiness_points_1'            => $happiness_results->get(0)?->points ?? $pointsService::DefaultPoints,
+                'positive_meaning_level_1'      => $happiness_results->get(0)?->sublevels->get(4)->level  ?? $pointsService::DefaultLevel,
+                'positive_meaning_points_1'     => $happiness_results->get(0)?->sublevels->get(4)->points ?? $pointsService::DefaultPoints,
+                'life_satisfaction_level_1'     => $happiness_results->get(0)?->sublevels->get(5)->level  ?? $pointsService::DefaultLevel,
+                'life_satisfaction_points_1'    => $happiness_results->get(0)?->sublevels->get(5)->points ?? $pointsService::DefaultPoints,
+                'personal_fulfillment_level_1'  => $happiness_results->get(0)?->sublevels->get(6)->level  ?? $pointsService::DefaultLevel,
+                'personal_fulfillment_points_1' => $happiness_results->get(0)?->sublevels->get(6)->points ?? $pointsService::DefaultPoints,
+                'joy_of_living_level_1'         => $happiness_results->get(0)?->sublevels->get(7)->level  ?? $pointsService::DefaultLevel,
+                'joy_of_living_points_1'        => $happiness_results->get(0)?->sublevels->get(7)->points ?? $pointsService::DefaultPoints,
 
                 // Habilidades sociales
-                'social_level_1'                    => $social_results->get(1)?->level  ?? $pointsService::DefaultLevel,
-                'social_points_1'                   => $social_results->get(1)?->points ?? $pointsService::DefaultPoints,
-                'first_social_skills_level_1'       => $social_results->get(1)?->sublevels->get(8)->level   ?? $pointsService::DefaultLevel,
-                'first_social_skills_points_1'      => $social_results->get(1)?->sublevels->get(8)->points  ?? $pointsService::DefaultPoints,
-                'advanced_social_skills_level_1'    => $social_results->get(1)?->sublevels->get(9)->level   ?? $pointsService::DefaultLevel,
-                'advanced_social_skills_points_1'   => $social_results->get(1)?->sublevels->get(9)->points  ?? $pointsService::DefaultPoints,
-                'feelings_skills_level_1'           => $social_results->get(1)?->sublevels->get(10)->level  ?? $pointsService::DefaultLevel,
-                'feelings_skills_points_1'          => $social_results->get(1)?->sublevels->get(10)->points ?? $pointsService::DefaultPoints,
-                'aggression_alternatives_level_1'   => $social_results->get(1)?->sublevels->get(11)->level  ?? $pointsService::DefaultLevel,
-                'aggression_alternatives_points_1'  => $social_results->get(1)?->sublevels->get(11)->points ?? $pointsService::DefaultPoints,
-                'stress_coping_level_1'             => $social_results->get(1)?->sublevels->get(12)->level  ?? $pointsService::DefaultLevel,
-                'stress_coping_points_1'            => $social_results->get(1)?->sublevels->get(12)->points ?? $pointsService::DefaultPoints,
-                'planning_skills_level_1'           => $social_results->get(1)?->sublevels->get(13)->level  ?? $pointsService::DefaultLevel,
-                'planning_skills_points_1'          => $social_results->get(1)?->sublevels->get(13)->points ?? $pointsService::DefaultPoints,
-
-
+                'social_level_1'                    => $social_results->get(0)?->level  ?? $pointsService::DefaultLevel,
+                'social_points_1'                   => $social_results->get(0)?->points ?? $pointsService::DefaultPoints,
+                'first_social_skills_level_1'       => $social_results->get(0)?->sublevels->get(8)->level   ?? $pointsService::DefaultLevel,
+                'first_social_skills_points_1'      => $social_results->get(0)?->sublevels->get(8)->points  ?? $pointsService::DefaultPoints,
+                'advanced_social_skills_level_1'    => $social_results->get(0)?->sublevels->get(9)->level   ?? $pointsService::DefaultLevel,
+                'advanced_social_skills_points_1'   => $social_results->get(0)?->sublevels->get(9)->points  ?? $pointsService::DefaultPoints,
+                'feelings_skills_level_1'           => $social_results->get(0)?->sublevels->get(10)->level  ?? $pointsService::DefaultLevel,
+                'feelings_skills_points_1'          => $social_results->get(0)?->sublevels->get(10)->points ?? $pointsService::DefaultPoints,
+                'aggression_alternatives_level_1'   => $social_results->get(0)?->sublevels->get(11)->level  ?? $pointsService::DefaultLevel,
+                'aggression_alternatives_points_1'  => $social_results->get(0)?->sublevels->get(11)->points ?? $pointsService::DefaultPoints,
+                'stress_coping_level_1'             => $social_results->get(0)?->sublevels->get(12)->level  ?? $pointsService::DefaultLevel,
+                'stress_coping_points_1'            => $social_results->get(0)?->sublevels->get(12)->points ?? $pointsService::DefaultPoints,
+                'planning_skills_level_1'           => $social_results->get(0)?->sublevels->get(13)->level  ?? $pointsService::DefaultLevel,
+                'planning_skills_points_1'          => $social_results->get(0)?->sublevels->get(13)->points ?? $pointsService::DefaultPoints,
 
                 // Talleres
                 'emotional_social_session'     => $e->emotional_social_session ? 'Asistió' : 'No asistió',
                 'emotional_management_session' => $e->emotional_management_session ? 'Asistió' : 'No asistió',
+
+                // Post-test
+
+                // Nivel de estrés
+                'stress_level_2'               => $stress_results->get(1)?->level ?? $pointsService::DefaultLevel,
+                'stress_points_2'              => $stress_results->get(1)?->points ?? $pointsService::DefaultPoints,
+
+                // Inteligencia emocional
+                'emotional_level_2'            => $emotional_results->get(1)?->level ?? $pointsService::DefaultLevel,
+                'emotional_points_2'           => $emotional_results->get(1)?->points ?? $pointsService::DefaultPoints,
+                'attention_level_2'            => $emotional_results->get(1)?->sublevels->get(1)->level  ?? $pointsService::DefaultLevel,
+                'attention_points_2'           => $emotional_results->get(1)?->sublevels->get(1)->points ?? $pointsService::DefaultPoints,
+                'clarity_level_2'              => $emotional_results->get(1)?->sublevels->get(2)->level  ?? $pointsService::DefaultLevel,
+                'clarity_points_2'             => $emotional_results->get(1)?->sublevels->get(2)->points ?? $pointsService::DefaultPoints,
+                'emotional_repair_level_2'     => $emotional_results->get(1)?->sublevels->get(3)->level  ?? $pointsService::DefaultLevel,
+                'emotional_repair_points_2'    => $emotional_results->get(1)?->sublevels->get(3)->points ?? $pointsService::DefaultPoints,
+
+                // Felicidad
+                'happiness_level_2'             => $happiness_results->get(1)?->level  ?? $pointsService::DefaultLevel,
+                'happiness_points_2'            => $happiness_results->get(1)?->points ?? $pointsService::DefaultPoints,
+                'positive_meaning_level_2'      => $happiness_results->get(1)?->sublevels->get(4)->level  ?? $pointsService::DefaultLevel,
+                'positive_meaning_points_2'     => $happiness_results->get(1)?->sublevels->get(4)->points ?? $pointsService::DefaultPoints,
+                'life_satisfaction_level_2'     => $happiness_results->get(1)?->sublevels->get(5)->level  ?? $pointsService::DefaultLevel,
+                'life_satisfaction_points_2'    => $happiness_results->get(1)?->sublevels->get(5)->points ?? $pointsService::DefaultPoints,
+                'personal_fulfillment_level_2'  => $happiness_results->get(1)?->sublevels->get(6)->level  ?? $pointsService::DefaultLevel,
+                'personal_fulfillment_points_2' => $happiness_results->get(1)?->sublevels->get(6)->points ?? $pointsService::DefaultPoints,
+                'joy_of_living_level_2'         => $happiness_results->get(1)?->sublevels->get(7)->level  ?? $pointsService::DefaultLevel,
+                'joy_of_living_points_2'        => $happiness_results->get(1)?->sublevels->get(7)->points ?? $pointsService::DefaultPoints,
+
+                // Habilidades sociales
+                'social_level_2'                    => $social_results->get(1)?->level  ?? $pointsService::DefaultLevel,
+                'social_points_2'                   => $social_results->get(1)?->points ?? $pointsService::DefaultPoints,
+                'first_social_skills_level_2'       => $social_results->get(1)?->sublevels->get(8)->level   ?? $pointsService::DefaultLevel,
+                'first_social_skills_points_2'      => $social_results->get(1)?->sublevels->get(8)->points  ?? $pointsService::DefaultPoints,
+                'advanced_social_skills_level_2'    => $social_results->get(1)?->sublevels->get(9)->level   ?? $pointsService::DefaultLevel,
+                'advanced_social_skills_points_2'   => $social_results->get(1)?->sublevels->get(9)->points  ?? $pointsService::DefaultPoints,
+                'feelings_skills_level_2'           => $social_results->get(1)?->sublevels->get(10)->level  ?? $pointsService::DefaultLevel,
+                'feelings_skills_points_2'          => $social_results->get(1)?->sublevels->get(10)->points ?? $pointsService::DefaultPoints,
+                'aggression_alternatives_level_2'   => $social_results->get(1)?->sublevels->get(11)->level  ?? $pointsService::DefaultLevel,
+                'aggression_alternatives_points_2'  => $social_results->get(1)?->sublevels->get(11)->points ?? $pointsService::DefaultPoints,
+                'stress_coping_level_2'             => $social_results->get(1)?->sublevels->get(12)->level  ?? $pointsService::DefaultLevel,
+                'stress_coping_points_2'            => $social_results->get(1)?->sublevels->get(12)->points ?? $pointsService::DefaultPoints,
+                'planning_skills_level_2'           => $social_results->get(1)?->sublevels->get(13)->level  ?? $pointsService::DefaultLevel,
+                'planning_skills_points_2'          => $social_results->get(1)?->sublevels->get(13)->points ?? $pointsService::DefaultPoints,
 
                 // Post-test
                 

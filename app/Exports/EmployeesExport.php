@@ -68,46 +68,85 @@ class EmployeesExport implements FromQuery, WithHeadings, WithMapping, WithChunk
             'Puesto',
             'Enfermedades crónicas',
             'Consentimiento informado',
+            'Completó Proyecto',
 
-            'Pretest Estrés',
-            'Pretest Estrés Puntos',
-            'Pretest Inteligencia Emocional',
-            'Pretest Inteligencia Emocional Puntos',
-            'Pretest Atención Emocional (I. E.)',
-            'Pretest Atención Emocional (I. E.) Puntos',
-            'Pretest Claridad Emocional (I. E.)',
-            'Pretest Claridad Emocional (I. E.) Puntos',
-            'Pretest Reparación de las Emociones (I. E.)',
-            'Pretest Reparación de las Emociones (I. E.) Puntos',
-            'Pretest Felicidad',
-            'Pretest Felicidad Puntos',
-            'Pretest Sentido positivo de la vida (Felicidad)',
-            'Pretest Sentido positivo de la vida (Felicidad) Puntos',
-            'Pretest Satisfacción con la vida (Felicidad)',
-            'Pretest Satisfacción con la vida (Felicidad) Puntos',
-            'Pretest Realización personal (Felicidad)',
-            'Pretest Realización personal (Felicidad) Puntos',
-            'Pretest Alegría de vivir (Felicidad)',
-            'Pretest Alegría de vivir (Felicidad) Puntos',
+            // PRE-TEST
+            'Pre-test Estrés',
+            'Pre-test Estrés Puntos',
+            'Pre-test Inteligencia Emocional',
+            'Pre-test Inteligencia Emocional Puntos',
+            'Pre-test Atención Emocional (I. E.)',
+            'Pre-test Atención Emocional (I. E.) Puntos',
+            'Pre-test Claridad Emocional (I. E.)',
+            'Pre-test Claridad Emocional (I. E.) Puntos',
+            'Pre-test Reparación de las Emociones (I. E.)',
+            'Pre-test Reparación de las Emociones (I. E.) Puntos',
+            'Pre-test Felicidad',
+            'Pre-test Felicidad Puntos',
+            'Pre-test Sentido positivo de la vida (Felicidad)',
+            'Pre-test Sentido positivo de la vida (Felicidad) Puntos',
+            'Pre-test Satisfacción con la vida (Felicidad)',
+            'Pre-test Satisfacción con la vida (Felicidad) Puntos',
+            'Pre-test Realización personal (Felicidad)',
+            'Pre-test Realización personal (Felicidad) Puntos',
+            'Pre-test Alegría de vivir (Felicidad)',
+            'Pre-test Alegría de vivir (Felicidad) Puntos',
+            'Pre-test Habilidades Sociales',
+            'Pre-test Habilidades Sociales Puntos',
+            'Pre-test Primeras habilidades sociales (H. S.)',
+            'Pre-test Primeras habilidades sociales (H. S.) Puntos',
+            'Pre-test Habilidades sociales avanzadas (H. S.)',
+            'Pre-test Habilidades sociales avanzadas (H. S.) Puntos',
+            'Pre-test Habilidades relacionadas con los sentimientos (H. S.)',
+            'Pre-test Habilidades relacionadas con los sentimientos (H. S.) Puntos',
+            'Pre-test Habilidades alternativas a la agresión (H. S.)',
+            'Pre-test Habilidades alternativas a la agresión (H. S.) Puntos',
+            'Pre-test Habilidades para hacer frente al estrés (H. S.)',
+            'Pre-test Habilidades para hacer frente al estrés (H. S.) Puntos',
+            'Pre-test Habilidades de Planificación (H. S.)',
+            'Pre-test Habilidades de Planificación (H. S.) Puntos',
 
-            'Pretest Habilidades Sociales',
-            'Pretest Habilidades Sociales Puntos',
-            'Pretest Primeras habilidades sociales (H. S.)',
-            'Pretest Primeras habilidades sociales (H. S.) Puntos',
-            'Pretest Habilidades sociales avanzadas (H. S.)',
-            'Pretest Habilidades sociales avanzadas (H. S.) Puntos',
-            'Pretest Habilidades relacionadas con los sentimientos (H. S.)',
-            'Pretest Habilidades relacionadas con los sentimientos (H. S.) Puntos',
-            'Pretest Habilidades alternativas a la agresión (H. S.)',
-            'Pretest Habilidades alternativas a la agresión (H. S.) Puntos',
-            'Pretest Habilidades para hacer frente al estrés (H. S.)',
-            'Pretest Habilidades para hacer frente al estrés (H. S.) Puntos',
-            'Pretest Habilidades de Planificación (H. S.)',
-            'Pretest Habilidades de Planificación (H. S.) Puntos',
-
+            // TALLERES
             'Taller Inteligencia Emocional y Social',
             'Taller Herramientas para el manejo de las emociones',
-            'Fecha Registro',
+
+            // POST-TEST
+            'Post-test Estrés',
+            'Post-test Estrés Puntos',
+            'Post-test Inteligencia Emocional',
+            'Post-test Inteligencia Emocional Puntos',
+            'Post-test Atención Emocional (I. E.)',
+            'Post-test Atención Emocional (I. E.) Puntos',
+            'Post-test Claridad Emocional (I. E.)',
+            'Post-test Claridad Emocional (I. E.) Puntos',
+            'Post-test Reparación de las Emociones (I. E.)',
+            'Post-test Reparación de las Emociones (I. E.) Puntos',
+            'Post-test Felicidad',
+            'Post-test Felicidad Puntos',
+            'Post-test Sentido positivo de la vida (Felicidad)',
+            'Post-test Sentido positivo de la vida (Felicidad) Puntos',
+            'Post-test Satisfacción con la vida (Felicidad)',
+            'Post-test Satisfacción con la vida (Felicidad) Puntos',
+            'Post-test Realización personal (Felicidad)',
+            'Post-test Realización personal (Felicidad) Puntos',
+            'Post-test Alegría de vivir (Felicidad)',
+            'Post-test Alegría de vivir (Felicidad) Puntos',
+            'Post-test Habilidades Sociales',
+            'Post-test Habilidades Sociales Puntos',
+            'Post-test Primeras habilidades sociales (H. S.)',
+            'Post-test Primeras habilidades sociales (H. S.) Puntos',
+            'Post-test Habilidades sociales avanzadas (H. S.)',
+            'Post-test Habilidades sociales avanzadas (H. S.) Puntos',
+            'Post-test Habilidades relacionadas con los sentimientos (H. S.)',
+            'Post-test Habilidades relacionadas con los sentimientos (H. S.) Puntos',
+            'Post-test Habilidades alternativas a la agresión (H. S.)',
+            'Post-test Habilidades alternativas a la agresión (H. S.) Puntos',
+            'Post-test Habilidades para hacer frente al estrés (H. S.)',
+            'Post-test Habilidades para hacer frente al estrés (H. S.) Puntos',
+            'Post-test Habilidades de Planificación (H. S.)',
+            'Post-test Habilidades de Planificación (H. S.) Puntos',
+
+            'Fecha Inscripción',
         ];
     }
 
@@ -119,6 +158,15 @@ class EmployeesExport implements FromQuery, WithHeadings, WithMapping, WithChunk
         $emotionalResults = $userBatteries->get(2, collect())->map(fn($b) => $this->pointsService->getEmotionalResult($b));
         $happinessResults = $userBatteries->get(3, collect())->map(fn($b) => $this->pointsService->getHappinessResult($b));
         $socialResults    = $userBatteries->get(4, collect())->map(fn($b) => $this->pointsService->getSocialResult($b));
+
+        $completedBatteries = $stressResults->count() === 2
+            && $emotionalResults->count() === 2
+            && $happinessResults->count() === 2
+            && $socialResults->count() === 2;
+
+        $completedSessions = $employee->emotional_social_session && $employee->emotional_management_session;
+
+        $projectCompleted = $completedBatteries && $completedSessions;
 
         $defaultLevel  = $this->pointsService::DefaultLevel;
         $defaultPoints = $this->pointsService::DefaultPoints;
@@ -141,6 +189,57 @@ class EmployeesExport implements FromQuery, WithHeadings, WithMapping, WithChunk
             $employee->position,
             $employee->diseases->pluck('name')->join(', ') ?: 'Ninguna',
             $employee->informed_consent ? 'Aceptó' : 'No aceptó',
+            $projectCompleted ? 'Sí' : 'No',
+
+            // PRE-TEST (índice 0)
+
+            // Estrés
+            $stressResults->get(0)?->level  ?? $defaultLevel,
+            $stressResults->get(0)?->points ?? $defaultPoints,
+
+            // Inteligencia Emocional
+            $emotionalResults->get(0)?->level  ?? $defaultLevel,
+            $emotionalResults->get(0)?->points ?? $defaultPoints,
+            $emotionalResults->get(0)?->sublevels->get(1)->level  ?? $defaultLevel,
+            $emotionalResults->get(0)?->sublevels->get(1)->points ?? $defaultPoints,
+            $emotionalResults->get(0)?->sublevels->get(2)->level  ?? $defaultLevel,
+            $emotionalResults->get(0)?->sublevels->get(2)->points ?? $defaultPoints,
+            $emotionalResults->get(0)?->sublevels->get(3)->level  ?? $defaultLevel,
+            $emotionalResults->get(0)?->sublevels->get(3)->points ?? $defaultPoints,
+
+            // Felicidad
+            $happinessResults->get(0)?->level  ?? $defaultLevel,
+            $happinessResults->get(0)?->points ?? $defaultPoints,
+            $happinessResults->get(0)?->sublevels->get(4)->level  ?? $defaultLevel,
+            $happinessResults->get(0)?->sublevels->get(4)->points ?? $defaultPoints,
+            $happinessResults->get(0)?->sublevels->get(5)->level  ?? $defaultLevel,
+            $happinessResults->get(0)?->sublevels->get(5)->points ?? $defaultPoints,
+            $happinessResults->get(0)?->sublevels->get(6)->level  ?? $defaultLevel,
+            $happinessResults->get(0)?->sublevels->get(6)->points ?? $defaultPoints,
+            $happinessResults->get(0)?->sublevels->get(7)->level  ?? $defaultLevel,
+            $happinessResults->get(0)?->sublevels->get(7)->points ?? $defaultPoints,
+
+            // Habilidades Sociales
+            $socialResults->get(0)?->level  ?? $defaultLevel,
+            $socialResults->get(0)?->points ?? $defaultPoints,
+            $socialResults->get(0)?->sublevels->get(8)->level   ?? $defaultLevel,
+            $socialResults->get(0)?->sublevels->get(8)->points  ?? $defaultPoints,
+            $socialResults->get(0)?->sublevels->get(9)->level   ?? $defaultLevel,
+            $socialResults->get(0)?->sublevels->get(9)->points  ?? $defaultPoints,
+            $socialResults->get(0)?->sublevels->get(10)->level  ?? $defaultLevel,
+            $socialResults->get(0)?->sublevels->get(10)->points ?? $defaultPoints,
+            $socialResults->get(0)?->sublevels->get(11)->level  ?? $defaultLevel,
+            $socialResults->get(0)?->sublevels->get(11)->points ?? $defaultPoints,
+            $socialResults->get(0)?->sublevels->get(12)->level  ?? $defaultLevel,
+            $socialResults->get(0)?->sublevels->get(12)->points ?? $defaultPoints,
+            $socialResults->get(0)?->sublevels->get(13)->level  ?? $defaultLevel,
+            $socialResults->get(0)?->sublevels->get(13)->points ?? $defaultPoints,
+
+            // TALLERES
+            $employee->emotional_social_session ? 'Asistió' : 'No asistió',
+            $employee->emotional_management_session ? 'Asistió' : 'No asistió',
+
+            // POST-TEST (índice 1)
 
             // Estrés
             $stressResults->get(1)?->level  ?? $defaultLevel,
@@ -184,8 +283,6 @@ class EmployeesExport implements FromQuery, WithHeadings, WithMapping, WithChunk
             $socialResults->get(1)?->sublevels->get(13)->level  ?? $defaultLevel,
             $socialResults->get(1)?->sublevels->get(13)->points ?? $defaultPoints,
 
-            $employee->emotional_social_session ? 'Asistió' : 'No asistió',
-            $employee->emotional_management_session ? 'Asistió' : 'No asistió',
             $employee->created_at?->format('d/m/Y H:i') ?? 'N/A',
         ];
     }
