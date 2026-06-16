@@ -9,12 +9,22 @@
             </div>
 
             <a
+                x-data="{ loading: false }"
                 href="{{ $exportUrl }}"
+                x-bind:aria-disabled="loading"
+                x-bind:class="loading && 'btn-disabled pointer-events-none opacity-70'"
+                @click="if (loading) { $event.preventDefault(); return; } setTimeout(() => loading = true, 0); setTimeout(() => loading = false, 5000)"
                 wire:navigate.hover.false
                 class="btn btn-success text-white"
             >
-                <x-mary-icon name="o-arrow-down-tray" class="w-4 h-4" />
-                Descargar Excel
+                <span x-show="!loading" class="contents">
+                    <x-mary-icon name="o-arrow-down-tray" class="w-4 h-4" />
+                    Descargar Excel
+                </span>
+                <span x-show="loading" class="contents" style="display: none;">
+                    <span class="loading loading-spinner loading-sm"></span>
+                    Generando...
+                </span>
             </a>
         </div>
 
