@@ -19,7 +19,7 @@ class Home extends Component
 
     //? Reactive properties
     #[Locked] public $informed_consent;
-    public $disableSubmit = false;
+    public $disableSubmit = true;
 
     public function mount()
     {
@@ -38,6 +38,9 @@ class Home extends Component
 
     public function confirmConsent()
     {
+        $this->error('Error', 'El proyecto ha concluído. No se puede actualizar la información.');
+        return;
+
         $this->disableSubmit = true;
 
         $employeeId = intval(session('employee_id'));

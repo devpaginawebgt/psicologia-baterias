@@ -22,7 +22,8 @@
                 option-label="label"
                 option-value="value"
                 inline
-                :disabled="$completedSessions"
+                {{-- :disabled="$completedSessions" --}}
+                disabled
             />
         </div>
 
@@ -34,7 +35,8 @@
                 option-label="label"
                 option-value="value"
                 inline
-                :disabled="$completedSessions"
+                {{-- :disabled="$completedSessions" --}}
+                disabled
             />
         </div>
 

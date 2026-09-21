@@ -180,7 +180,7 @@
                     </div>
                 </x-mary-menu-item>
 
-                {{-- @if (!$employee->is_admin)
+                @if (!$employee->is_admin)
                     <x-mary-menu-item
                         class="-ml-2 {{ $isActive('results') }}"
                         href="{{ route('results') }}"
@@ -193,7 +193,7 @@
                             Resultados
                         </div>
                     </x-mary-menu-item>
-                @endif --}}
+                @endif
 
                 @if($employee->is_admin)
                     <x-mary-menu-item

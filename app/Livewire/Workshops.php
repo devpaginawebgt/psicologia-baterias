@@ -21,7 +21,7 @@ class Workshops extends Component
 
     //? Reactive properties
     public $form;
-    public $disableSubmit = false;
+    public $disableSubmit = true;
     #[Locked] public $completedSessions;
 
     public function mount()
@@ -46,6 +46,9 @@ class Workshops extends Component
     }
 
     public function updateSessions() {
+        $this->error('Error', 'El proyecto ha concluído. No se puede actualizar la información.');
+        return;
+
         if (
             $this->form['emotional_social_session'] == $this->employee->emotional_social_session &&
             $this->form['emotional_management_session'] == $this->employee->emotional_management_session
