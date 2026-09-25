@@ -196,7 +196,7 @@
                 @endif
 
                 @if($employee->is_admin)
-                    <x-mary-menu-item
+                    {{-- <x-mary-menu-item
                         class="-ml-2 {{ $isActive('batteries.dashboard') }}"
                         href="{{ route('batteries.dashboard') }}"
                     >
@@ -207,7 +207,7 @@
                             />
                             Dashboard
                         </div>
-                    </x-mary-menu-item>
+                    </x-mary-menu-item> --}}
 
                     <x-mary-menu-item
                         class="-ml-2 {{ $isActive('batteries.report.employees') }}"
